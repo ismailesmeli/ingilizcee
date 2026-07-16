@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>İsoing 1.5 - İngilizce Öğren</title>
     <style>
         * {
@@ -14,25 +14,28 @@
         }
 
         :root {
-            --bg-primary: #0f0c29;
-            --bg-secondary: #302b63;
-            --bg-card: rgba(255, 255, 255, 0.05);
+            --bg-primary: #0a0a1a;
+            --bg-secondary: #1a1a2e;
+            --bg-card: rgba(255, 255, 255, 0.06);
+            --bg-menu: rgba(10, 10, 30, 0.95);
             --text-primary: #ffffff;
             --text-secondary: #b0b0b0;
-            --border-color: rgba(255, 255, 255, 0.1);
-            --shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
             --gold: #ffd700;
-            --gold-gradient: linear-gradient(90deg, #f7971e, #ffd200);
+            --gold-gradient: linear-gradient(135deg, #f7971e, #ffd200);
+            --radius: 20px;
         }
 
         [data-theme="light"] {
             --bg-primary: #f0f2f5;
-            --bg-secondary: #d9d9e3;
-            --bg-card: rgba(0, 0, 0, 0.05);
+            --bg-secondary: #e4e6eb;
+            --bg-card: rgba(255, 255, 255, 0.8);
+            --bg-menu: rgba(255, 255, 255, 0.95);
             --text-primary: #1a1a2e;
             --text-secondary: #555;
-            --border-color: rgba(0, 0, 0, 0.1);
-            --shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            --border-color: rgba(0, 0, 0, 0.08);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
         body {
@@ -41,21 +44,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 0;
             color: var(--text-primary);
+            overflow: hidden;
+            height: 100vh;
         }
 
         .app-container {
-            background: var(--bg-card);
-            backdrop-filter: blur(12px);
-            border-radius: 40px;
-            padding: 25px;
-            max-width: 900px;
+            background: var(--bg-secondary);
+            border-radius: 0;
+            max-width: 480px;
             width: 100%;
+            height: 100vh;
+            max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
             box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            max-height: 98vh;
-            overflow-y: auto;
+            border: none;
         }
 
         /* HEADER */
@@ -63,20 +70,16 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            padding: 12px 16px;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            flex-shrink: 0;
+            min-height: 56px;
         }
 
         .logo h1 {
-            font-size: 24px;
-            font-weight: 700;
+            font-size: 20px;
+            font-weight: 800;
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -85,46 +88,27 @@
 
         .header-right {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             align-items: center;
-            flex-wrap: wrap;
         }
 
-        .level-badge {
-            background: rgba(255, 215, 0, 0.15);
-            padding: 6px 16px;
-            border-radius: 50px;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .stats {
+        .header-stats {
             display: flex;
-            gap: 15px;
-            font-size: 14px;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 6px 16px;
-            border-radius: 50px;
-            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 13px;
         }
-        [data-theme="light"] .stats { background: rgba(0,0,0,0.08); }
-
-        .stats span { display: flex; align-items: center; gap: 4px; }
-        .stats .score { color: #4fc3f7; }
-        .stats .lives { color: #ff6b6b; }
-        .stats .xp { color: #ffd700; }
-        .stats .coin { color: #ff9800; }
-        .stats .streak { color: #ff5722; }
+        .header-stats span { display: flex; align-items: center; gap: 3px; }
+        .header-stats .xp { color: #ffd700; }
+        .header-stats .coin { color: #ff9800; }
+        .header-stats .lives { color: #ff6b6b; }
 
         .theme-toggle {
-            background: rgba(255,255,255,0.1);
+            background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            font-size: 18px;
+            width: 34px;
+            height: 34px;
+            font-size: 16px;
             cursor: pointer;
             color: var(--text-primary);
             display: flex;
@@ -132,80 +116,112 @@
             justify-content: center;
         }
 
-        /* MENU */
-        .menu {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin: 10px 0 15px;
+        /* MAIN CONTENT */
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px 16px 80px;
+            -webkit-overflow-scrolling: touch;
         }
 
-        .menu button {
-            padding: 8px 14px;
-            border: none;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 13px;
+        /* GAME GRID */
+        .game-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            padding: 4px 0;
+        }
+
+        .game-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 20px 12px;
+            text-align: center;
             cursor: pointer;
-            background: rgba(255, 255, 255, 0.06);
-            color: var(--text-secondary);
             border: 1px solid var(--border-color);
-            transition: 0.3s;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(4px);
+            min-height: 110px;
+            justify-content: center;
         }
+        .game-card:active { transform: scale(0.95); }
+        .game-card .icon { font-size: 32px; }
+        .game-card .gname { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+        .game-card .gdesc { font-size: 11px; color: var(--text-secondary); }
+        .game-card.locked { opacity: 0.5; pointer-events: none; }
 
-        .menu button:hover {
-            background: rgba(255, 255, 255, 0.15);
-            color: var(--text-primary);
-        }
-        .menu button.active {
-            background: var(--gold-gradient);
-            color: #1a1a2e;
-            border-color: var(--gold);
-        }
-
-        /* GAME AREA */
+        /* GAME AREA (oyun ekranı) */
         .game-area {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 30px;
-            padding: 25px 20px;
-            min-height: 380px;
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 20px 16px;
+            min-height: 340px;
             border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
+            animation: fadeIn 0.3s ease;
         }
-        [data-theme="light"] .game-area { background: rgba(0,0,0,0.04); }
-
-        .game-area h2 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            font-weight: 500;
-            color: var(--text-primary);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .game-area p {
+        .game-area h2 { font-size: 22px; margin-bottom: 10px; font-weight: 600; }
+        .game-area p { color: var(--text-secondary); font-size: 14px; max-width: 100%; line-height: 1.6; }
+
+        /* BOTTOM NAV */
+        .bottom-nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-menu);
+            border-top: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 6px 0 env(safe-area-inset-bottom);
+            backdrop-filter: blur(12px);
+            flex-shrink: 0;
+            z-index: 100;
+        }
+        .bottom-nav .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            padding: 6px 0;
+            cursor: pointer;
+            border: none;
+            background: none;
             color: var(--text-secondary);
-            font-size: 15px;
-            max-width: 500px;
-            line-height: 1.6;
+            font-size: 10px;
+            transition: 0.2s;
+            font-weight: 500;
         }
+        .bottom-nav .nav-item .nav-icon { font-size: 22px; }
+        .bottom-nav .nav-item.active { color: var(--gold); }
+        .bottom-nav .nav-item:active { transform: scale(0.9); }
 
-        /* CARDS */
+        /* OYUN İÇİ ELEMANLAR */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+            gap: 8px;
             width: 100%;
-            max-width: 500px;
-            margin: 10px auto;
+            max-width: 400px;
+            margin: 8px 0;
         }
-
         .card {
             aspect-ratio: 1/1;
             background: linear-gradient(145deg, #3a3a5c, #2a2a44);
-            border-radius: 16px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -216,120 +232,102 @@
             transition: 0.3s;
             border: 2px solid var(--border-color);
             text-align: center;
-            padding: 5px;
+            padding: 4px;
             word-break: break-word;
-            box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2);
-            transform-style: preserve-3d;
-            perspective: 600px;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.2);
         }
         [data-theme="light"] .card { background: linear-gradient(145deg, #e0e0e0, #c8c8c8); color: #1a1a2e; }
+        .card.flipped { background: linear-gradient(145deg, #4fc3f7, #2196f3); border-color: #4fc3f7; transform: scale(0.95); }
+        .card.matched { background: linear-gradient(145deg, #66bb6a, #388e3c); border-color: #66bb6a; cursor: default; opacity: 0.7; }
 
-        .card.flipped {
-            background: linear-gradient(145deg, #4fc3f7, #2196f3);
-            border-color: #4fc3f7;
-            transform: rotateY(180deg) scale(0.97);
-        }
-        [data-theme="light"] .card.flipped { background: linear-gradient(145deg, #4fc3f7, #2196f3); color: #fff; }
-
-        .card.matched {
-            background: linear-gradient(145deg, #66bb6a, #388e3c);
-            border-color: #66bb6a;
-            cursor: default;
-            opacity: 0.8;
-            transform: scale(0.95);
-        }
-        .card .card-inner { transform: rotateY(180deg); }
-
-        /* OPTIONS */
         .options-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
             width: 100%;
-            max-width: 500px;
-            margin: 10px 0;
+            max-width: 400px;
+            margin: 8px 0;
         }
-
         .option-btn {
             padding: 14px 10px;
             border: 2px solid var(--border-color);
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.04);
+            border-radius: 14px;
+            background: var(--bg-card);
             color: var(--text-primary);
             font-size: 15px;
             font-weight: 500;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s;
         }
-        .option-btn:hover { background: rgba(255,255,255,0.1); }
+        .option-btn:active { transform: scale(0.95); }
         .option-btn.correct { background: #2e7d32; border-color: #66bb6a; }
         .option-btn.wrong { background: #c62828; border-color: #ef5350; }
-        .option-btn:disabled { cursor: not-allowed; opacity: 0.6; }
+        .option-btn:disabled { cursor: not-allowed; opacity: 0.5; }
 
         .question-text {
-            font-size: 20px;
-            margin-bottom: 20px;
-            padding: 12px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
+            font-size: 18px;
+            margin: 10px 0 16px;
+            padding: 12px 16px;
+            background: var(--bg-card);
+            border-radius: 16px;
             border-left: 4px solid var(--gold);
             width: 100%;
-            max-width: 550px;
+            max-width: 100%;
         }
         .question-text .blank {
             display: inline-block;
-            min-width: 80px;
+            min-width: 70px;
             border-bottom: 3px dashed var(--gold);
             color: var(--gold);
             font-weight: 700;
-            padding: 0 6px;
+            padding: 0 4px;
         }
 
         .btn-primary {
             background: var(--gold-gradient);
             border: none;
-            padding: 12px 35px;
-            border-radius: 60px;
+            padding: 12px 32px;
+            border-radius: 50px;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 15px;
             color: #1a1a2e;
             cursor: pointer;
-            transition: 0.3s;
-            margin-top: 15px;
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+            transition: 0.2s;
+            margin-top: 12px;
+            box-shadow: 0 4px 20px rgba(255,215,0,0.2);
         }
-        .btn-primary:hover { transform: scale(1.03); }
+        .btn-primary:active { transform: scale(0.95); }
 
         .btn-secondary {
-            background: rgba(255,255,255,0.08);
+            background: var(--bg-card);
             border: 1px solid var(--border-color);
-            padding: 10px 25px;
-            border-radius: 60px;
+            padding: 10px 22px;
+            border-radius: 50px;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-secondary);
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s;
             margin: 4px;
         }
-        .btn-secondary:hover { background: rgba(255,255,255,0.15); color: var(--text-primary); }
+        .btn-secondary:active { transform: scale(0.95); }
 
         .feedback {
-            margin: 12px 0;
-            font-size: 18px;
+            margin: 10px 0;
+            font-size: 17px;
             font-weight: 600;
-            min-height: 35px;
+            min-height: 30px;
         }
         .feedback.correct { color: #66bb6a; }
         .feedback.wrong { color: #ef5350; }
 
         .progress-bar {
             width: 100%;
-            max-width: 500px;
-            height: 6px;
+            max-width: 400px;
+            height: 5px;
             background: rgba(255,255,255,0.1);
             border-radius: 10px;
-            margin: 10px 0;
+            margin: 8px 0;
             overflow: hidden;
         }
         .progress-fill {
@@ -340,60 +338,85 @@
             transition: width 0.4s ease;
         }
 
-        /* INPUT */
         .text-input {
-            padding: 12px 20px;
-            border-radius: 30px;
+            padding: 12px 16px;
+            border-radius: 50px;
             border: 2px solid var(--border-color);
-            background: rgba(255,255,255,0.05);
+            background: var(--bg-card);
             color: var(--text-primary);
-            font-size: 18px;
+            font-size: 16px;
             width: 100%;
-            max-width: 400px;
+            max-width: 320px;
             text-align: center;
             outline: none;
         }
         .text-input:focus { border-color: var(--gold); }
 
-        /* BADGES */
+        .speak-btn {
+            background: none;
+            border: none;
+            font-size: 26px;
+            cursor: pointer;
+            padding: 4px 12px;
+            border-radius: 50%;
+            transition: 0.2s;
+            color: var(--text-primary);
+        }
+        .speak-btn:active { transform: scale(0.8); }
+
+        .mic-btn {
+            background: var(--gold-gradient);
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 30px;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #1a1a2e;
+            margin: 8px 0;
+        }
+        .mic-btn:active { transform: scale(0.9); }
+        .mic-btn.listening { animation: pulse 0.8s infinite; }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); box-shadow: 0 0 30px rgba(255,215,0,0.4); }
+        }
+
         .badge-container {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             flex-wrap: wrap;
             justify-content: center;
-            margin: 10px 0;
+            margin: 8px 0;
         }
         .badge {
             background: rgba(255,215,0,0.1);
             border: 1px solid var(--gold);
             border-radius: 50px;
-            padding: 4px 14px;
-            font-size: 13px;
+            padding: 3px 12px;
+            font-size: 12px;
             color: var(--gold);
         }
-        .badge.unlocked { background: rgba(255,215,0,0.2); }
-        .badge.locked { opacity: 0.4; }
+        .badge.unlocked { background: rgba(255,215,0,0.15); }
+        .badge.locked { opacity: 0.3; }
 
-        /* RESPONSIVE */
-        @media (max-width: 600px) {
-            .app-container { padding: 15px; max-height: 95vh; }
-            .card-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
-            .options-grid { grid-template-columns: 1fr; }
-            .stats { font-size: 12px; padding: 4px 12px; gap: 10px; }
-            .logo h1 { font-size: 18px; }
-            .question-text { font-size: 16px; }
-            .menu button { font-size: 11px; padding: 6px 10px; }
-            .header { gap: 6px; }
-            .level-badge { font-size: 12px; padding: 4px 12px; }
+        /* STATS */
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+            width: 100%;
+            max-width: 100%;
         }
-        @media (max-width: 400px) {
-            .card-grid { grid-template-columns: repeat(2, 1fr); }
-        }
+        .stat-row .label { color: var(--text-secondary); }
+        .stat-row .value { font-weight: 600; }
 
         /* SCROLL */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+        .main-content::-webkit-scrollbar { width: 3px; }
+        .main-content::-webkit-scrollbar-track { background: transparent; }
+        .main-content::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
         /* CONFETTI */
         .confetti-container {
@@ -405,7 +428,7 @@
         }
         .confetti {
             position: absolute;
-            width: 10px; height: 10px;
+            width: 8px; height: 8px;
             top: -10px;
             animation: confettiFall linear forwards;
         }
@@ -413,60 +436,31 @@
             to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
         }
 
-        /* SPEAK BUTTON */
-        .speak-btn {
+        /* RESPONSIVE */
+        @media (max-width: 420px) {
+            .game-grid { gap: 8px; }
+            .game-card { padding: 14px 8px; min-height: 90px; }
+            .game-card .icon { font-size: 26px; }
+            .game-card .gname { font-size: 12px; }
+            .header-stats { font-size: 11px; gap: 8px; }
+            .logo h1 { font-size: 17px; }
+            .card-grid { grid-template-columns: repeat(3, 1fr); }
+            .options-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 360px) {
+            .card-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* BACK BUTTON */
+        .back-btn {
             background: none;
             border: none;
-            font-size: 24px;
+            color: var(--text-secondary);
+            font-size: 20px;
             cursor: pointer;
-            padding: 4px 10px;
-            border-radius: 50%;
-            transition: 0.3s;
-            color: var(--text-primary);
+            padding: 4px 8px;
         }
-        .speak-btn:hover { background: rgba(255,255,255,0.1); }
-
-        /* MIC */
-        .mic-btn {
-            background: var(--gold-gradient);
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            font-size: 28px;
-            cursor: pointer;
-            transition: 0.3s;
-            color: #1a1a2e;
-        }
-        .mic-btn:hover { transform: scale(1.05); }
-        .mic-btn.listening { animation: pulse 0.8s infinite; }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); box-shadow: 0 0 30px rgba(255,215,0,0.5); }
-        }
-
-        /* BOSS LEVEL */
-        .boss-health {
-            width: 100%;
-            max-width: 400px;
-            height: 20px;
-            background: rgba(255,0,0,0.2);
-            border-radius: 10px;
-            border: 2px solid #ff1744;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-        .boss-health-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #ff1744, #ff6b6b);
-            width: 100%;
-            transition: width 0.5s;
-        }
-        .boss-label {
-            color: #ff1744;
-            font-weight: 700;
-            font-size: 18px;
-        }
+        .back-btn:active { transform: scale(0.9); }
     </style>
 </head>
 <body>
@@ -474,46 +468,40 @@
 <div class="app-container" id="app">
     <!-- HEADER -->
     <div class="header">
-        <div class="logo">
-            <h1>📚 İsoing 1.5</h1>
-            <span class="level-badge" id="levelDisplay">A1 · Lv.1</span>
-        </div>
+        <div class="logo"><h1>📚 İsoing</h1></div>
         <div class="header-right">
-            <button class="theme-toggle" id="themeToggle" title="Tema Değiştir">🌙</button>
-            <div class="stats">
-                <span class="xp">⚡ <span id="xpDisplay">0</span> XP</span>
-                <span class="coin">🪙 <span id="coinDisplay">0</span></span>
-                <span class="streak">🔥 <span id="streakDisplay">0</span></span>
-                <span class="lives">❤️ <span id="livesDisplay">3</span></span>
+            <div class="header-stats">
+                <span class="xp">⚡<span id="xpDisplay">0</span></span>
+                <span class="coin">🪙<span id="coinDisplay">0</span></span>
+                <span class="lives">❤️<span id="livesDisplay">3</span></span>
             </div>
+            <button class="theme-toggle" id="themeToggle">🌙</button>
         </div>
     </div>
 
-    <!-- MENU -->
-    <div class="menu" id="mainMenu">
-        <button data-game="match" class="active">🧠 Eşleştir</button>
-        <button data-game="quiz">🎯 Test</button>
-        <button data-game="fill">✏️ Doldur</button>
-        <button data-game="hangman">🪢 Asmaca</button>
-        <button data-game="scramble">🔀 Bulmaca</button>
-        <button data-game="order">📝 Sıralama</button>
-        <button data-game="speed">⚡ Hızlı</button>
-        <button data-game="boss">👹 Boss</button>
-        <button data-game="memory">🧠 Hafıza</button>
-        <button data-game="daily">📅 Günün</button>
-        <button data-game="dialogue">💬 Diyalog</button>
-        <button data-game="speak">🎤 Telaffuz</button>
-        <button data-game="write">⌨️ Yazma</button>
-        <button data-game="listen">👂 Dinleme</button>
-        <button data-game="stats">📊 İstatistik</button>
-        <button data-game="review">📌 Tekrar</button>
+    <!-- MAIN CONTENT -->
+    <div class="main-content" id="mainContent">
+        <!-- Dinamik içerik buraya gelecek -->
     </div>
 
-    <!-- GAME AREA -->
-    <div class="game-area" id="gameArea">
-        <h2>🎮 İsoing 1.5'e Hoş Geldin!</h2>
-        <p>12 oyun, XP sistemi, rozetler, sesli okuma ve daha fazlası...</p>
-        <button class="btn-primary" id="startGameBtn">🚀 Başla</button>
+    <!-- BOTTOM NAV -->
+    <div class="bottom-nav" id="bottomNav">
+        <button class="nav-item active" data-page="home">
+            <span class="nav-icon">🏠</span>
+            <span>Ana Sayfa</span>
+        </button>
+        <button class="nav-item" data-page="stats">
+            <span class="nav-icon">📊</span>
+            <span>İstatistik</span>
+        </button>
+        <button class="nav-item" data-page="review">
+            <span class="nav-icon">📌</span>
+            <span>Tekrar</span>
+        </button>
+        <button class="nav-item" data-page="profile">
+            <span class="nav-icon">👤</span>
+            <span>Profil</span>
+        </button>
     </div>
 </div>
 
@@ -652,7 +640,7 @@ const WORD_POOL = [
 ];
 
 // ============================================================
-// 2. UYGULAMA STATE
+// 2. STATE
 // ============================================================
 let state = {
     xp: 0,
@@ -663,21 +651,18 @@ let state = {
     lastPlayDate: null,
     totalCorrect: 0,
     totalWrong: 0,
-    wrongWords: [], // { en, tr, count }
-    learnedWords: [], // { en, tr }
+    wrongWords: [],
     badges: [],
+    currentPage: 'home',
     currentGame: 'match',
     gameActive: false,
-    dailyGoal: 0,
-    dailyGoalProgress: 0,
     theme: 'dark',
 };
 
-// Oyun özel değişkenler
 let gameVars = {};
 
 // ============================================================
-// 3. YARDIMCI FONKSİYONLAR
+// 3. YARDIMCILAR
 // ============================================================
 function shuffleArray(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -691,6 +676,7 @@ function getRandomWords(count, level = state.level) {
     const start = (level - 1) * 50;
     const end = Math.min(start + 50, WORD_POOL.length);
     const pool = WORD_POOL.slice(start, end);
+    if (pool.length === 0) return shuffleArray([...WORD_POOL]).slice(0, count);
     const shuffled = shuffleArray([...pool]);
     return shuffled.slice(0, Math.min(count, shuffled.length));
 }
@@ -701,6 +687,115 @@ function speak(text) {
     utterance.lang = 'en-US';
     utterance.rate = 0.9;
     speechSynthesis.speak(utterance);
+}
+
+function showConfetti() {
+    const container = document.createElement('div');
+    container.className = 'confetti-container';
+    const colors = ['#ff6b6b', '#ffd93d', '#6bcb77', '#4d96ff', '#ff6bcb', '#ff9f43'];
+    for (let i = 0; i < 60; i++) {
+        const el = document.createElement('div');
+        el.className = 'confetti';
+        el.style.left = Math.random() * 100 + '%';
+        el.style.background = colors[Math.floor(Math.random() * colors.length)];
+        el.style.width = (Math.random() * 6 + 3) + 'px';
+        el.style.height = (Math.random() * 6 + 3) + 'px';
+        el.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        el.style.animationDuration = (Math.random() * 2 + 1.5) + 's';
+        el.style.animationDelay = (Math.random() * 0.6) + 's';
+        container.appendChild(el);
+    }
+    document.body.appendChild(container);
+    setTimeout(() => container.remove(), 3000);
+}
+
+function vibrate(duration = 80) {
+    if (navigator.vibrate) navigator.vibrate(duration);
+}
+
+function addXP(amount) {
+    state.xp += amount;
+    const newLevel = Math.floor(state.xp / 100) + 1;
+    if (newLevel > state.level) {
+        state.level = newLevel;
+        checkBadges();
+    }
+    updateUI();
+    saveState();
+}
+
+function addCoins(amount) {
+    state.coins += amount;
+    updateUI();
+    saveState();
+}
+
+function addCorrect() {
+    state.totalCorrect++;
+    updateUI();
+    saveState();
+}
+
+function addWrong(word) {
+    state.totalWrong++;
+    const existing = state.wrongWords.find(w => w.en === word.en);
+    if (existing) {
+        existing.count = (existing.count || 1) + 1;
+    } else {
+        state.wrongWords.push({ ...word, count: 1 });
+    }
+    updateUI();
+    saveState();
+}
+
+function checkBadges() {
+    const badges = [];
+    if (state.totalCorrect >= 100) badges.push('🏅 100 Kelime');
+    if (state.totalCorrect >= 500) badges.push('🥈 500 Kelime');
+    if (state.totalCorrect >= 1000) badges.push('🥇 1000 Kelime');
+    if (state.streak >= 7) badges.push('🔥 7 Gün Seri');
+    if (state.streak >= 30) badges.push('🌟 30 Gün Seri');
+    if (state.level >= 5) badges.push('👑 A1 Yarısı');
+    if (state.level >= 10) badges.push('👑 A1 Tamamlandı');
+    if (state.totalCorrect >= 10 && state.totalWrong === 0) badges.push('🎯 Hatasız 10');
+    state.badges = [...new Set(badges)];
+    saveState();
+}
+
+function updateUI() {
+    document.getElementById('xpDisplay').textContent = state.xp;
+    document.getElementById('coinDisplay').textContent = state.coins;
+    document.getElementById('livesDisplay').textContent = state.lives;
+}
+
+function saveState() {
+    try {
+        localStorage.setItem('isoing15', JSON.stringify(state));
+    } catch(e) {}
+}
+
+function loadState() {
+    try {
+        const data = localStorage.getItem('isoing15');
+        if (data) {
+            const parsed = JSON.parse(data);
+            Object.assign(state, parsed);
+            if (state.lastPlayDate) {
+                const last = new Date(state.lastPlayDate);
+                const today = new Date();
+                const diff = (today - last) / (1000 * 60 * 60 * 24);
+                if (diff > 1 && diff < 2) {
+                    state.streak++;
+                    addXP(50);
+                } else if (diff >= 2) {
+                    state.streak = 0;
+                }
+            }
+            state.lastPlayDate = new Date().toISOString();
+            updateUI();
+            checkBadges();
+        }
+    } catch(e) {}
 }
 
 function getExampleSentences(word) {
@@ -724,123 +819,257 @@ function getExampleSentences(word) {
     ];
 }
 
-function generateAIExamples(word) {
-    return getExampleSentences(word);
-}
+// ============================================================
+// 4. SAYFALAR
+// ============================================================
+const mainContent = document.getElementById('mainContent');
 
-function showConfetti() {
-    const container = document.createElement('div');
-    container.className = 'confetti-container';
-    const colors = ['#ff6b6b', '#ffd93d', '#6bcb77', '#4d96ff', '#ff6bcb', '#ff9f43'];
-    for (let i = 0; i < 80; i++) {
-        const el = document.createElement('div');
-        el.className = 'confetti';
-        el.style.left = Math.random() * 100 + '%';
-        el.style.background = colors[Math.floor(Math.random() * colors.length)];
-        el.style.width = (Math.random() * 8 + 4) + 'px';
-        el.style.height = (Math.random() * 8 + 4) + 'px';
-        el.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-        el.style.animationDuration = (Math.random() * 2 + 1.5) + 's';
-        el.style.animationDelay = (Math.random() * 0.8) + 's';
-        container.appendChild(el);
+function goToPage(page) {
+    state.currentPage = page;
+    document.querySelectorAll('.nav-item').forEach(el => {
+        el.classList.toggle('active', el.dataset.page === page);
+    });
+    
+    switch(page) {
+        case 'home': renderHome(); break;
+        case 'stats': renderStats(); break;
+        case 'review': renderReview(); break;
+        case 'profile': renderProfile(); break;
+        default: renderHome();
     }
-    document.body.appendChild(container);
-    setTimeout(() => container.remove(), 3500);
 }
 
-function vibrate(duration = 100) {
-    if (navigator.vibrate) navigator.vibrate(duration);
-}
+// 4.1 ANA SAYFA - Oyun Grid
+function renderHome() {
+    const games = [
+        { id: 'match', icon: '🧠', name: 'Kart Eşleştir', desc: 'İng-Türk eşleştir' },
+        { id: 'quiz', icon: '🎯', name: 'Kelime Testi', desc: 'Doğru anlamı seç' },
+        { id: 'fill', icon: '✏️', name: 'Boşluk Doldur', desc: 'Eksik kelimeyi bul' },
+        { id: 'hangman', icon: '🪢', name: 'Adam Asmaca', desc: 'Harfleri tahmin et' },
+        { id: 'scramble', icon: '🔀', name: 'Kelime Bulmaca', desc: 'Harfleri düzenle' },
+        { id: 'speed', icon: '⚡', name: 'Hızlı Cevap', desc: '30 saniye yarış' },
+        { id: 'daily', icon: '📅', name: 'Günün Kelimesi', desc: 'Her gün yeni kelime' },
+        { id: 'dialogue', icon: '💬', name: 'Diyalog', desc: 'Cümle tamamla' },
+        { id: 'speak', icon: '🎤', name: 'Telaffuz Testi', desc: 'Mikrofonla söyle' },
+        { id: 'write', icon: '⌨️', name: 'Yazma Modu', desc: 'Klavye ile yaz' },
+        { id: 'listen', icon: '👂', name: 'Dinleme Modu', desc: 'Sesi dinle ve seç' },
+    ];
 
-function addXP(amount) {
-    state.xp += amount;
-    const newLevel = Math.floor(state.xp / 100) + 1;
-    if (newLevel > state.level) {
-        state.level = newLevel;
-        checkBadges();
-    }
-    updateUI();
-}
+    let html = `<div class="game-grid">`;
+    games.forEach(g => {
+        html += `
+            <div class="game-card" data-game="${g.id}">
+                <span class="icon">${g.icon}</span>
+                <span class="gname">${g.name}</span>
+                <span class="gdesc">${g.desc}</span>
+            </div>
+        `;
+    });
+    html += `</div>`;
+    mainContent.innerHTML = html;
 
-function addCoins(amount) {
-    state.coins += amount;
-    updateUI();
-}
-
-function addCorrect() {
-    state.totalCorrect++;
-    state.dailyGoalProgress++;
-    updateUI();
-}
-
-function addWrong(word) {
-    state.totalWrong++;
-    const existing = state.wrongWords.find(w => w.en === word.en);
-    if (existing) {
-        existing.count++;
-    } else {
-        state.wrongWords.push({ ...word, count: 1 });
-    }
-    updateUI();
-}
-
-function checkBadges() {
-    const badges = [];
-    if (state.totalCorrect >= 100) badges.push('🏅 İlk 100 Kelime');
-    if (state.totalCorrect >= 500) badges.push('🥈 500 Kelime');
-    if (state.totalCorrect >= 1000) badges.push('🥇 1000 Kelime');
-    if (state.streak >= 7) badges.push('🔥 7 Gün Seri');
-    if (state.streak >= 30) badges.push('🌟 30 Gün Seri');
-    if (state.level >= 5) badges.push('👑 A1 Yarısı');
-    if (state.level >= 10) badges.push('👑 A1 Tamamlandı');
-    if (state.totalCorrect > 0 && state.totalWrong === 0 && state.totalCorrect >= 10) badges.push('🎯 Hatasız 10');
-    state.badges = [...new Set(badges)];
-}
-
-function updateUI() {
-    document.getElementById('xpDisplay').textContent = state.xp;
-    document.getElementById('coinDisplay').textContent = state.coins;
-    document.getElementById('streakDisplay').textContent = state.streak;
-    document.getElementById('livesDisplay').textContent = state.lives;
-    document.getElementById('levelDisplay').textContent = `A1 · Lv.${state.level}`;
-}
-
-function saveState() {
-    try {
-        localStorage.setItem('isoing15', JSON.stringify(state));
-    } catch(e) {}
-}
-
-function loadState() {
-    try {
-        const data = localStorage.getItem('isoing15');
-        if (data) {
-            const parsed = JSON.parse(data);
-            Object.assign(state, parsed);
-            // Streak kontrolü
-            if (state.lastPlayDate) {
-                const last = new Date(state.lastPlayDate);
-                const today = new Date();
-                const diff = (today - last) / (1000 * 60 * 60 * 24);
-                if (diff > 1 && diff < 2) {
-                    state.streak++;
-                    addXP(50);
-                } else if (diff >= 2) {
-                    state.streak = 0;
-                }
-            }
-            state.lastPlayDate = new Date().toISOString();
+    document.querySelectorAll('.game-card').forEach(el => {
+        el.addEventListener('click', function() {
+            const gameId = this.dataset.game;
+            state.currentGame = gameId;
+            state.lives = 3;
             updateUI();
-            checkBadges();
+            startGame(gameId);
+        });
+    });
+}
+
+// 4.2 İSTATİSTİK
+function renderStats() {
+    const total = state.totalCorrect + state.totalWrong;
+    const rate = total > 0 ? Math.round((state.totalCorrect / total) * 100) : 0;
+    let html = `<div style="padding:4px 0;">`;
+    html += `<h2 style="text-align:center;margin-bottom:16px;">📊 İstatistikler</h2>`;
+    html += `<div class="stat-row"><span class="label">📝 Toplam Doğru</span><span class="value">${state.totalCorrect}</span></div>`;
+    html += `<div class="stat-row"><span class="label">❌ Toplam Yanlış</span><span class="value">${state.totalWrong}</span></div>`;
+    html += `<div class="stat-row"><span class="label">🎯 Başarı Oranı</span><span class="value">${rate}%</span></div>`;
+    html += `<div class="stat-row"><span class="label">⚡ XP</span><span class="value">${state.xp} (Lv.${state.level})</span></div>`;
+    html += `<div class="stat-row"><span class="label">🪙 Coin</span><span class="value">${state.coins}</span></div>`;
+    html += `<div class="stat-row"><span class="label">🔥 Seri</span><span class="value">${state.streak} gün</span></div>`;
+    html += `<div style="margin-top:16px;"><h4>🏆 Rozetler</h4>`;
+    if (state.badges.length === 0) {
+        html += `<p style="color:var(--text-secondary);font-size:14px;">Henüz rozet yok, oyun oyna!</p>`;
+    } else {
+        html += `<div class="badge-container">`;
+        state.badges.forEach(b => {
+            html += `<span class="badge unlocked">${b}</span>`;
+        });
+        html += `</div>`;
+    }
+    html += `</div>`;
+    html += `<div style="margin-top:16px;"><h4>📌 Zor Kelimeler (Yanlış yapılanlar)</h4>`;
+    if (state.wrongWords.length === 0) {
+        html += `<p style="color:var(--text-secondary);font-size:14px;">Hiç zor kelime yok! 🎉</p>`;
+    } else {
+        const sorted = [...state.wrongWords].sort((a, b) => (b.count || 0) - (a.count || 0)).slice(0, 10);
+        sorted.forEach(w => {
+            html += `<p style="font-size:14px;padding:4px 0;border-bottom:1px solid var(--border-color);">• ${w.en} (${w.tr}) - ${w.count || 1} yanlış</p>`;
+        });
+    }
+    html += `</div>`;
+    html += `</div>`;
+    mainContent.innerHTML = html;
+}
+
+// 4.3 TEKRAR ET
+function renderReview() {
+    if (state.wrongWords.length === 0) {
+        mainContent.innerHTML = `
+            <div style="text-align:center;padding:40px 0;">
+                <h2>📌 Tekrar Et</h2>
+                <p style="color:var(--text-secondary);margin:16px 0;">🎉 Hiç zor kelimen yok! Harikasın!</p>
+                <button class="btn-primary" onclick="goToPage('home')">🏠 Ana Sayfa</button>
+            </div>
+        `;
+        return;
+    }
+    const words = state.wrongWords.slice(0, 10);
+    gameVars.review = { words: shuffleArray(words), index: 0 };
+    state.gameActive = true;
+    showReviewQuestion();
+}
+
+function showReviewQuestion() {
+    const { words, index } = gameVars.review;
+    if (index >= words.length || !state.gameActive) {
+        state.gameActive = false;
+        renderReviewComplete();
+        return;
+    }
+    const word = words[index];
+    const pool = getRandomWords(10);
+    let options = [word.tr];
+    pool.forEach(w => {
+        if (w.tr !== word.tr && !options.includes(w.tr) && options.length < 4) {
+            options.push(w.tr);
         }
-    } catch(e) {}
+    });
+    options = shuffleArray(options);
+    gameVars.review.current = { word, options, correct: word.tr };
+
+    let html = `<h2 style="text-align:center;">📌 Tekrar Et</h2>`;
+    html += `<p style="font-size:24px;font-weight:700;margin:12px 0;">${word.en}</p>`;
+    html += `<button class="speak-btn" onclick="speak('${word.en}')">🔊</button>`;
+    html += `<div class="options-grid">`;
+    options.forEach(opt => {
+        html += `<button class="option-btn" data-value="${opt}">${opt}</button>`;
+    });
+    html += `</div><div class="feedback" id="reviewFeedback"></div>`;
+    html += `<div class="progress-bar"><div class="progress-fill" style="width:${(index/words.length)*100}%"></div></div>`;
+    html += `<p style="color:var(--text-secondary);font-size:13px;">${index+1}/${words.length}</p>`;
+    html += `<button class="btn-secondary" onclick="goToPage('home')">🔙 Geri</button>`;
+    mainContent.innerHTML = html;
+
+    document.querySelectorAll('.option-btn').forEach(btn => {
+        btn.addEventListener('click', onReviewAnswer);
+    });
+    speak(word.en);
+}
+
+function onReviewAnswer(e) {
+    if (!state.gameActive) return;
+    const btn = e.currentTarget;
+    const selected = btn.dataset.value;
+    const { current, words, index } = gameVars.review;
+    const fb = document.getElementById('reviewFeedback');
+    document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+
+    if (selected === current.correct) {
+        btn.classList.add('correct');
+        fb.textContent = '✅ Doğru! +25 XP, +20🪙';
+        fb.className = 'feedback correct';
+        addXP(25); addCoins(20); addCorrect();
+        showConfetti();
+        state.wrongWords = state.wrongWords.filter(w => w.en !== current.word.en);
+        saveState();
+    } else {
+        btn.classList.add('wrong');
+        fb.textContent = `❌ Doğru: ${current.correct}`;
+        fb.className = 'feedback wrong';
+        vibrate();
+        state.lives--;
+        updateUI();
+        if (state.lives <= 0) {
+            state.gameActive = false;
+            setTimeout(() => { renderGameOver(); }, 500);
+            return;
+        }
+    }
+    gameVars.review.index++;
+    setTimeout(() => { if (state.gameActive) showReviewQuestion(); }, 1000);
+}
+
+function renderReviewComplete() {
+    mainContent.innerHTML = `
+        <div style="text-align:center;padding:30px 0;">
+            <h2>🎉 Tekrar Tamamlandı!</h2>
+            <p style="color:var(--text-secondary);margin:16px 0;">Tüm zor kelimeleri bitirdin!</p>
+            <button class="btn-primary" onclick="goToPage('home')">🏠 Ana Sayfa</button>
+        </div>
+    `;
+}
+
+// 4.4 PROFİL
+function renderProfile() {
+    const total = state.totalCorrect + state.totalWrong;
+    const rate = total > 0 ? Math.round((state.totalCorrect / total) * 100) : 0;
+    let html = `<div style="text-align:center;padding:10px 0;">`;
+    html += `<div style="font-size:64px;margin:8px 0;">👤</div>`;
+    html += `<h2>İsoing Öğrencisi</h2>`;
+    html += `<p style="color:var(--text-secondary);">Seviye ${state.level} · ${state.xp} XP</p>`;
+    html += `<div style="background:var(--bg-card);border-radius:16px;padding:16px;margin:16px 0;border:1px solid var(--border-color);">`;
+    html += `<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">`;
+    html += `<div><span style="color:var(--text-secondary);font-size:12px;">Doğru</span><br><strong>${state.totalCorrect}</strong></div>`;
+    html += `<div><span style="color:var(--text-secondary);font-size:12px;">Yanlış</span><br><strong>${state.totalWrong}</strong></div>`;
+    html += `<div><span style="color:var(--text-secondary);font-size:12px;">Başarı</span><br><strong>${rate}%</strong></div>`;
+    html += `<div><span style="color:var(--text-secondary);font-size:12px;">Seri</span><br><strong>🔥 ${state.streak} gün</strong></div>`;
+    html += `</div></div>`;
+    html += `<div style="margin:12px 0;"><h4>🏆 Rozetler</h4>`;
+    if (state.badges.length === 0) {
+        html += `<p style="color:var(--text-secondary);font-size:14px;">Henüz rozet yok</p>`;
+    } else {
+        html += `<div class="badge-container">`;
+        state.badges.forEach(b => {
+            html += `<span class="badge unlocked">${b}</span>`;
+        });
+        html += `</div>`;
+    }
+    html += `</div>`;
+    html += `<button class="btn-secondary" onclick="goToPage('home')">🏠 Ana Sayfa</button>`;
+    html += `</div>`;
+    mainContent.innerHTML = html;
 }
 
 // ============================================================
-// 4. OYUN MODLARI (12 Oyun)
+// 5. OYUN MODLARI (Kısaltılmış versiyonlar)
 // ============================================================
 
-// 4.1 KART EŞLEŞTİR
+function startGame(gameId) {
+    state.gameActive = true;
+    state.lives = 3;
+    updateUI();
+    switch(gameId) {
+        case 'match': initMatch(); break;
+        case 'quiz': initQuiz(); break;
+        case 'fill': initFill(); break;
+        case 'hangman': initHangman(); break;
+        case 'scramble': initScramble(); break;
+        case 'speed': initSpeed(); break;
+        case 'daily': initDaily(); break;
+        case 'dialogue': initDialogue(); break;
+        case 'speak': initSpeak(); break;
+        case 'write': initWrite(); break;
+        case 'listen': initListen(); break;
+        default: renderHome();
+    }
+}
+
+// 5.1 KART EŞLEŞTİR
 function initMatch() {
     const words = getRandomWords(8);
     const pairs = [];
@@ -848,20 +1077,14 @@ function initMatch() {
         pairs.push({ id: w.en + '_en', text: w.en, pairId: w.en, type: 'en' });
         pairs.push({ id: w.tr + '_tr', text: w.tr, pairId: w.en, type: 'tr' });
     });
-    gameVars.match = {
-        cards: shuffleArray(pairs),
-        flipped: [],
-        matched: [],
-        locked: false,
-    };
-    state.gameActive = true;
+    gameVars.match = { cards: shuffleArray(pairs), flipped: [], matched: [], locked: false };
     renderMatch();
 }
 
 function renderMatch() {
     const { cards, matched } = gameVars.match;
-    let html = `<h2>🧠 Kart Eşleştir</h2><p>İngilizce - Türkçe eşleştir</p>`;
-    html += `<div class="progress-bar"><div class="progress-fill" style="width:${(matched.length / cards.length) * 100}%"></div></div>`;
+    let html = `<h2>🧠 Kart Eşleştir</h2><p style="font-size:13px;color:var(--text-secondary);">İngilizce-Türkçe eşleştir</p>`;
+    html += `<div class="progress-bar"><div class="progress-fill" style="width:${(matched.length/cards.length)*100}%"></div></div>`;
     html += `<div class="card-grid">`;
     cards.forEach((card, i) => {
         const isFlipped = gameVars.match.flipped.includes(i);
@@ -873,12 +1096,11 @@ function renderMatch() {
         html += `<div class="${cls}" data-index="${i}" data-pair="${card.pairId}" data-type="${card.type}">${content}</div>`;
     });
     html += `</div><div class="feedback" id="matchFeedback"></div>`;
-    html += `<button class="btn-secondary" onclick="initMatch()">🔄 Yeni Kartlar</button>`;
-    html += `<button class="btn-secondary" onclick="speak('${cards.find(c => c.type === 'en')?.text || 'hello'}')">🔊 Dinle</button>`;
-    gameArea.innerHTML = html;
-    document.querySelectorAll('.card').forEach(el => {
-        el.addEventListener('click', onMatchClick);
-    });
+    html += `<button class="btn-secondary" onclick="initMatch()">🔄 Yeni</button>`;
+    html += `<button class="speak-btn" onclick="speak('${cards.find(c=>c.type==='en')?.text||'hello'}')">🔊</button>`;
+    html += `<button class="btn-secondary" onclick="goToPage('home')">🔙 Geri</button>`;
+    mainContent.innerHTML = html;
+    document.querySelectorAll('.card').forEach(el => el.addEventListener('click', onMatchClick));
 }
 
 function onMatchClick(e) {
@@ -887,24 +1109,21 @@ function onMatchClick(e) {
     const idx = parseInt(card.dataset.index);
     const { flipped, matched, cards, locked } = gameVars.match;
     if (locked || flipped.includes(idx) || matched.includes(idx) || flipped.length >= 2) return;
-    
     gameVars.match.flipped.push(idx);
     card.classList.add('flipped');
     card.textContent = cards[idx].text;
-
     if (gameVars.match.flipped.length === 2) {
         gameVars.match.locked = true;
         const idx1 = gameVars.match.flipped[0];
         const idx2 = gameVars.match.flipped[1];
         const c1 = cards[idx1], c2 = cards[idx2];
         const fb = document.getElementById('matchFeedback');
-        
         if (c1.pairId === c2.pairId && c1.type !== c2.type) {
             gameVars.match.matched.push(idx1, idx2);
             setTimeout(() => {
                 document.querySelectorAll('.card')[idx1].classList.add('matched');
                 document.querySelectorAll('.card')[idx2].classList.add('matched');
-                fb.textContent = '✅ Doğru! +15 XP, +20🪙';
+                fb.textContent = '✅ +15 XP, +20🪙';
                 fb.className = 'feedback correct';
                 addXP(15); addCoins(20); addCorrect();
                 speak(c1.type === 'en' ? c1.text : c2.text);
@@ -915,7 +1134,7 @@ function onMatchClick(e) {
                 document.querySelector('.progress-fill').style.width = progress + '%';
                 if (gameVars.match.matched.length === cards.length) {
                     state.gameActive = false;
-                    setTimeout(() => showLevelComplete(), 600);
+                    setTimeout(() => renderLevelComplete(), 600);
                 }
             }, 500);
         } else {
@@ -924,7 +1143,7 @@ function onMatchClick(e) {
                 document.querySelectorAll('.card')[idx2].classList.remove('flipped');
                 document.querySelectorAll('.card')[idx1].textContent = '❓';
                 document.querySelectorAll('.card')[idx2].textContent = '❓';
-                fb.textContent = '❌ Yanlış! -1 can';
+                fb.textContent = '❌ -1 can';
                 fb.className = 'feedback wrong';
                 state.lives--;
                 vibrate();
@@ -934,14 +1153,14 @@ function onMatchClick(e) {
                 gameVars.match.locked = false;
                 if (state.lives <= 0) {
                     state.gameActive = false;
-                    setTimeout(() => showGameOver(), 400);
+                    setTimeout(() => renderGameOver(), 400);
                 }
             }, 700);
         }
     }
 }
 
-// 4.2 TEST (KELİME AVI)
+// 5.2 KELİME TESTİ
 function initQuiz() {
     const words = getRandomWords(10);
     gameVars.quiz = { words: shuffleArray(words), index: 0 };
@@ -951,27 +1170,23 @@ function initQuiz() {
 
 function showQuiz() {
     const { words, index } = gameVars.quiz;
-    if (index >= words.length) { showLevelComplete(); return; }
+    if (index >= words.length) { renderLevelComplete(); return; }
     const word = words[index];
     const pool = getRandomWords(10);
     let options = [word.tr];
     pool.forEach(w => { if (w.tr !== word.tr && !options.includes(w.tr) && options.length < 4) options.push(w.tr); });
     options = shuffleArray(options);
     gameVars.quiz.current = { word, options, correct: word.tr };
-    
-    let html = `<h2>🎯 Kelime Avı</h2><p style="font-size:24px;font-weight:700;">${word.en}</p>`;
+    let html = `<h2>🎯 Kelime Testi</h2><p style="font-size:24px;font-weight:700;">${word.en}</p>`;
     html += `<button class="speak-btn" onclick="speak('${word.en}')">🔊</button>`;
     html += `<div class="options-grid">`;
-    options.forEach(opt => {
-        html += `<button class="option-btn" data-value="${opt}">${opt}</button>`;
-    });
+    options.forEach(opt => { html += `<button class="option-btn" data-value="${opt}">${opt}</button>`; });
     html += `</div><div class="feedback" id="quizFeedback"></div>`;
     html += `<div class="progress-bar"><div class="progress-fill" style="width:${(index/words.length)*100}%"></div></div>`;
-    html += `<p style="color:var(--text-secondary)">${index+1}/${words.length}</p>`;
-    gameArea.innerHTML = html;
-    document.querySelectorAll('.option-btn').forEach(btn => {
-        btn.addEventListener('click', onQuizAnswer);
-    });
+    html += `<p style="color:var(--text-secondary);font-size:13px;">${index+1}/${words.length}</p>`;
+    html += `<button class="btn-secondary" onclick="goToPage('home')">🔙 Geri</button>`;
+    mainContent.innerHTML = html;
+    document.querySelectorAll('.option-btn').forEach(btn => btn.addEventListener('click', onQuizAnswer));
     speak(word.en);
 }
 
@@ -982,31 +1197,30 @@ function onQuizAnswer(e) {
     const { current, words, index } = gameVars.quiz;
     const fb = document.getElementById('quizFeedback');
     document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
-    
     if (selected === current.correct) {
         btn.classList.add('correct');
-        fb.textContent = '✅ Doğru! +20 XP, +20🪙';
+        fb.textContent = '✅ +20 XP, +20🪙';
         fb.className = 'feedback correct';
         addXP(20); addCoins(20); addCorrect();
         showConfetti();
     } else {
         btn.classList.add('wrong');
-        fb.textContent = `❌ Yanlış! Doğru: ${current.correct} (-1 can)`;
+        fb.textContent = `❌ Doğru: ${current.correct}`;
         fb.className = 'feedback wrong';
-        state.lives--;
         vibrate();
         addWrong(current.word);
+        state.lives--;
+        updateUI();
         document.querySelectorAll('.option-btn').forEach(b => {
             if (b.dataset.value === current.correct) b.classList.add('correct');
         });
-        updateUI();
-        if (state.lives <= 0) { state.gameActive = false; setTimeout(showGameOver, 500); return; }
+        if (state.lives <= 0) { state.gameActive = false; setTimeout(renderGameOver, 500); return; }
     }
     gameVars.quiz.index++;
-    setTimeout(() => { if (state.gameActive) showQuiz(); }, 1200);
+    setTimeout(() => { if (state.gameActive) showQuiz(); }, 1000);
 }
 
-// 4.3 BOŞLUK DOLDUR
+// 5.3 BOŞLUK DOLDUR
 function initFill() {
     const words = getRandomWords(10);
     gameVars.fill = { words: shuffleArray(words), index: 0 };
@@ -1016,7 +1230,7 @@ function initFill() {
 
 function showFill() {
     const { words, index } = gameVars.fill;
-    if (index >= words.length) { showLevelComplete(); return; }
+    if (index >= words.length) { renderLevelComplete(); return; }
     const word = words[index];
     const sentences = [
         `I need a ___ for breakfast.`,
@@ -1026,9 +1240,7 @@ function showFill() {
         `My favorite color is ___.`,
         `The ___ is on the table.`,
         `He wants a ___ now.`,
-        `We see a ___ in the sky.`,
-        `This ___ is very old.`,
-        `They have a ___ at home.`
+        `We see a ___ in the sky.`
     ];
     const sentence = sentences[index % sentences.length].replace('___', '_____');
     const pool = getRandomWords(10);
@@ -1036,20 +1248,16 @@ function showFill() {
     pool.forEach(w => { if (w.tr !== word.tr && !options.includes(w.tr) && options.length < 4) options.push(w.tr); });
     options = shuffleArray(options);
     gameVars.fill.current = { sentence, word, options, correct: word.tr };
-    
     let html = `<h2>✏️ Boşluk Doldur</h2>`;
     html += `<div class="question-text">${sentence.replace('_____', '<span class="blank">______</span>')}</div>`;
     html += `<div class="options-grid">`;
-    options.forEach(opt => {
-        html += `<button class="option-btn" data-value="${opt}">${opt}</button>`;
-    });
+    options.forEach(opt => { html += `<button class="option-btn" data-value="${opt}">${opt}</button>`; });
     html += `</div><div class="feedback" id="fillFeedback"></div>`;
     html += `<div class="progress-bar"><div class="progress-fill" style="width:${(index/words.length)*100}%"></div></div>`;
-    html += `<p style="color:var(--text-secondary)">${index+1}/${words.length}</p>`;
-    gameArea.innerHTML = html;
-    document.querySelectorAll('.option-btn').forEach(btn => {
-        btn.addEventListener('click', onFillAnswer);
-    });
+    html += `<p style="color:var(--text-secondary);font-size:13px;">${index+1}/${words.length}</p>`;
+    html += `<button class="btn-secondary" onclick="goToPage('home')">🔙 Geri</button>`;
+    mainContent.innerHTML = html;
+    document.querySelectorAll('.option-btn').forEach(btn => btn.addEventListener('click', onFillAnswer));
     speak(word.en);
 }
 
@@ -1060,42 +1268,35 @@ function onFillAnswer(e) {
     const { current, words, index } = gameVars.fill;
     const fb = document.getElementById('fillFeedback');
     document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
-    
     if (selected === current.correct) {
         btn.classList.add('correct');
-        fb.textContent = '✅ Doğru! +15 XP, +20🪙';
+        fb.textContent = '✅ +15 XP, +20🪙';
         fb.className = 'feedback correct';
         addXP(15); addCoins(20); addCorrect();
         document.querySelector('.blank').textContent = current.word.en;
         showConfetti();
     } else {
         btn.classList.add('wrong');
-        fb.textContent = `❌ Yanlış! Doğru: ${current.correct} (-1 can)`;
+        fb.textContent = `❌ Doğru: ${current.correct}`;
         fb.className = 'feedback wrong';
-        state.lives--;
         vibrate();
         addWrong(current.word);
+        state.lives--;
+        updateUI();
         document.querySelectorAll('.option-btn').forEach(b => {
             if (b.dataset.value === current.correct) b.classList.add('correct');
         });
         document.querySelector('.blank').textContent = current.word.en;
-        updateUI();
-        if (state.lives <= 0) { state.gameActive = false; setTimeout(showGameOver, 500); return; }
+        if (state.lives <= 0) { state.gameActive = false; setTimeout(renderGameOver, 500); return; }
     }
     gameVars.fill.index++;
-    setTimeout(() => { if (state.gameActive) showFill(); }, 1200);
+    setTimeout(() => { if (state.gameActive) showFill(); }, 1000);
 }
 
-// 4.4 ADAM ASMACA
+// 5.4 ADAM ASMACA
 function initHangman() {
     const word = getRandomWords(1)[0];
-    gameVars.hangman = {
-        word: word.en.toLowerCase(),
-        tr: word.tr,
-        guessed: [],
-        wrong: 0,
-        maxWrong: 6,
-    };
+    gameVars.hangman = { word: word.en.toLowerCase(), tr: word.tr, guessed: [], wrong: 0, maxWrong: 6 };
     state.gameActive = true;
     renderHangman();
 }
@@ -1104,22 +1305,20 @@ function renderHangman() {
     const { word, tr, guessed, wrong, maxWrong } = gameVars.hangman;
     const display = word.split('').map(l => guessed.includes(l) ? l : '_').join(' ');
     const remaining = word.split('').filter(l => !guessed.includes(l)).length;
-    
-    let html = `<h2>🪢 Adam Asmaca</h2><p style="font-size:20px;font-family:monospace;">${display}</p>`;
+    let html = `<h2>🪢 Adam Asmaca</h2><p style="font-size:24px;font-family:monospace;letter-spacing:4px;">${display}</p>`;
     html += `<p>Yanlış: ${'❤️'.repeat(Math.max(0, maxWrong - wrong))} ${'💔'.repeat(wrong)}</p>`;
-    html += `<p style="color:var(--text-secondary)">İpucu: ${tr}</p>`;
-    html += `<div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:400px;margin:10px 0;">`;
+    html += `<p style="color:var(--text-secondary);font-size:14px;">İpucu: ${tr}</p>`;
+    html += `<div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-width:340px;margin:8px 0;">`;
     'abcdefghijklmnopqrstuvwxyz'.split('').forEach(l => {
         const disabled = guessed.includes(l) || wrong >= maxWrong || remaining === 0;
-        html += `<button class="option-btn" data-letter="${l}" ${disabled ? 'disabled' : ''} style="min-width:36px;padding:8px;">${l}</button>`;
+        html += `<button class="option-btn" data-letter="${l}" ${disabled ? 'disabled' : ''} style="min-width:32px;padding:6px 10px;font-size:14px;">${l}</button>`;
     });
     html += `</div><div class="feedback" id="hangmanFeedback"></div>`;
-    html += `<button class="btn-secondary" onclick="initHangman()">🔄 Yeni Kelime</button>`;
+    html += `<button class="btn-secondary" onclick="initHangman()">🔄 Yeni</button>`;
     html += `<button class="speak-btn" onclick="speak('${word}')">🔊</button>`;
-    gameArea.innerHTML = html;
-    document.querySelectorAll('[data-letter]').forEach(btn => {
-        btn.addEventListener('click', onHangmanGuess);
-    });
+    html += `<button class="btn-secondary" onclick="goToPage('home')">🔙 Geri</button>`;
+    mainContent.innerHTML = html;
+    document.querySelectorAll('[data-letter]').forEach(btn => btn.addEventListener('click', onHangmanGuess));
 }
 
 function onHangmanGuess(e) {
@@ -1128,7 +1327,6 @@ function onHangmanGuess(e) {
     const letter = btn.dataset.letter;
     const { word, guessed, wrong, maxWrong, tr } = gameVars.hangman;
     if (guessed.includes(letter)) return;
-    
     guessed.push(letter);
     if (word.includes(letter)) {
         btn.classList.add('correct');
@@ -1139,7 +1337,7 @@ function onHangmanGuess(e) {
             document.getElementById('hangmanFeedback').textContent = '🎉 Tebrikler! +30 XP, +30🪙';
             document.getElementById('hangmanFeedback').className = 'feedback correct';
             state.gameActive = false;
-            setTimeout(showLevelComplete, 1000);
+            setTimeout(renderLevelComplete, 1000);
         } else {
             document.getElementById('hangmanFeedback').textContent = '✅ Doğru harf!';
             document.getElementById('hangmanFeedback').className = 'feedback correct';
@@ -1153,15 +1351,15 @@ function onHangmanGuess(e) {
         if (gameVars.hangman.wrong >= maxWrong) {
             state.gameActive = false;
             addWrong({ en: word, tr: tr });
-            document.getElementById('hangmanFeedback').textContent = `💀 Kaybettin! Kelime: ${word}`;
-            setTimeout(() => showGameOver(), 800);
+            document.getElementById('hangmanFeedback').textContent = `💀 Kelime: ${word}`;
+            setTimeout(renderGameOver, 800);
             return;
         }
     }
     renderHangman();
 }
 
-// 4.5 SCRAMBLE (Kelime Bulmaca)
+// 5.5 SCRAMBLE
 function initScramble() {
     const word = getRandomWords(1)[0];
     const scrambled = shuffleArray(word.en.split('')).join('');
@@ -1173,14 +1371,15 @@ function initScramble() {
 function renderScramble() {
     const { word, tr, scrambled } = gameVars.scramble;
     let html = `<h2>🔀 Kelime Bulmaca</h2>`;
-    html += `<p style="font-size:28px;font-weight:700;letter-spacing:8px;font-family:monospace;">${scrambled}</p>`;
-    html += `<p style="color:var(--text-secondary)">İpucu: ${tr}</p>`;
+    html += `<p style="font-size:28px;font-weight:700;letter-spacing:6px;font-family:monospace;">${scrambled}</p>`;
+    html += `<p style="color:var(--text-secondary);">İpucu: ${tr}</p>`;
     html += `<input class="text-input" id="scrambleInput" placeholder="Kelimeyi yaz..." autofocus>`;
     html += `<button class="btn-primary" onclick="checkScramble()">✅ Kontrol Et</button>`;
     html += `<div class="feedback" id="scrambleFeedback"></div>`;
     html += `<button class="speak-btn" onclick="speak('${word}')">🔊</button>`;
     html += `<button class="btn-secondary" onclick="initScramble()">🔄 Yeni</button>`;
-    gameArea.innerHTML = html;
+    html += `<button class="btn-secondary" onclick="goToPage('home')">🔙 Geri</button>`;
+    mainContent.innerHTML = html;
     document.getElementById('scrambleInput').addEventListener('keydown', (e) => {
         if (e.key === 'Enter') checkScramble();
     });
@@ -1192,95 +1391,24 @@ function checkScramble() {
     const { word, tr } = gameVars.scramble;
     const fb = document.getElementById('scrambleFeedback');
     if (input.value.toLowerCase().trim() === word) {
-        fb.textContent = '✅ Doğru! +20 XP, +20🪙';
+        fb.textContent = '✅ +20 XP, +20🪙';
         fb.className = 'feedback correct';
         addXP(20); addCoins(20); addCorrect();
         showConfetti();
         state.gameActive = false;
-        setTimeout(showLevelComplete, 1000);
+        setTimeout(renderLevelComplete, 1000);
     } else {
-        fb.textContent = `❌ Yanlış! Doğru: ${word}`;
+        fb.textContent = `❌ Doğru: ${word}`;
         fb.className = 'feedback wrong';
         vibrate();
         addWrong({ en: word, tr });
         state.lives--;
         updateUI();
-        if (state.lives <= 0) { state.gameActive = false; setTimeout(showGameOver, 500); }
+        if (state.lives <= 0) { state.gameActive = false; setTimeout(renderGameOver, 500); }
     }
 }
 
-// 4.6 DOĞRU SIRALAMA
-function initOrder() {
-    const words = getRandomWords(3);
-    const sentence = words.map(w => w.en).join(' ');
-    const shuffled = shuffleArray([...words]);
-    gameVars.order = { words: shuffled, correct: words, sentence };
-    state.gameActive = true;
-    renderOrder();
-}
-
-function renderOrder() {
-    const { words } = gameVars.order;
-    let html = `<h2>📝 Doğru Sıralama</h2><p>Kelimeleri doğru sıraya koy</p>`;
-    html += `<div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:15px 0;">`;
-    words.forEach((w, i) => {
-        html += `<button class="option-btn" data-index="${i}" style="min-width:60px;padding:12px 20px;font-size:16px;">${w.en}</button>`;
-    });
-    html += `</div><div class="feedback" id="orderFeedback"></div>`;
-    html += `<button class="btn-primary" onclick="checkOrder()">✅ Kontrol Et</button>`;
-    html += `<button class="btn-secondary" onclick="initOrder()">🔄 Yeni</button>`;
-    gameArea.innerHTML = html;
-    // Drag & drop simülasyonu - tıklama ile sıralama
-    let selected = null;
-    document.querySelectorAll('[data-index]').forEach(btn => {
-        btn.addEventListener('click', function() {
-            if (!state.gameActive) return;
-            if (selected === null) {
-                selected = this;
-                this.style.border = '3px solid var(--gold)';
-            } else if (selected === this) {
-                selected.style.border = '';
-                selected = null;
-            } else {
-                // swap
-                const idx1 = parseInt(selected.dataset.index);
-                const idx2 = parseInt(this.dataset.index);
-                const temp = gameVars.order.words[idx1];
-                gameVars.order.words[idx1] = gameVars.order.words[idx2];
-                gameVars.order.words[idx2] = temp;
-                selected.style.border = '';
-                selected = null;
-                renderOrder();
-            }
-        });
-    });
-}
-
-function checkOrder() {
-    if (!state.gameActive) return;
-    const { words, correct, sentence } = gameVars.order;
-    const fb = document.getElementById('orderFeedback');
-    const userOrder = words.map(w => w.en).join(' ');
-    const correctOrder = correct.map(w => w.en).join(' ');
-    if (userOrder === correctOrder) {
-        fb.textContent = '✅ Doğru Sıralama! +25 XP, +25🪙';
-        fb.className = 'feedback correct';
-        addXP(25); addCoins(25); addCorrect();
-        showConfetti();
-        state.gameActive = false;
-        setTimeout(showLevelComplete, 1000);
-    } else {
-        fb.textContent = `❌ Yanlış! Doğru: "${correctOrder}"`;
-        fb.className = 'feedback wrong';
-        vibrate();
-        state.lives--;
-        addWrong({ en: correctOrder, tr: 'sıralama' });
-        updateUI();
-        if (state.lives <= 0) { state.gameActive = false; setTimeout(showGameOver, 500); }
-    }
-}
-
-// 4.7 HIZLI CEVAP
+// 5.6 HIZLI CEVAP
 function initSpeed() {
     const words = getRandomWords(20);
     gameVars.speed = { words: shuffleArray(words), index: 0, time: 30, timer: null };
@@ -1293,7 +1421,7 @@ function showSpeed() {
     if (index >= words.length || time <= 0) {
         clearInterval(gameVars.speed.timer);
         state.gameActive = false;
-        showLevelComplete();
+        renderLevelComplete();
         return;
     }
     const word = words[index];
@@ -1302,28 +1430,23 @@ function showSpeed() {
     pool.forEach(w => { if (w.tr !== word.tr && !options.includes(w.tr) && options.length < 4) options.push(w.tr); });
     options = shuffleArray(options);
     gameVars.speed.current = { word, options, correct: word.tr };
-    
     let html = `<h2>⚡ Hızlı Cevap</h2><p style="font-size:20px;">⏱️ ${time}s</p>`;
     html += `<p style="font-size:24px;font-weight:700;">${word.en}</p>`;
     html += `<div class="options-grid">`;
-    options.forEach(opt => {
-        html += `<button class="option-btn" data-value="${opt}">${opt}</button>`;
-    });
+    options.forEach(opt => { html += `<button class="option-btn" data-value="${opt}">${opt}</button>`; });
     html += `</div><div class="feedback" id="speedFeedback"></div>`;
-    html += `<p style="color:var(--text-secondary)">${index+1}/${words.length}</p>`;
-    gameArea.innerHTML = html;
-    document.querySelectorAll('.option-btn').forEach(btn => {
-        btn.addEventListener('click', onSpeedAnswer);
-    });
+    html += `<p style="color:var(--text-secondary);font-size:13px;">${index+1}/${words.length}</p>`;
+    mainContent.innerHTML = html;
+    document.querySelectorAll('.option-btn').forEach(btn => btn.addEventListener('click', onSpeedAnswer));
     if (!gameVars.speed.timer) {
         gameVars.speed.timer = setInterval(() => {
             gameVars.speed.time--;
             if (gameVars.speed.time <= 0) {
                 clearInterval(gameVars.speed.timer);
                 state.gameActive = false;
-                showLevelComplete();
+                renderLevelComplete();
             } else {
-                const timeEl = document.querySelector('.question-text')?.previousElementSibling;
+                const timeEl = document.querySelector('p[style*="font-size:20px"]');
                 if (timeEl) timeEl.textContent = `⏱️ ${gameVars.speed.time}s`;
             }
         }, 1000);
@@ -1338,7 +1461,6 @@ function onSpeedAnswer(e) {
     const { current, words, index } = gameVars.speed;
     const fb = document.getElementById('speedFeedback');
     document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
-    
     if (selected === current.correct) {
         btn.classList.add('correct');
         fb.textContent = '✅ +15 XP, +15🪙';
@@ -1353,228 +1475,62 @@ function onSpeedAnswer(e) {
         addWrong(current.word);
         state.lives--;
         updateUI();
-        if (state.lives <= 0) { state.gameActive = false; clearInterval(gameVars.speed.timer); setTimeout(showGameOver, 500); return; }
+        document.querySelectorAll('.option-btn').forEach(b => {
+            if (b.dataset.value === current.correct) b.classList.add('correct');
+        });
+        if (state.lives <= 0) { state.gameActive = false; clearInterval(gameVars.speed.timer); setTimeout(renderGameOver, 500); return; }
     }
     gameVars.speed.index++;
     setTimeout(() => { if (state.gameActive) showSpeed(); }, 800);
 }
 
-// 4.8 BOSS LEVEL
-function initBoss() {
-    const words = getRandomWords(50);
-    gameVars.boss = { words: shuffleArray(words), index: 0, lives: 3, total: 50 };
-    state.gameActive = true;
-    showBoss();
-}
-
-function showBoss() {
-    const { words, index, lives, total } = gameVars.boss;
-    if (index >= total || lives <= 0) {
-        state.gameActive = false;
-        if (lives > 0) showLevelComplete();
-        else showGameOver();
-        return;
-    }
-    const word = words[index % words.length];
-    const pool = getRandomWords(10);
-    let options = [word.tr];
-    pool.forEach(w => { if (w.tr !== word.tr && !options.includes(w.tr) && options.length < 4) options.push(w.tr); });
-    options = shuffleArray(options);
-    gameVars.boss.current = { word, options, correct: word.tr };
-    
-    let html = `<h2>👹 BOSS LEVEL</h2><p class="boss-label">🔥 ${index+1}/${total}</p>`;
-    html += `<div class="boss-health"><div class="boss-health-fill" style="width:${((total-index)/total)*100}%"></div></div>`;
-    html += `<p style="font-size:24px;font-weight:700;">${word.en}</p>`;
-    html += `<button class="speak-btn" onclick="speak('${word.en}')">🔊</button>`;
-    html += `<div class="options-grid">`;
-    options.forEach(opt => {
-        html += `<button class="option-btn" data-value="${opt}">${opt}</button>`;
-    });
-    html += `</div><div class="feedback" id="bossFeedback"></div>`;
-    gameArea.innerHTML = html;
-    document.querySelectorAll('.option-btn').forEach(btn => {
-        btn.addEventListener('click', onBossAnswer);
-    });
-    speak(word.en);
-}
-
-function onBossAnswer(e) {
-    if (!state.gameActive) return;
-    const btn = e.currentTarget;
-    const selected = btn.dataset.value;
-    const { current, words, index, total, lives } = gameVars.boss;
-    const fb = document.getElementById('bossFeedback');
-    document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
-    
-    if (selected === current.correct) {
-        btn.classList.add('correct');
-        fb.textContent = '✅ +20 XP, +25🪙';
-        fb.className = 'feedback correct';
-        addXP(20); addCoins(25); addCorrect();
-        showConfetti();
-    } else {
-        btn.classList.add('wrong');
-        fb.textContent = `❌ Doğru: ${current.correct}`;
-        fb.className = 'feedback wrong';
-        vibrate();
-        addWrong(current.word);
-        gameVars.boss.lives--;
-        state.lives--;
-        updateUI();
-        if (state.lives <= 0 || gameVars.boss.lives <= 0) {
-            state.gameActive = false;
-            setTimeout(showGameOver, 500);
-            return;
-        }
-    }
-    gameVars.boss.index++;
-    setTimeout(() => { if (state.gameActive) showBoss(); }, 800);
-}
-
-// 4.9 HAFIZA OYUNU
-function initMemory() {
-    const words = getRandomWords(6);
-    const pairs = shuffleArray([...words, ...words]);
-    gameVars.memory = { pairs, flipped: [], matched: [], locked: false, showTime: 5 };
-    state.gameActive = true;
-    // Önce göster
-    showMemory(true);
-}
-
-function showMemory(initial = false) {
-    const { pairs, matched } = gameVars.memory;
-    let html = `<h2>🧠 Hafıza Oyunu</h2><p>${initial ? '5 saniye boyunca kelimeleri ezberle!' : 'Eşleşen çiftleri bul'}</p>`;
-    html += `<div class="card-grid">`;
-    pairs.forEach((word, i) => {
-        const isMatched = matched.includes(i);
-        const show = initial || isMatched;
-        const content = show ? word.en : '❓';
-        let cls = 'card';
-        if (isMatched) cls += ' matched';
-        if (show && !initial) cls += ' flipped';
-        html += `<div class="${cls}" data-index="${i}" data-word="${word.en}">${content}</div>`;
-    });
-    html += `</div><div class="feedback" id="memoryFeedback"></div>`;
-    gameArea.innerHTML = html;
-    
-    if (initial) {
-        setTimeout(() => {
-            // Kartları kapat
-            document.querySelectorAll('.card').forEach(el => {
-                if (!el.classList.contains('matched')) {
-                    el.textContent = '❓';
-                    el.classList.remove('flipped');
-                }
-            });
-            document.getElementById('memoryFeedback').textContent = '⏰ Zaman doldu! Eşleştirmeye başla!';
-            // Event listener ekle
-            document.querySelectorAll('.card').forEach(el => {
-                el.addEventListener('click', onMemoryClick);
-            });
-        }, 5000);
-    } else {
-        document.querySelectorAll('.card').forEach(el => {
-            el.addEventListener('click', onMemoryClick);
-        });
-    }
-}
-
-function onMemoryClick(e) {
-    if (!state.gameActive) return;
-    const card = e.currentTarget;
-    const idx = parseInt(card.dataset.index);
-    const { pairs, flipped, matched, locked } = gameVars.memory;
-    if (locked || flipped.includes(idx) || matched.includes(idx) || flipped.length >= 2) return;
-    
-    card.textContent = pairs[idx].en;
-    card.classList.add('flipped');
-    gameVars.memory.flipped.push(idx);
-    
-    if (gameVars.memory.flipped.length === 2) {
-        gameVars.memory.locked = true;
-        const idx1 = gameVars.memory.flipped[0];
-        const idx2 = gameVars.memory.flipped[1];
-        const fb = document.getElementById('memoryFeedback');
-        if (pairs[idx1].en === pairs[idx2].en && idx1 !== idx2) {
-            gameVars.memory.matched.push(idx1, idx2);
-            setTimeout(() => {
-                document.querySelectorAll('.card')[idx1].classList.add('matched');
-                document.querySelectorAll('.card')[idx2].classList.add('matched');
-                fb.textContent = '✅ Eşleşti! +15 XP';
-                fb.className = 'feedback correct';
-                addXP(15); addCoins(15); addCorrect();
-                gameVars.memory.flipped = [];
-                gameVars.memory.locked = false;
-                if (gameVars.memory.matched.length === pairs.length) {
-                    state.gameActive = false;
-                    setTimeout(showLevelComplete, 600);
-                }
-            }, 500);
-        } else {
-            setTimeout(() => {
-                document.querySelectorAll('.card')[idx1].textContent = '❓';
-                document.querySelectorAll('.card')[idx2].textContent = '❓';
-                document.querySelectorAll('.card')[idx1].classList.remove('flipped');
-                document.querySelectorAll('.card')[idx2].classList.remove('flipped');
-                fb.textContent = '❌ Eşleşmedi!';
-                fb.className = 'feedback wrong';
-                gameVars.memory.flipped = [];
-                gameVars.memory.locked = false;
-            }, 700);
-        }
-    }
-}
-
-// 4.10 GÜNÜN KELİMESİ
+// 5.7 GÜNÜN KELİMESİ
 function initDaily() {
     const word = getRandomWords(1)[0];
-    const examples = generateAIExamples(word.en);
+    const examples = getExampleSentences(word.en);
     state.gameActive = true;
     let html = `<h2>📅 Günün Kelimesi</h2>`;
     html += `<p style="font-size:32px;font-weight:700;">${word.en}</p>`;
     html += `<button class="speak-btn" onclick="speak('${word.en}')">🔊</button>`;
-    html += `<p style="color:var(--text-secondary)">${word.tr}</p>`;
-    html += `<div style="background:rgba(255,215,0,0.05);border-radius:16px;padding:15px;margin:10px 0;max-width:500px;text-align:left;">`;
-    examples.forEach(ex => {
-        html += `<p style="margin:6px 0;">• ${ex}</p>`;
-    });
+    html += `<p style="color:var(--text-secondary);font-size:18px;">${word.tr}</p>`;
+    html += `<div style="background:var(--bg-card);border-radius:16px;padding:16px;margin:12px 0;max-width:100%;text-align:left;border:1px solid var(--border-color);">`;
+    examples.forEach(ex => { html += `<p style="margin:6px 0;font-size:14px;">• ${ex}</p>`; });
     html += `</div>`;
-    html += `<button class="btn-primary" onclick="addXP(10);addCoins(10);showLevelComplete();">✅ Öğrendim (+10 XP)</button>`;
-    html += `<button class="btn-secondary" onclick="initDaily()">🔄 Yeni Kelime</button>`;
-    gameArea.innerHTML = html;
+    html += `<button class="btn-primary" onclick="addXP(10);addCoins(10);renderLevelComplete();">✅ Öğrendim (+10 XP)</button>`;
+    html += `<button class="btn-secondary" onclick="initDaily()">🔄 Yeni</button>`;
+    html += `<button class="btn-secondary" onclick="goToPage('home')">🔙 Geri</button>`;
+    mainContent.innerHTML = html;
     speak(word.en);
 }
 
-// 4.11 DİYALOG TAMAMLAMA
+// 5.8 DİYALOG
 function initDialogue() {
     const word = getRandomWords(1)[0];
     const dialogues = [
         { q: `What is this?`, a: `This is a ___` },
         { q: `Do you have a ___?`, a: `Yes, I have a ___` },
         { q: `Where is the ___?`, a: `The ___ is here` },
-        { q: `Can you see the ___?`, a: `Yes, I see the ___` },
     ];
     const d = dialogues[Math.floor(Math.random() * dialogues.length)];
-    const question = d.q;
-    const answerTemplate = d.a;
-    const correctAnswer = answerTemplate.replace('___', word.en);
-    gameVars.dialogue = { word, question, correctAnswer };
+    const correctAnswer = d.a.replace('___', word.en);
+    gameVars.dialogue = { word, question: d.q, correctAnswer };
     state.gameActive = true;
     renderDialogue();
 }
 
 function renderDialogue() {
     const { word, question, correctAnswer } = gameVars.dialogue;
-    let html = `<h2>💬 Diyalog Tamamlama</h2>`;
-    html += `<div style="background:rgba(255,215,0,0.05);border-radius:16px;padding:20px;max-width:500px;margin:10px 0;">`;
-    html += `<p style="font-size:18px;">🧑: ${question}</p>`;
-    html += `<p style="font-size:18px;margin-top:10px;">👤: <input class="text-input" id="dialogueInput" placeholder="Cevabını yaz..." style="max-width:300px;"></p>`;
+    let html = `<h2>💬 Diyalog</h2>`;
+    html += `<div style="background:var(--bg-card);border-radius:16px;padding:16px;max-width:100%;margin:10px 0;border:1px solid var(--border-color);">`;
+    html += `<p style="font-size:17px;">🧑: ${question}</p>`;
+    html += `<p style="font-size:17px;margin-top:10px;">👤: <input class="text-input" id="dialogueInput" placeholder="Cevabını yaz..." style="max-width:100%;"></p>`;
     html += `</div>`;
     html += `<button class="btn-primary" onclick="checkDialogue()">✅ Kontrol Et</button>`;
     html += `<div class="feedback" id="dialogueFeedback"></div>`;
     html += `<button class="speak-btn" onclick="speak('${correctAnswer}')">🔊</button>`;
     html += `<button class="btn-secondary" onclick="initDialogue()">🔄 Yeni</button>`;
-    gameArea.innerHTML = html;
+    html += `<button class="btn-secondary" onclick="goToPage('home')">🔙 Geri</button>`;
+    mainContent.innerHTML = html;
     document.getElementById('dialogueInput').addEventListener('keydown', (e) => {
         if (e.key === 'Enter') checkDialogue();
     });
@@ -1587,24 +1543,24 @@ function checkDialogue() {
     const { correctAnswer, word } = gameVars.dialogue;
     const fb = document.getElementById('dialogueFeedback');
     if (input.value.trim().toLowerCase() === correctAnswer.toLowerCase()) {
-        fb.textContent = '✅ Mükemmel! +25 XP, +25🪙';
+        fb.textContent = '✅ +25 XP, +25🪙';
         fb.className = 'feedback correct';
         addXP(25); addCoins(25); addCorrect();
         showConfetti();
         state.gameActive = false;
-        setTimeout(showLevelComplete, 1000);
+        setTimeout(renderLevelComplete, 1000);
     } else {
-        fb.textContent = `❌ Doğru cevap: "${correctAnswer}"`;
+        fb.textContent = `❌ Doğru: "${correctAnswer}"`;
         fb.className = 'feedback wrong';
         vibrate();
         addWrong({ en: word.en, tr: word.tr });
         state.lives--;
         updateUI();
-        if (state.lives <= 0) { state.gameActive = false; setTimeout(showGameOver, 500); }
+        if (state.lives <= 0) { state.gameActive = false; setTimeout(renderGameOver, 500); }
     }
 }
 
-// 4.12 TELAFFUZ TESTİ
+// 5.9 TELAFFUZ TESTİ
 function initSpeak() {
     const word = getRandomWords(1)[0];
     gameVars.speak = { word: word.en, tr: word.tr };
@@ -1617,16 +1573,17 @@ function renderSpeak() {
     let html = `<h2>🎤 Telaffuz Testi</h2>`;
     html += `<p style="font-size:28px;font-weight:700;">${word}</p>`;
     html += `<button class="speak-btn" onclick="speak('${word}')">🔊 Dinle</button>`;
-    html += `<p style="color:var(--text-secondary)">${tr}</p>`;
+    html += `<p style="color:var(--text-secondary);">${tr}</p>`;
     html += `<button class="mic-btn" id="micBtn" onclick="startListening()">🎤</button>`;
     html += `<div class="feedback" id="speakFeedback"></div>`;
     html += `<button class="btn-secondary" onclick="initSpeak()">🔄 Yeni</button>`;
-    gameArea.innerHTML = html;
+    html += `<button class="btn-secondary" onclick="goToPage('home')">🔙 Geri</button>`;
+    mainContent.innerHTML = html;
 }
 
 function startListening() {
     if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-        document.getElementById('speakFeedback').textContent = '❌ Tarayıcın ses tanımayı desteklemiyor. Chrome kullan.';
+        document.getElementById('speakFeedback').textContent = '❌ Chrome kullan.';
         return;
     }
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -1634,26 +1591,23 @@ function startListening() {
     recognition.lang = 'en-US';
     recognition.interimResults = false;
     recognition.continuous = false;
-    
     const btn = document.getElementById('micBtn');
     btn.classList.add('listening');
-    btn.textContent = '🎤🔴';
+    btn.textContent = '🔴';
     document.getElementById('speakFeedback').textContent = '🎤 Dinleniyor...';
-    
     recognition.onresult = (event) => {
         const transcript = event.results[0][0].transcript.toLowerCase().trim();
         const { word } = gameVars.speak;
         const fb = document.getElementById('speakFeedback');
         btn.classList.remove('listening');
         btn.textContent = '🎤';
-        
         if (transcript === word.toLowerCase()) {
-            fb.textContent = `✅ Doğru Telaffuz! "${word}" +25 XP, +25🪙`;
+            fb.textContent = `✅ Doğru! +25 XP, +25🪙`;
             fb.className = 'feedback correct';
             addXP(25); addCoins(25); addCorrect();
             showConfetti();
             state.gameActive = false;
-            setTimeout(showLevelComplete, 1000);
+            setTimeout(renderLevelComplete, 1000);
         } else {
             fb.textContent = `❌ Sen: "${transcript}" | Doğru: "${word}"`;
             fb.className = 'feedback wrong';
@@ -1661,7 +1615,7 @@ function startListening() {
             addWrong({ en: word, tr: 'telaffuz' });
             state.lives--;
             updateUI();
-            if (state.lives <= 0) { state.gameActive = false; setTimeout(showGameOver, 500); }
+            if (state.lives <= 0) { state.gameActive = false; setTimeout(renderGameOver, 500); }
         }
     };
     recognition.onerror = (e) => {
@@ -1674,7 +1628,7 @@ function startListening() {
     recognition.start();
 }
 
-// 4.13 YAZMA MODU
+// 5.10 YAZMA MODU
 function initWrite() {
     const word = getRandomWords(1)[0];
     gameVars.write = { word: word.en, tr: word.tr };
@@ -1691,7 +1645,8 @@ function renderWrite() {
     html += `<div class="feedback" id="writeFeedback"></div>`;
     html += `<button class="speak-btn" onclick="speak('${word}')">🔊</button>`;
     html += `<button class="btn-secondary" onclick="initWrite()">🔄 Yeni</button>`;
-    gameArea.innerHTML = html;
+    html += `<button class="btn-secondary" onclick="goToPage('home')">🔙 Geri</button>`;
+    mainContent.innerHTML = html;
     document.getElementById('writeInput').addEventListener('keydown', (e) => {
         if (e.key === 'Enter') checkWrite();
     });
@@ -1703,24 +1658,24 @@ function checkWrite() {
     const { word, tr } = gameVars.write;
     const fb = document.getElementById('writeFeedback');
     if (input.value.trim().toLowerCase() === word.toLowerCase()) {
-        fb.textContent = '✅ Doğru! +20 XP, +20🪙';
+        fb.textContent = '✅ +20 XP, +20🪙';
         fb.className = 'feedback correct';
         addXP(20); addCoins(20); addCorrect();
         showConfetti();
         state.gameActive = false;
-        setTimeout(showLevelComplete, 1000);
+        setTimeout(renderLevelComplete, 1000);
     } else {
-        fb.textContent = `❌ Yanlış! Doğru: ${word}`;
+        fb.textContent = `❌ Doğru: ${word}`;
         fb.className = 'feedback wrong';
         vibrate();
         addWrong({ en: word, tr });
         state.lives--;
         updateUI();
-        if (state.lives <= 0) { state.gameActive = false; setTimeout(showGameOver, 500); }
+        if (state.lives <= 0) { state.gameActive = false; setTimeout(renderGameOver, 500); }
     }
 }
 
-// 4.14 DİNLEME MODU
+// 5.11 DİNLEME
 function initListen() {
     const words = getRandomWords(4);
     const correct = words[0];
@@ -1734,16 +1689,13 @@ function renderListen() {
     const { correct, options } = gameVars.listen;
     let html = `<h2>👂 Dinleme Modu</h2>`;
     html += `<button class="btn-primary" onclick="speak('${correct.en}')">🔊 Dinle</button>`;
-    html += `<p style="color:var(--text-secondary);">Hangi kelimeyi duydun?</p>`;
+    html += `<p style="color:var(--text-secondary);">Hangi kelime?</p>`;
     html += `<div class="options-grid">`;
-    options.forEach(opt => {
-        html += `<button class="option-btn" data-value="${opt.en}">${opt.tr}</button>`;
-    });
+    options.forEach(opt => { html += `<button class="option-btn" data-value="${opt.en}">${opt.tr}</button>`; });
     html += `</div><div class="feedback" id="listenFeedback"></div>`;
-    gameArea.innerHTML = html;
-    document.querySelectorAll('.option-btn').forEach(btn => {
-        btn.addEventListener('click', onListenAnswer);
-    });
+    html += `<button class="btn-secondary" onclick="goToPage('home')">🔙 Geri</button>`;
+    mainContent.innerHTML = html;
+    document.querySelectorAll('.option-btn').forEach(btn => btn.addEventListener('click', onListenAnswer));
     setTimeout(() => speak(correct.en), 500);
 }
 
@@ -1754,18 +1706,17 @@ function onListenAnswer(e) {
     const { correct } = gameVars.listen;
     const fb = document.getElementById('listenFeedback');
     document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
-    
     if (selected === correct.en) {
         btn.classList.add('correct');
-        fb.textContent = '✅ Doğru! +15 XP, +15🪙';
+        fb.textContent = '✅ +15 XP, +15🪙';
         fb.className = 'feedback correct';
         addXP(15); addCoins(15); addCorrect();
         showConfetti();
         state.gameActive = false;
-        setTimeout(showLevelComplete, 1000);
+        setTimeout(renderLevelComplete, 1000);
     } else {
         btn.classList.add('wrong');
-        fb.textContent = `❌ Doğru: ${correct.en} (${correct.tr})`;
+        fb.textContent = `❌ Doğru: ${correct.en}`;
         fb.className = 'feedback wrong';
         vibrate();
         addWrong(correct);
@@ -1774,120 +1725,15 @@ function onListenAnswer(e) {
         document.querySelectorAll('.option-btn').forEach(b => {
             if (b.dataset.value === correct.en) b.classList.add('correct');
         });
-        if (state.lives <= 0) { state.gameActive = false; setTimeout(showGameOver, 500); }
+        if (state.lives <= 0) { state.gameActive = false; setTimeout(renderGameOver, 500); }
     }
-}
-
-// 4.15 İSTATİSTİK
-function initStats() {
-    let html = `<h2>📊 İstatistikler</h2>`;
-    html += `<div style="text-align:left;max-width:500px;width:100%;padding:10px;">`;
-    html += `<p>📝 Toplam Doğru: <strong>${state.totalCorrect}</strong></p>`;
-    html += `<p>❌ Toplam Yanlış: <strong>${state.totalWrong}</strong></p>`;
-    const total = state.totalCorrect + state.totalWrong;
-    const rate = total > 0 ? Math.round((state.totalCorrect / total) * 100) : 0;
-    html += `<p>🎯 Başarı Oranı: <strong>${rate}%</strong></p>`;
-    html += `<p>⚡ XP: <strong>${state.xp}</strong> (Lv.${state.level})</p>`;
-    html += `<p>🪙 Coin: <strong>${state.coins}</strong></p>`;
-    html += `<p>🔥 Seri: <strong>${state.streak} gün</strong></p>`;
-    html += `<p>🏆 Rozetler: ${state.badges.length > 0 ? state.badges.join(', ') : 'Henüz yok'}</p>`;
-    html += `<hr style="border-color:var(--border-color);margin:15px 0;">`;
-    html += `<h4>📌 Zor Kelimeler (Yanlış yapılanlar)</h4>`;
-    if (state.wrongWords.length === 0) {
-        html += `<p style="color:var(--text-secondary);">Henüz zor kelime yok, tebrikler! 🎉</p>`;
-    } else {
-        const sorted = [...state.wrongWords].sort((a, b) => b.count - a.count).slice(0, 10);
-        sorted.forEach(w => {
-            html += `<p>• ${w.en} (${w.tr}) - ${w.count} yanlış</p>`;
-        });
-    }
-    html += `</div>`;
-    html += `<button class="btn-secondary" onclick="startGame()">🔙 Geri</button>`;
-    gameArea.innerHTML = html;
-}
-
-// 4.16 TEKRAR ET (Zor Kelimeler)
-function initReview() {
-    if (state.wrongWords.length === 0) {
-        gameArea.innerHTML = `
-            <h2>📌 Tekrar Et</h2>
-            <p>🎉 Hiç zor kelimen yok! Harika iş çıkarıyorsun.</p>
-            <button class="btn-secondary" onclick="startGame()">🔙 Geri</button>
-        `;
-        return;
-    }
-    const words = state.wrongWords.slice(0, 10);
-    gameVars.review = { words: shuffleArray(words), index: 0 };
-    state.gameActive = true;
-    showReview();
-}
-
-function showReview() {
-    const { words, index } = gameVars.review;
-    if (index >= words.length) {
-        state.gameActive = false;
-        showLevelComplete();
-        return;
-    }
-    const word = words[index];
-    const pool = getRandomWords(10);
-    let options = [word.tr];
-    pool.forEach(w => { if (w.tr !== word.tr && !options.includes(w.tr) && options.length < 4) options.push(w.tr); });
-    options = shuffleArray(options);
-    gameVars.review.current = { word, options, correct: word.tr };
-    
-    let html = `<h2>📌 Tekrar Et (Zor Kelimeler)</h2>`;
-    html += `<p style="font-size:24px;font-weight:700;">${word.en}</p>`;
-    html += `<button class="speak-btn" onclick="speak('${word.en}')">🔊</button>`;
-    html += `<div class="options-grid">`;
-    options.forEach(opt => {
-        html += `<button class="option-btn" data-value="${opt}">${opt}</button>`;
-    });
-    html += `</div><div class="feedback" id="reviewFeedback"></div>`;
-    html += `<p style="color:var(--text-secondary)">${index+1}/${words.length}</p>`;
-    gameArea.innerHTML = html;
-    document.querySelectorAll('.option-btn').forEach(btn => {
-        btn.addEventListener('click', onReviewAnswer);
-    });
-    speak(word.en);
-}
-
-function onReviewAnswer(e) {
-    if (!state.gameActive) return;
-    const btn = e.currentTarget;
-    const selected = btn.dataset.value;
-    const { current, words, index } = gameVars.review;
-    const fb = document.getElementById('reviewFeedback');
-    document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
-    
-    if (selected === current.correct) {
-        btn.classList.add('correct');
-        fb.textContent = '✅ Doğru! +25 XP, +20🪙';
-        fb.className = 'feedback correct';
-        addXP(25); addCoins(20); addCorrect();
-        showConfetti();
-        // Zor kelimeden çıkar
-        state.wrongWords = state.wrongWords.filter(w => w.en !== current.word.en);
-    } else {
-        btn.classList.add('wrong');
-        fb.textContent = `❌ Doğru: ${current.correct}`;
-        fb.className = 'feedback wrong';
-        vibrate();
-        addWrong(current.word);
-        state.lives--;
-        updateUI();
-        if (state.lives <= 0) { state.gameActive = false; setTimeout(showGameOver, 500); return; }
-    }
-    gameVars.review.index++;
-    setTimeout(() => { if (state.gameActive) showReview(); }, 1200);
 }
 
 // ============================================================
-// 5. EKRAN YÖNETİMİ
+// 6. EKRAN YÖNETİMİ
 // ============================================================
-const gameArea = document.getElementById('gameArea');
 
-function showLevelComplete() {
+function renderLevelComplete() {
     const total = state.totalCorrect + state.totalWrong;
     const rate = total > 0 ? Math.round((state.totalCorrect / total) * 100) : 0;
     let grade = '⭐';
@@ -1895,93 +1741,39 @@ function showLevelComplete() {
     if (rate >= 90) { grade = '⭐⭐⭐ Perfect!'; bonus = 50; }
     else if (rate >= 70) { grade = '⭐⭐ Good!'; bonus = 30; }
     else { grade = '⭐ Fair!'; bonus = 10; }
-    
     addXP(bonus);
     addCoins(bonus);
     checkBadges();
     saveState();
-    
     let html = `<h2>🏆 Seviye Tamamlandı!</h2>`;
-    html += `<p style="font-size:24px;">${grade}</p>`;
+    html += `<p style="font-size:22px;">${grade}</p>`;
     html += `<p>Başarı: ${rate}% | +${bonus} XP Bonus | +${bonus}🪙</p>`;
-    html += `<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:15px 0;">`;
-    state.badges.forEach(b => {
-        html += `<span class="badge unlocked">${b}</span>`;
-    });
+    html += `<div class="badge-container">`;
+    state.badges.forEach(b => { html += `<span class="badge unlocked">${b}</span>`; });
     html += `</div>`;
-    html += `<button class="btn-primary" onclick="resetAndStart()">🚀 Devam Et</button>`;
-    html += `<button class="btn-secondary" onclick="initStats()">📊 İstatistikler</button>`;
-    gameArea.innerHTML = html;
+    html += `<button class="btn-primary" onclick="goToPage('home')">🏠 Ana Sayfa</button>`;
+    mainContent.innerHTML = html;
     showConfetti();
     updateUI();
 }
 
-function showGameOver() {
+function renderGameOver() {
     saveState();
     let html = `<h2>💔 Oyun Bitti!</h2>`;
-    html += `<p>Seviye ${state.level} - XP: ${state.xp}</p>`;
+    html += `<p>Seviye ${state.level} · XP: ${state.xp}</p>`;
     html += `<p>Doğru: ${state.totalCorrect} | Yanlış: ${state.totalWrong}</p>`;
-    html += `<button class="btn-primary" onclick="resetAndStart()">🔄 Yeniden Başla</button>`;
-    html += `<button class="btn-secondary" onclick="initStats()">📊 İstatistikler</button>`;
-    gameArea.innerHTML = html;
-}
-
-function resetAndStart() {
-    state.lives = 3;
-    updateUI();
-    startGame();
-}
-
-function showHome() {
-    gameArea.innerHTML = `
-        <h2>🎮 İsoing 1.5</h2>
-        <p>12 oyun, XP sistemi, rozetler, sesli okuma ve daha fazlası...</p>
-        <button class="btn-primary" onclick="startGame()">🚀 Başla</button>
-    `;
+    html += `<button class="btn-primary" onclick="goToPage('home')">🏠 Ana Sayfa</button>`;
+    html += `<button class="btn-secondary" onclick="goToPage('stats')">📊 İstatistik</button>`;
+    mainContent.innerHTML = html;
 }
 
 // ============================================================
-// 6. ANA KONTROL
+// 7. NAVİGASYON
 // ============================================================
-function startGame() {
-    state.gameActive = true;
-    state.lives = 3;
-    updateUI();
-    
-    switch(state.currentGame) {
-        case 'match': initMatch(); break;
-        case 'quiz': initQuiz(); break;
-        case 'fill': initFill(); break;
-        case 'hangman': initHangman(); break;
-        case 'scramble': initScramble(); break;
-        case 'order': initOrder(); break;
-        case 'speed': initSpeed(); break;
-        case 'boss': initBoss(); break;
-        case 'memory': initMemory(); break;
-        case 'daily': initDaily(); break;
-        case 'dialogue': initDialogue(); break;
-        case 'speak': initSpeak(); break;
-        case 'write': initWrite(); break;
-        case 'listen': initListen(); break;
-        case 'stats': initStats(); break;
-        case 'review': initReview(); break;
-        default: initMatch();
-    }
-}
 
-// MENU
-document.querySelectorAll('#mainMenu button').forEach(btn => {
-    btn.addEventListener('click', function() {
-        document.querySelectorAll('#mainMenu button').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        state.currentGame = this.dataset.game;
-        if (state.currentGame === 'stats') {
-            initStats();
-        } else if (state.currentGame === 'review') {
-            initReview();
-        } else {
-            startGame();
-        }
+document.querySelectorAll('.nav-item').forEach(el => {
+    el.addEventListener('click', function() {
+        goToPage(this.dataset.page);
     });
 });
 
@@ -1997,37 +1789,16 @@ document.getElementById('themeToggle').addEventListener('click', function() {
     }
 });
 
-// BAŞLAT BUTONU
-document.addEventListener('DOMContentLoaded', function() {
-    loadState();
-    updateUI();
-    document.getElementById('startGameBtn').addEventListener('click', startGame);
-    // Streak kontrolü
-    const today = new Date().toDateString();
-    if (state.lastPlayDate) {
-        const last = new Date(state.lastPlayDate).toDateString();
-        if (last !== today) {
-            state.streak = 0;
-        }
-    }
-    state.lastPlayDate = new Date().toISOString();
-    updateUI();
-    checkBadges();
-    saveState();
-});
-
-// START GAME BUTTON (dinamik)
-document.addEventListener('click', function(e) {
-    if (e.target && e.target.id === 'startGameBtn') {
-        startGame();
-    }
-});
-
 // ============================================================
-// 7. BAŞLANGIÇ
+// 8. BAŞLANGIÇ
 // ============================================================
-console.log('🚀 İsoing 1.5 başlatıldı!');
-console.log(`📚 ${WORD_POOL.length} kelime, 12 oyun, XP sistemi, rozetler, sesli okuma!`);
+
+loadState();
+updateUI();
+goToPage('home');
+
+console.log('🚀 İsoing 1.5 - Mobil Oyun Tasarımı');
+console.log(`📚 ${WORD_POOL.length} kelime, 11 oyun, sabit alt menü!`);
 </script>
 </body>
 </html>
