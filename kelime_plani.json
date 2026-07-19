@@ -1,0 +1,1925 @@
+{
+  "_readme": "Bu dosya bir İÇERİK PLANI / YOL HARİTASIdır. Kelimelerin tamamını İÇERMEZ. Her bölüm (section) için: hangi seviyede, hangi konuda, kaç kelime eklenmesi gerektiğini 'instructions' alanında açıklar ve formatı göstermek için 1-2 örnek kelime (+ örnek cümle) içerir. Kalan kelimeleri 'words' dizisine aynı formatta eklemen yeterli.",
+  "meta": {
+    "cefr_levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1"
+    ],
+    "total_sections": 94,
+    "total_planned_words": 1765,
+    "sentence_spec": {
+      "sentences_per_word": 1,
+      "aciklama": "Her kelime için tam olarak 1 örnek cümle yeterli: kelimenin en doğal/günlük kullanımını gösteren, İngilizce cümle + Türkçe çevirisi birlikte.",
+      "uzunluk_rehberi": {
+        "A1": "4-7 kelimelik, basit şimdiki zaman, günlük konu",
+        "A2": "5-9 kelimelik, günlük durumlar; geçmiş/gelecek zaman da olabilir",
+        "B1": "7-12 kelimelik, bağlaç içerebilen, biraz daha bağlamsal cümleler",
+        "B2": "10-15 kelimelik, deyim/soyut bağlam içerebilir",
+        "C1": "12-18 kelimelik, resmi/soyut/profesyonel bağlamlar içerebilir"
+      },
+      "ornek": {
+        "word_en": "important",
+        "word_tr": "önemli",
+        "sentence_en": "This meeting is very important for our team.",
+        "sentence_tr": "Bu toplantı takımımız için çok önemli."
+      }
+    },
+    "word_entry_format": {
+      "en": "İngilizce kelime/kalıp",
+      "tr": "Türkçe karşılığı",
+      "example": {
+        "en": "İngilizce örnek cümle",
+        "tr": "Türkçe çevirisi"
+      }
+    }
+  },
+  "sections": [
+    {
+      "section": 1,
+      "level": "A1",
+      "topic": "Zamirler",
+      "target_word_count": 15,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Zamirler ile ilgili 15 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "I",
+          "tr": "ben",
+          "example": {
+            "en": "\"I\"",
+            "tr": "\"ben\""
+          }
+        },
+        {
+          "en": "you",
+          "tr": "sen",
+          "example": {
+            "en": "\"you\"",
+            "tr": "\"sen\""
+          }
+        }
+      ]
+    },
+    {
+      "section": 2,
+      "level": "A1",
+      "topic": "Selamlaşma Kalıpları",
+      "target_word_count": 13,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Selamlaşma Kalıpları ile ilgili 13 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "hello",
+          "tr": "merhaba",
+          "example": {
+            "en": "\"hello\"",
+            "tr": "\"merhaba\""
+          }
+        },
+        {
+          "en": "hi",
+          "tr": "selam",
+          "example": {
+            "en": "\"hi\"",
+            "tr": "\"selam\""
+          }
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "level": "A1",
+      "topic": "Sayılar",
+      "target_word_count": 30,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Sayılar ile ilgili 30 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "one",
+          "tr": "bir",
+          "example": {
+            "en": "This is an one.",
+            "tr": "Bu bir bir."
+          }
+        },
+        {
+          "en": "two",
+          "tr": "iki",
+          "example": {
+            "en": "This is a two.",
+            "tr": "Bu bir iki."
+          }
+        }
+      ]
+    },
+    {
+      "section": 4,
+      "level": "A1",
+      "topic": "Renkler",
+      "target_word_count": 13,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Renkler ile ilgili 13 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "red",
+          "tr": "kırmızı",
+          "example": {
+            "en": "This is a red.",
+            "tr": "Bu bir kırmızı."
+          }
+        },
+        {
+          "en": "blue",
+          "tr": "mavi",
+          "example": {
+            "en": "This is a blue.",
+            "tr": "Bu bir mavi."
+          }
+        }
+      ]
+    },
+    {
+      "section": 5,
+      "level": "A1",
+      "topic": "Haftanın Günleri",
+      "target_word_count": 7,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Haftanın Günleri ile ilgili 7 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "Monday",
+          "tr": "Pazartesi",
+          "example": {
+            "en": "This is a Monday.",
+            "tr": "Bu bir Pazartesi."
+          }
+        },
+        {
+          "en": "Tuesday",
+          "tr": "Salı",
+          "example": {
+            "en": "This is a Tuesday.",
+            "tr": "Bu bir Salı."
+          }
+        }
+      ]
+    },
+    {
+      "section": 6,
+      "level": "A1",
+      "topic": "Aylar",
+      "target_word_count": 12,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Aylar ile ilgili 12 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "January",
+          "tr": "Ocak",
+          "example": {
+            "en": "This is a January.",
+            "tr": "Bu bir Ocak."
+          }
+        },
+        {
+          "en": "February",
+          "tr": "Şubat",
+          "example": {
+            "en": "This is a February.",
+            "tr": "Bu bir Şubat."
+          }
+        }
+      ]
+    },
+    {
+      "section": 7,
+      "level": "A1",
+      "topic": "Aile",
+      "target_word_count": 28,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Aile ile ilgili 28 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "mother",
+          "tr": "anne",
+          "example": {
+            "en": "This is a mother.",
+            "tr": "Bu bir anne."
+          }
+        },
+        {
+          "en": "father",
+          "tr": "baba",
+          "example": {
+            "en": "This is a father.",
+            "tr": "Bu bir baba."
+          }
+        }
+      ]
+    },
+    {
+      "section": 8,
+      "level": "A1",
+      "topic": "Vücut Bölümleri",
+      "target_word_count": 30,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Vücut Bölümleri ile ilgili 30 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "head",
+          "tr": "baş",
+          "example": {
+            "en": "This is a head.",
+            "tr": "Bu bir baş."
+          }
+        },
+        {
+          "en": "hair",
+          "tr": "saç",
+          "example": {
+            "en": "This is a hair.",
+            "tr": "Bu bir saç."
+          }
+        }
+      ]
+    },
+    {
+      "section": 9,
+      "level": "A1",
+      "topic": "Hayvanlar",
+      "target_word_count": 30,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Hayvanlar ile ilgili 30 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "dog",
+          "tr": "köpek",
+          "example": {
+            "en": "This is a dog.",
+            "tr": "Bu bir köpek."
+          }
+        },
+        {
+          "en": "cat",
+          "tr": "kedi",
+          "example": {
+            "en": "This is a cat.",
+            "tr": "Bu bir kedi."
+          }
+        }
+      ]
+    },
+    {
+      "section": 10,
+      "level": "A1",
+      "topic": "Yiyecek & İçecek",
+      "target_word_count": 30,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Yiyecek & İçecek ile ilgili 30 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "bread",
+          "tr": "ekmek",
+          "example": {
+            "en": "This is a bread.",
+            "tr": "Bu bir ekmek."
+          }
+        },
+        {
+          "en": "milk",
+          "tr": "süt",
+          "example": {
+            "en": "This is a milk.",
+            "tr": "Bu bir süt."
+          }
+        }
+      ]
+    },
+    {
+      "section": 11,
+      "level": "A1",
+      "topic": "Ev & Eşyalar",
+      "target_word_count": 26,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Ev & Eşyalar ile ilgili 26 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "house",
+          "tr": "ev",
+          "example": {
+            "en": "This is a house.",
+            "tr": "Bu bir ev."
+          }
+        },
+        {
+          "en": "room",
+          "tr": "oda",
+          "example": {
+            "en": "This is a room.",
+            "tr": "Bu bir oda."
+          }
+        }
+      ]
+    },
+    {
+      "section": 12,
+      "level": "A1",
+      "topic": "Okul Eşyaları & Dersler",
+      "target_word_count": 30,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Okul Eşyaları & Dersler ile ilgili 30 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "school",
+          "tr": "okul",
+          "example": {
+            "en": "This is a school.",
+            "tr": "Bu bir okul."
+          }
+        },
+        {
+          "en": "teacher",
+          "tr": "öğretmen",
+          "example": {
+            "en": "This is a teacher.",
+            "tr": "Bu bir öğretmen."
+          }
+        }
+      ]
+    },
+    {
+      "section": 13,
+      "level": "A1",
+      "topic": "Kıyafetler",
+      "target_word_count": 22,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Kıyafetler ile ilgili 22 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "shirt",
+          "tr": "gömlek",
+          "example": {
+            "en": "This is a shirt.",
+            "tr": "Bu bir gömlek."
+          }
+        },
+        {
+          "en": "T-shirt",
+          "tr": "tişört",
+          "example": {
+            "en": "This is a T-shirt.",
+            "tr": "Bu bir tişört."
+          }
+        }
+      ]
+    },
+    {
+      "section": 14,
+      "level": "A1",
+      "topic": "Hava Durumu",
+      "target_word_count": 16,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Hava Durumu ile ilgili 16 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "sun",
+          "tr": "güneş",
+          "example": {
+            "en": "This is a sun.",
+            "tr": "Bu bir güneş."
+          }
+        },
+        {
+          "en": "rain",
+          "tr": "yağmur",
+          "example": {
+            "en": "This is a rain.",
+            "tr": "Bu bir yağmur."
+          }
+        }
+      ]
+    },
+    {
+      "section": 15,
+      "level": "A1",
+      "topic": "Zaman İfadeleri",
+      "target_word_count": 19,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Zaman İfadeleri ile ilgili 19 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "today",
+          "tr": "bugün",
+          "example": {
+            "en": "This is a today.",
+            "tr": "Bu bir bugün."
+          }
+        },
+        {
+          "en": "tomorrow",
+          "tr": "yarın",
+          "example": {
+            "en": "This is a tomorrow.",
+            "tr": "Bu bir yarın."
+          }
+        }
+      ]
+    },
+    {
+      "section": 16,
+      "level": "A1",
+      "topic": "Temel Fiiller",
+      "target_word_count": 30,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Temel Fiiller ile ilgili 30 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "be",
+          "tr": "olmak",
+          "example": {
+            "en": "I like to be.",
+            "tr": "Olmak etmeyi/yi severim."
+          }
+        },
+        {
+          "en": "have",
+          "tr": "sahip olmak",
+          "example": {
+            "en": "I like to have.",
+            "tr": "Sahip olmak etmeyi/yi severim."
+          }
+        }
+      ]
+    },
+    {
+      "section": 17,
+      "level": "A1",
+      "topic": "Temel Sıfatlar",
+      "target_word_count": 30,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Temel Sıfatlar ile ilgili 30 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "big",
+          "tr": "büyük",
+          "example": {
+            "en": "It is very big.",
+            "tr": "Çok büyük."
+          }
+        },
+        {
+          "en": "small",
+          "tr": "küçük",
+          "example": {
+            "en": "It is very small.",
+            "tr": "Çok küçük."
+          }
+        }
+      ]
+    },
+    {
+      "section": 18,
+      "level": "A1",
+      "topic": "Meslekler",
+      "target_word_count": 23,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Meslekler ile ilgili 23 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "doctor",
+          "tr": "doktor",
+          "example": {
+            "en": "This is a doctor.",
+            "tr": "Bu bir doktor."
+          }
+        },
+        {
+          "en": "nurse",
+          "tr": "hemşire",
+          "example": {
+            "en": "This is a nurse.",
+            "tr": "Bu bir hemşire."
+          }
+        }
+      ]
+    },
+    {
+      "section": 19,
+      "level": "A1",
+      "topic": "Şehirde Yerler",
+      "target_word_count": 29,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Şehirde Yerler ile ilgili 29 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "city",
+          "tr": "şehir",
+          "example": {
+            "en": "This is a city.",
+            "tr": "Bu bir şehir."
+          }
+        },
+        {
+          "en": "town",
+          "tr": "kasaba",
+          "example": {
+            "en": "This is a town.",
+            "tr": "Bu bir kasaba."
+          }
+        }
+      ]
+    },
+    {
+      "section": 20,
+      "level": "A1",
+      "topic": "Ulaşım Araçları",
+      "target_word_count": 13,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Ulaşım Araçları ile ilgili 13 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "car",
+          "tr": "araba",
+          "example": {
+            "en": "This is a car.",
+            "tr": "Bu bir araba."
+          }
+        },
+        {
+          "en": "bus",
+          "tr": "otobüs",
+          "example": {
+            "en": "This is a bus.",
+            "tr": "Bu bir otobüs."
+          }
+        }
+      ]
+    },
+    {
+      "section": 21,
+      "level": "A1",
+      "topic": "Doğa",
+      "target_word_count": 16,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Doğa ile ilgili 16 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "tree",
+          "tr": "ağaç",
+          "example": {
+            "en": "This is a tree.",
+            "tr": "Bu bir ağaç."
+          }
+        },
+        {
+          "en": "flower",
+          "tr": "çiçek",
+          "example": {
+            "en": "This is a flower.",
+            "tr": "Bu bir çiçek."
+          }
+        }
+      ]
+    },
+    {
+      "section": 22,
+      "level": "A1",
+      "topic": "Teknoloji - Temel",
+      "target_word_count": 11,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Teknoloji - Temel ile ilgili 11 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "phone",
+          "tr": "telefon",
+          "example": {
+            "en": "This is a phone.",
+            "tr": "Bu bir telefon."
+          }
+        },
+        {
+          "en": "computer",
+          "tr": "bilgisayar",
+          "example": {
+            "en": "This is a computer.",
+            "tr": "Bu bir bilgisayar."
+          }
+        }
+      ]
+    },
+    {
+      "section": 23,
+      "level": "A1",
+      "topic": "Duygular",
+      "target_word_count": 12,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Duygular ile ilgili 12 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "excited",
+          "tr": "heyecanlı",
+          "example": {
+            "en": "This is an excited.",
+            "tr": "Bu bir heyecanlı."
+          }
+        },
+        {
+          "en": "bored",
+          "tr": "sıkılmış",
+          "example": {
+            "en": "This is a bored.",
+            "tr": "Bu bir sıkılmış."
+          }
+        }
+      ]
+    },
+    {
+      "section": 24,
+      "level": "A1",
+      "topic": "Spor & Hobiler",
+      "target_word_count": 15,
+      "status": "hazır (mevcut uygulamada dolu)",
+      "instructions": "Bu bölüm zaten dolu: A1 seviyesinde, Spor & Hobiler ile ilgili 15 kelime 'kelime_adalari.html' içinde mevcut. Değiştirmek istersen aynı formatta güncelle.",
+      "words": [
+        {
+          "en": "football",
+          "tr": "futbol",
+          "example": {
+            "en": "This is a football.",
+            "tr": "Bu bir futbol."
+          }
+        },
+        {
+          "en": "basketball",
+          "tr": "basketbol",
+          "example": {
+            "en": "This is a basketball.",
+            "tr": "Bu bir basketbol."
+          }
+        }
+      ]
+    },
+    {
+      "section": 25,
+      "level": "A2",
+      "topic": "Alışveriş",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Alışveriş' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "price",
+          "tr": "fiyat",
+          "example": {
+            "en": "What is the price of this shirt?",
+            "tr": "Bu gömleğin fiyatı ne kadar?"
+          }
+        }
+      ]
+    },
+    {
+      "section": 26,
+      "level": "A2",
+      "topic": "Restoranda",
+      "target_word_count": 18,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Restoranda' ile ilgili 18 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "menu",
+          "tr": "menü",
+          "example": {
+            "en": "Can I see the menu, please?",
+            "tr": "Menüyü görebilir miyim lütfen?"
+          }
+        }
+      ]
+    },
+    {
+      "section": 27,
+      "level": "A2",
+      "topic": "Yol Tarifi",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Yol Tarifi' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "turn left",
+          "tr": "sola dön",
+          "example": {
+            "en": "Turn left at the corner.",
+            "tr": "Köşede sola dön."
+          }
+        }
+      ]
+    },
+    {
+      "section": 28,
+      "level": "A2",
+      "topic": "Sağlık ve Hastalıklar",
+      "target_word_count": 25,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Sağlık ve Hastalıklar' ile ilgili 25 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "headache",
+          "tr": "baş ağrısı",
+          "example": {
+            "en": "I have a headache today.",
+            "tr": "Bugün baş ağrım var."
+          }
+        }
+      ]
+    },
+    {
+      "section": 29,
+      "level": "A2",
+      "topic": "Seyahat",
+      "target_word_count": 22,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Seyahat' ile ilgili 22 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "suitcase",
+          "tr": "valiz",
+          "example": {
+            "en": "My suitcase is very heavy.",
+            "tr": "Valizim çok ağır."
+          }
+        }
+      ]
+    },
+    {
+      "section": 30,
+      "level": "A2",
+      "topic": "Telefon Görüşmeleri",
+      "target_word_count": 12,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Telefon Görüşmeleri' ile ilgili 12 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "hang up",
+          "tr": "telefonu kapatmak",
+          "example": {
+            "en": "Please don't hang up.",
+            "tr": "Lütfen telefonu kapatma."
+          }
+        }
+      ]
+    },
+    {
+      "section": 31,
+      "level": "A2",
+      "topic": "Ev İşleri",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Ev İşleri' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "do the dishes",
+          "tr": "bulaşık yıkamak",
+          "example": {
+            "en": "I do the dishes every evening.",
+            "tr": "Her akşam bulaşık yıkarım."
+          }
+        }
+      ]
+    },
+    {
+      "section": 32,
+      "level": "A2",
+      "topic": "Kişilik Özellikleri",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Kişilik Özellikleri' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "generous",
+          "tr": "cömert",
+          "example": {
+            "en": "My uncle is very generous.",
+            "tr": "Amcam çok cömert."
+          }
+        }
+      ]
+    },
+    {
+      "section": 33,
+      "level": "A2",
+      "topic": "Fiziksel Görünüm",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Fiziksel Görünüm' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "curly hair",
+          "tr": "kıvırcık saç",
+          "example": {
+            "en": "She has curly hair.",
+            "tr": "Onun kıvırcık saçları var."
+          }
+        }
+      ]
+    },
+    {
+      "section": 34,
+      "level": "A2",
+      "topic": "Günlük Rutinler",
+      "target_word_count": 18,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Günlük Rutinler' ile ilgili 18 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "wake up",
+          "tr": "uyanmak",
+          "example": {
+            "en": "I wake up at seven.",
+            "tr": "Saat yedide uyanırım."
+          }
+        }
+      ]
+    },
+    {
+      "section": 35,
+      "level": "A2",
+      "topic": "Hafta Sonu Aktiviteleri",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Hafta Sonu Aktiviteleri' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "go for a walk",
+          "tr": "yürüyüşe çıkmak",
+          "example": {
+            "en": "We go for a walk on Sundays.",
+            "tr": "Pazar günleri yürüyüşe çıkarız."
+          }
+        }
+      ]
+    },
+    {
+      "section": 36,
+      "level": "A2",
+      "topic": "Tatiller ve Kutlamalar",
+      "target_word_count": 18,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Tatiller ve Kutlamalar' ile ilgili 18 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "celebrate",
+          "tr": "kutlamak",
+          "example": {
+            "en": "We celebrate New Year with family.",
+            "tr": "Yılbaşını ailemizle kutlarız."
+          }
+        }
+      ]
+    },
+    {
+      "section": 37,
+      "level": "A2",
+      "topic": "Para ve Bankacılık",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Para ve Bankacılık' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "bank account",
+          "tr": "banka hesabı",
+          "example": {
+            "en": "I opened a new bank account.",
+            "tr": "Yeni bir banka hesabı açtım."
+          }
+        }
+      ]
+    },
+    {
+      "section": 38,
+      "level": "A2",
+      "topic": "Teknoloji ve İnternet",
+      "target_word_count": 22,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Teknoloji ve İnternet' ile ilgili 22 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "password",
+          "tr": "şifre",
+          "example": {
+            "en": "I forgot my password again.",
+            "tr": "Şifremi yine unuttum."
+          }
+        }
+      ]
+    },
+    {
+      "section": 39,
+      "level": "A2",
+      "topic": "Okul ve Eğitim (Genişletilmiş)",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Okul ve Eğitim (Genişletilmiş)' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "grade",
+          "tr": "not (sınav notu)",
+          "example": {
+            "en": "She got a good grade in math.",
+            "tr": "Matematikten iyi bir not aldı."
+          }
+        }
+      ]
+    },
+    {
+      "section": 40,
+      "level": "A2",
+      "topic": "İş ve Kariyer - Temel",
+      "target_word_count": 22,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'İş ve Kariyer - Temel' ile ilgili 22 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "colleague",
+          "tr": "iş arkadaşı",
+          "example": {
+            "en": "My colleague helped me today.",
+            "tr": "İş arkadaşım bugün bana yardım etti."
+          }
+        }
+      ]
+    },
+    {
+      "section": 41,
+      "level": "A2",
+      "topic": "Doğa ve Çevre",
+      "target_word_count": 18,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Doğa ve Çevre' ile ilgili 18 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "recycle",
+          "tr": "geri dönüştürmek",
+          "example": {
+            "en": "We should recycle plastic bottles.",
+            "tr": "Plastik şişeleri geri dönüştürmeliyiz."
+          }
+        }
+      ]
+    },
+    {
+      "section": 42,
+      "level": "A2",
+      "topic": "Sıklık Zarfları & Zaman Bağlaçları",
+      "target_word_count": 12,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Sıklık Zarfları & Zaman Bağlaçları' ile ilgili 12 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "usually",
+          "tr": "genellikle",
+          "example": {
+            "en": "I usually wake up early.",
+            "tr": "Genellikle erken uyanırım."
+          }
+        }
+      ]
+    },
+    {
+      "section": 43,
+      "level": "A2",
+      "topic": "Karşılaştırmalar",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Karşılaştırmalar' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "more expensive than",
+          "tr": "-den daha pahalı",
+          "example": {
+            "en": "This bag is more expensive than that one.",
+            "tr": "Bu çanta ondan daha pahalı."
+          }
+        }
+      ]
+    },
+    {
+      "section": 44,
+      "level": "A2",
+      "topic": "Duygular ve Tepkiler (Genişletilmiş)",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Duygular ve Tepkiler (Genişletilmiş)' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "disappointed",
+          "tr": "hayal kırıklığına uğramış",
+          "example": {
+            "en": "I was disappointed with the result.",
+            "tr": "Sonuçtan hayal kırıklığına uğradım."
+          }
+        }
+      ]
+    },
+    {
+      "section": 45,
+      "level": "A2",
+      "topic": "Ulaşım ve Trafik (Genişletilmiş)",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Ulaşım ve Trafik (Genişletilmiş)' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "traffic jam",
+          "tr": "trafik sıkışıklığı",
+          "example": {
+            "en": "We were stuck in a traffic jam.",
+            "tr": "Trafik sıkışıklığında kaldık."
+          }
+        }
+      ]
+    },
+    {
+      "section": 46,
+      "level": "A2",
+      "topic": "Hava Durumu Detayları",
+      "target_word_count": 12,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Hava Durumu Detayları' ile ilgili 12 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "humid",
+          "tr": "nemli",
+          "example": {
+            "en": "It's very humid today.",
+            "tr": "Bugün hava çok nemli."
+          }
+        }
+      ]
+    },
+    {
+      "section": 47,
+      "level": "A2",
+      "topic": "Spor & Fiziksel Aktiviteler (Genişletilmiş)",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Spor & Fiziksel Aktiviteler (Genişletilmiş)' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "stretch",
+          "tr": "esneme hareketi yapmak",
+          "example": {
+            "en": "Always stretch before running.",
+            "tr": "Koşmadan önce her zaman esne."
+          }
+        }
+      ]
+    },
+    {
+      "section": 48,
+      "level": "A2",
+      "topic": "Müzik ve Sanat",
+      "target_word_count": 18,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Müzik ve Sanat' ile ilgili 18 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "instrument",
+          "tr": "müzik aleti",
+          "example": {
+            "en": "She plays a musical instrument.",
+            "tr": "O bir müzik aleti çalıyor."
+          }
+        }
+      ]
+    },
+    {
+      "section": 49,
+      "level": "A2",
+      "topic": "Günlük Konuşma Kalıpları 2",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme A2 seviyesinde, 'Günlük Konuşma Kalıpları 2' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "no problem",
+          "tr": "sorun değil",
+          "example": {
+            "en": "No problem, I can help you.",
+            "tr": "Sorun değil, sana yardım edebilirim."
+          }
+        }
+      ]
+    },
+    {
+      "section": 50,
+      "level": "B1",
+      "topic": "İş Dünyası",
+      "target_word_count": 25,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'İş Dünyası' ile ilgili 25 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "deadline",
+          "tr": "son teslim tarihi",
+          "example": {
+            "en": "We have a tight deadline this week.",
+            "tr": "Bu hafta sıkı bir son teslim tarihimiz var."
+          }
+        }
+      ]
+    },
+    {
+      "section": 51,
+      "level": "B1",
+      "topic": "Çevre Sorunları",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Çevre Sorunları' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "pollution",
+          "tr": "kirlilik",
+          "example": {
+            "en": "Air pollution is a big problem in cities.",
+            "tr": "Hava kirliliği şehirlerde büyük bir sorun."
+          }
+        }
+      ]
+    },
+    {
+      "section": 52,
+      "level": "B1",
+      "topic": "Medya ve Haberler",
+      "target_word_count": 18,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Medya ve Haberler' ile ilgili 18 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "headline",
+          "tr": "manşet",
+          "example": {
+            "en": "The headline caught my attention.",
+            "tr": "Manşet dikkatimi çekti."
+          }
+        }
+      ]
+    },
+    {
+      "section": 53,
+      "level": "B1",
+      "topic": "İlişkiler",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'İlişkiler' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "trust",
+          "tr": "güven",
+          "example": {
+            "en": "Trust is important in a relationship.",
+            "tr": "Bir ilişkide güven önemlidir."
+          }
+        }
+      ]
+    },
+    {
+      "section": 54,
+      "level": "B1",
+      "topic": "Kültür ve Gelenekler",
+      "target_word_count": 18,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Kültür ve Gelenekler' ile ilgili 18 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "tradition",
+          "tr": "gelenek",
+          "example": {
+            "en": "This is an old family tradition.",
+            "tr": "Bu eski bir aile geleneği."
+          }
+        }
+      ]
+    },
+    {
+      "section": 55,
+      "level": "B1",
+      "topic": "Bilim ve Teknoloji",
+      "target_word_count": 22,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Bilim ve Teknoloji' ile ilgili 22 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "invention",
+          "tr": "icat",
+          "example": {
+            "en": "The telephone was a great invention.",
+            "tr": "Telefon büyük bir icattı."
+          }
+        }
+      ]
+    },
+    {
+      "section": 56,
+      "level": "B1",
+      "topic": "Sağlıklı Yaşam",
+      "target_word_count": 18,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Sağlıklı Yaşam' ile ilgili 18 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "balanced diet",
+          "tr": "dengeli beslenme",
+          "example": {
+            "en": "A balanced diet keeps you healthy.",
+            "tr": "Dengeli beslenme seni sağlıklı tutar."
+          }
+        }
+      ]
+    },
+    {
+      "section": 57,
+      "level": "B1",
+      "topic": "Suç ve Hukuk - Temel",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Suç ve Hukuk - Temel' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "witness",
+          "tr": "tanık",
+          "example": {
+            "en": "The witness described the accident.",
+            "tr": "Tanık kazayı anlattı."
+          }
+        }
+      ]
+    },
+    {
+      "section": 58,
+      "level": "B1",
+      "topic": "Şehir Yaşamı vs Kırsal Yaşam",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Şehir Yaşamı vs Kırsal Yaşam' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "countryside",
+          "tr": "kırsal bölge",
+          "example": {
+            "en": "Life in the countryside is calmer.",
+            "tr": "Kırsal bölgede yaşam daha sakindir."
+          }
+        }
+      ]
+    },
+    {
+      "section": 59,
+      "level": "B1",
+      "topic": "Sık Kullanılan Deyimsel Fiiller 1",
+      "target_word_count": 25,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Sık Kullanılan Deyimsel Fiiller 1' ile ilgili 25 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "give up",
+          "tr": "vazgeçmek",
+          "example": {
+            "en": "Never give up on your dreams.",
+            "tr": "Hayallerinden asla vazgeçme."
+          }
+        }
+      ]
+    },
+    {
+      "section": 60,
+      "level": "B1",
+      "topic": "Fikir Belirtme",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Fikir Belirtme' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "in my opinion",
+          "tr": "bence",
+          "example": {
+            "en": "In my opinion, this plan is risky.",
+            "tr": "Bence bu plan riskli."
+          }
+        }
+      ]
+    },
+    {
+      "section": 61,
+      "level": "B1",
+      "topic": "Şikayet Etme ve Çözüm Önerme",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Şikayet Etme ve Çözüm Önerme' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "complain",
+          "tr": "şikayet etmek",
+          "example": {
+            "en": "She complained about the noise.",
+            "tr": "Gürültü hakkında şikayet etti."
+          }
+        }
+      ]
+    },
+    {
+      "section": 62,
+      "level": "B1",
+      "topic": "Seyahat Belgeleri ve Havalimanı",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Seyahat Belgeleri ve Havalimanı' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "boarding pass",
+          "tr": "biniş kartı",
+          "example": {
+            "en": "Don't forget your boarding pass.",
+            "tr": "Biniş kartını unutma."
+          }
+        }
+      ]
+    },
+    {
+      "section": 63,
+      "level": "B1",
+      "topic": "Yemek Pişirme Fiilleri",
+      "target_word_count": 18,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Yemek Pişirme Fiilleri' ile ilgili 18 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "chop",
+          "tr": "doğramak",
+          "example": {
+            "en": "Chop the onions finely.",
+            "tr": "Soğanları ince doğra."
+          }
+        }
+      ]
+    },
+    {
+      "section": 64,
+      "level": "B1",
+      "topic": "Psikoloji ve Duygular - İleri",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Psikoloji ve Duygular - İleri' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "overwhelmed",
+          "tr": "bunalmış",
+          "example": {
+            "en": "I feel overwhelmed with work.",
+            "tr": "İşten dolayı bunalmış hissediyorum."
+          }
+        }
+      ]
+    },
+    {
+      "section": 65,
+      "level": "B1",
+      "topic": "Toplumsal Konular",
+      "target_word_count": 18,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Toplumsal Konular' ile ilgili 18 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "inequality",
+          "tr": "eşitsizlik",
+          "example": {
+            "en": "Inequality is a global issue.",
+            "tr": "Eşitsizlik küresel bir sorundur."
+          }
+        }
+      ]
+    },
+    {
+      "section": 66,
+      "level": "B1",
+      "topic": "Ekonomi Temelleri",
+      "target_word_count": 18,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Ekonomi Temelleri' ile ilgili 18 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "inflation",
+          "tr": "enflasyon",
+          "example": {
+            "en": "Inflation increased prices this year.",
+            "tr": "Enflasyon bu yıl fiyatları artırdı."
+          }
+        }
+      ]
+    },
+    {
+      "section": 67,
+      "level": "B1",
+      "topic": "Eğitim Sistemi",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Eğitim Sistemi' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "curriculum",
+          "tr": "müfredat",
+          "example": {
+            "en": "The school changed its curriculum.",
+            "tr": "Okul müfredatını değiştirdi."
+          }
+        }
+      ]
+    },
+    {
+      "section": 68,
+      "level": "B1",
+      "topic": "Doğal Afetler",
+      "target_word_count": 12,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Doğal Afetler' ile ilgili 12 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "earthquake",
+          "tr": "deprem",
+          "example": {
+            "en": "The earthquake damaged many buildings.",
+            "tr": "Deprem birçok binaya zarar verdi."
+          }
+        }
+      ]
+    },
+    {
+      "section": 69,
+      "level": "B1",
+      "topic": "Yaygın Deyimler 1",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B1 seviyesinde, 'Yaygın Deyimler 1' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "piece of cake",
+          "tr": "çocuk oyuncağı",
+          "example": {
+            "en": "This exam was a piece of cake.",
+            "tr": "Bu sınav çocuk oyuncağıydı."
+          }
+        }
+      ]
+    },
+    {
+      "section": 70,
+      "level": "B2",
+      "topic": "Politika ve Yönetim",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B2 seviyesinde, 'Politika ve Yönetim' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "government policy",
+          "tr": "hükümet politikası",
+          "example": {
+            "en": "The new government policy affects everyone.",
+            "tr": "Yeni hükümet politikası herkesi etkiliyor."
+          }
+        }
+      ]
+    },
+    {
+      "section": 71,
+      "level": "B2",
+      "topic": "Ekonomi ve Finans",
+      "target_word_count": 22,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B2 seviyesinde, 'Ekonomi ve Finans' ile ilgili 22 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "investment",
+          "tr": "yatırım",
+          "example": {
+            "en": "This is a long-term investment.",
+            "tr": "Bu uzun vadeli bir yatırım."
+          }
+        }
+      ]
+    },
+    {
+      "section": 72,
+      "level": "B2",
+      "topic": "Bilim - İleri",
+      "target_word_count": 18,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B2 seviyesinde, 'Bilim - İleri' ile ilgili 18 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "hypothesis",
+          "tr": "hipotez",
+          "example": {
+            "en": "Scientists tested their hypothesis carefully.",
+            "tr": "Bilim insanları hipotezlerini dikkatle test etti."
+          }
+        }
+      ]
+    },
+    {
+      "section": 73,
+      "level": "B2",
+      "topic": "Medya ve Gazetecilik",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B2 seviyesinde, 'Medya ve Gazetecilik' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "bias",
+          "tr": "önyargı, taraflılık",
+          "example": {
+            "en": "The article showed clear bias.",
+            "tr": "Makale net bir taraflılık gösterdi."
+          }
+        }
+      ]
+    },
+    {
+      "section": 74,
+      "level": "B2",
+      "topic": "Hukuk ve Adalet",
+      "target_word_count": 18,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B2 seviyesinde, 'Hukuk ve Adalet' ile ilgili 18 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "lawsuit",
+          "tr": "dava",
+          "example": {
+            "en": "The company faced a lawsuit.",
+            "tr": "Şirket bir davayla karşı karşıya kaldı."
+          }
+        }
+      ]
+    },
+    {
+      "section": 75,
+      "level": "B2",
+      "topic": "Sanat ve Edebiyat",
+      "target_word_count": 18,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B2 seviyesinde, 'Sanat ve Edebiyat' ile ilgili 18 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "masterpiece",
+          "tr": "başyapıt",
+          "example": {
+            "en": "This novel is considered a masterpiece.",
+            "tr": "Bu roman bir başyapıt olarak kabul edilir."
+          }
+        }
+      ]
+    },
+    {
+      "section": 76,
+      "level": "B2",
+      "topic": "Küresel Sorunlar",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B2 seviyesinde, 'Küresel Sorunlar' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "climate change",
+          "tr": "iklim değişikliği",
+          "example": {
+            "en": "Climate change affects the whole planet.",
+            "tr": "İklim değişikliği tüm gezegeni etkiliyor."
+          }
+        }
+      ]
+    },
+    {
+      "section": 77,
+      "level": "B2",
+      "topic": "Deyimsel Fiiller 2",
+      "target_word_count": 25,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B2 seviyesinde, 'Deyimsel Fiiller 2' ile ilgili 25 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "come across",
+          "tr": "rastlamak",
+          "example": {
+            "en": "I came across an old photo today.",
+            "tr": "Bugün eski bir fotoğrafa rastladım."
+          }
+        }
+      ]
+    },
+    {
+      "section": 78,
+      "level": "B2",
+      "topic": "Yaygın Deyimler 2",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B2 seviyesinde, 'Yaygın Deyimler 2' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "under the weather",
+          "tr": "kendini iyi hissetmemek",
+          "example": {
+            "en": "I'm feeling a bit under the weather.",
+            "tr": "Kendimi biraz iyi hissetmiyorum."
+          }
+        }
+      ]
+    },
+    {
+      "section": 79,
+      "level": "B2",
+      "topic": "Akademik Kelimeler 1",
+      "target_word_count": 22,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B2 seviyesinde, 'Akademik Kelimeler 1' ile ilgili 22 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "analyze",
+          "tr": "analiz etmek",
+          "example": {
+            "en": "We need to analyze the data first.",
+            "tr": "Önce veriyi analiz etmemiz gerekiyor."
+          }
+        }
+      ]
+    },
+    {
+      "section": 80,
+      "level": "B2",
+      "topic": "İş ve Kariyer - İleri",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B2 seviyesinde, 'İş ve Kariyer - İleri' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "promotion",
+          "tr": "terfi",
+          "example": {
+            "en": "She got a promotion last month.",
+            "tr": "Geçen ay terfi aldı."
+          }
+        }
+      ]
+    },
+    {
+      "section": 81,
+      "level": "B2",
+      "topic": "Tartışma ve Fikir Savunma",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B2 seviyesinde, 'Tartışma ve Fikir Savunma' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "on the other hand",
+          "tr": "öte yandan",
+          "example": {
+            "en": "On the other hand, this option is cheaper.",
+            "tr": "Öte yandan, bu seçenek daha ucuz."
+          }
+        }
+      ]
+    },
+    {
+      "section": 82,
+      "level": "B2",
+      "topic": "İstatistik ve Trendler",
+      "target_word_count": 12,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B2 seviyesinde, 'İstatistik ve Trendler' ile ilgili 12 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "a significant increase",
+          "tr": "önemli bir artış",
+          "example": {
+            "en": "There was a significant increase in sales.",
+            "tr": "Satışlarda önemli bir artış oldu."
+          }
+        }
+      ]
+    },
+    {
+      "section": 83,
+      "level": "B2",
+      "topic": "Formal ve İnformal Dil",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B2 seviyesinde, 'Formal ve İnformal Dil' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "I would appreciate it if...",
+          "tr": "memnun olurum eğer...",
+          "example": {
+            "en": "I would appreciate it if you could reply soon.",
+            "tr": "Kısa sürede cevap verirseniz memnun olurum."
+          }
+        }
+      ]
+    },
+    {
+      "section": 84,
+      "level": "B2",
+      "topic": "Neden-Sonuç ve Karşılaştırma İfadeleri",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme B2 seviyesinde, 'Neden-Sonuç ve Karşılaştırma İfadeleri' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "as a result",
+          "tr": "sonuç olarak",
+          "example": {
+            "en": "As a result, the project was delayed.",
+            "tr": "Sonuç olarak, proje ertelendi."
+          }
+        }
+      ]
+    },
+    {
+      "section": 85,
+      "level": "C1",
+      "topic": "Akademik Kelimeler 2",
+      "target_word_count": 25,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme C1 seviyesinde, 'Akademik Kelimeler 2' ile ilgili 25 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "substantial",
+          "tr": "önemli ölçüde, büyük",
+          "example": {
+            "en": "There has been substantial progress this year.",
+            "tr": "Bu yıl önemli ölçüde ilerleme kaydedildi."
+          }
+        }
+      ]
+    },
+    {
+      "section": 86,
+      "level": "C1",
+      "topic": "Felsefe ve Etik",
+      "target_word_count": 18,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme C1 seviyesinde, 'Felsefe ve Etik' ile ilgili 18 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "moral dilemma",
+          "tr": "ahlaki ikilem",
+          "example": {
+            "en": "She faced a difficult moral dilemma.",
+            "tr": "Zor bir ahlaki ikilemle karşılaştı."
+          }
+        }
+      ]
+    },
+    {
+      "section": 87,
+      "level": "C1",
+      "topic": "İleri Deyimler",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme C1 seviyesinde, 'İleri Deyimler' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "bite the bullet",
+          "tr": "zor bir kararı göze almak",
+          "example": {
+            "en": "We had to bite the bullet and raise prices.",
+            "tr": "Zor kararı göze alıp fiyatları artırmak zorunda kaldık."
+          }
+        }
+      ]
+    },
+    {
+      "section": 88,
+      "level": "C1",
+      "topic": "İnce Anlam Farkları - Eş Anlamlılar",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme C1 seviyesinde, 'İnce Anlam Farkları - Eş Anlamlılar' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "meticulous vs careful",
+          "tr": "titiz vs dikkatli",
+          "example": {
+            "en": "She is meticulous, not just careful, about details.",
+            "tr": "Detaylar konusunda sadece dikkatli değil, titizdir."
+          }
+        }
+      ]
+    },
+    {
+      "section": 89,
+      "level": "C1",
+      "topic": "Resmi Yazışma Dili",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme C1 seviyesinde, 'Resmi Yazışma Dili' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "I am writing to inform you that...",
+          "tr": "size bilgi vermek için yazıyorum ki...",
+          "example": {
+            "en": "I am writing to inform you that the meeting is postponed.",
+            "tr": "Toplantının ertelendiğini size bildirmek için yazıyorum."
+          }
+        }
+      ]
+    },
+    {
+      "section": 90,
+      "level": "C1",
+      "topic": "Hukuk ve Tıp Terimleri",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme C1 seviyesinde, 'Hukuk ve Tıp Terimleri' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "diagnosis",
+          "tr": "teşhis",
+          "example": {
+            "en": "The doctor confirmed the diagnosis yesterday.",
+            "tr": "Doktor teşhisi dün doğruladı."
+          }
+        }
+      ]
+    },
+    {
+      "section": 91,
+      "level": "C1",
+      "topic": "Retorik ve İkna Dili",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme C1 seviyesinde, 'Retorik ve İkna Dili' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "compelling argument",
+          "tr": "ikna edici argüman",
+          "example": {
+            "en": "He made a compelling argument for change.",
+            "tr": "Değişim için ikna edici bir argüman sundu."
+          }
+        }
+      ]
+    },
+    {
+      "section": 92,
+      "level": "C1",
+      "topic": "İleri Deyimsel Fiiller",
+      "target_word_count": 20,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme C1 seviyesinde, 'İleri Deyimsel Fiiller' ile ilgili 20 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "bring about",
+          "tr": "meydana getirmek, sebep olmak",
+          "example": {
+            "en": "New laws can bring about real change.",
+            "tr": "Yeni yasalar gerçek bir değişim meydana getirebilir."
+          }
+        }
+      ]
+    },
+    {
+      "section": 93,
+      "level": "C1",
+      "topic": "Soyut Kavramlar",
+      "target_word_count": 18,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme C1 seviyesinde, 'Soyut Kavramlar' ile ilgili 18 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "integrity",
+          "tr": "dürüstlük, bütünlük",
+          "example": {
+            "en": "He is known for his integrity.",
+            "tr": "Dürüstlüğüyle tanınır."
+          }
+        }
+      ]
+    },
+    {
+      "section": 94,
+      "level": "C1",
+      "topic": "Profesyonel İletişim",
+      "target_word_count": 15,
+      "status": "planlanıyor (henüz doldurulmadı)",
+      "instructions": "Bu bölüme C1 seviyesinde, 'Profesyonel İletişim' ile ilgili 15 kelime ekle. Her kelime için sentence_spec'e uygun 1 örnek cümle yaz.",
+      "words": [
+        {
+          "en": "follow up on",
+          "tr": "takip etmek (bir konuyu)",
+          "example": {
+            "en": "I'll follow up on this email tomorrow.",
+            "tr": "Bu e-postayı yarın takip edeceğim."
+          }
+        }
+      ]
+    }
+  ]
+}
