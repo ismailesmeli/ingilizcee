@@ -1,4274 +1,1089 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Kelime Adaları — İngilizce Öğren</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Margin — İngilizce Okuma</title>
     <style>
          :root {
-            --bg-deep: #0A2E33;
-            --bg-mid: #0F3D42;
-            --surface: #123F45;
-            --surface-2: #175059;
-            --line: rgba(255, 255, 255, 0.08);
-            --coral: #FF7A59;
-            --coral-dark: #E5623F;
-            --sun: #FFC857;
-            --aqua: #6FE7DD;
-            --aqua-dark: #37B8AE;
-            --success: #4ADE80;
-            --success-dark: #2FAE63;
-            --error: #FF6B6B;
-            --text: #F4FBF8;
-            --text-dim: #9FC7C4;
-            --text-dimmer: #6E9C99;
-            --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-            --radius-lg: 26px;
-            --radius-md: 18px;
-            --radius-sm: 12px;
+            color-scheme: dark;
+            --bg: #111310;
+            --panel: #191c18;
+            --panel-soft: #20241f;
+            --line: #30372e;
+            --text: #e8e9df;
+            --muted: #a1a89a;
+            --accent: #c7dc91;
+            --accent-ink: #1c2510;
+            --paper: #d9cba9;
+            --danger: #f0a49b;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
         }
         
         * {
             box-sizing: border-box;
         }
         
-        html,
         body {
             margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            background: radial-gradient(ellipse 900px 500px at 15% -10%, rgba(111, 231, 221, 0.10), transparent 60%), radial-gradient(ellipse 700px 500px at 90% 10%, rgba(255, 122, 89, 0.08), transparent 60%), var(--bg-deep);
-            color: var(--text);
-            font-family: 'Nunito', sans-serif;
             min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
+            background: radial-gradient(ellipse at 18% 0%, #293126 0, transparent 38rem), var(--bg);
+            color: var(--text);
         }
         
-        h1,
-        h2,
-        h3,
-        .display {
-            font-family: 'Baloo 2', sans-serif;
+        button,
+        input {
+            font: inherit;
         }
         
         button {
-            font-family: inherit;
             cursor: pointer;
         }
         
-         ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        
-         ::-webkit-scrollbar-thumb {
-            background: var(--surface-2);
-            border-radius: 8px;
-        }
-        
-        #app {
-            max-width: 640px;
+        .app {
+            width: min(1180px, 100%);
             margin: 0 auto;
-            min-height: 100vh;
-            position: relative;
-            padding-bottom: 40px;
+            padding: 30px 28px 60px;
         }
-        /* ---------- HEADER ---------- */
         
         .topbar {
-            position: sticky;
-            top: 0;
-            z-index: 40;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 14px 18px;
-            background: linear-gradient(180deg, rgba(10, 46, 51, 0.98), rgba(10, 46, 51, 0.9));
-            backdrop-filter: blur(6px);
-            border-bottom: 1px solid var(--line);
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 34px;
         }
         
         .brand {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 11px;
         }
         
-        .brand-badge {
-            width: 38px;
-            height: 38px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--aqua), var(--aqua-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            box-shadow: var(--shadow);
-        }
-        
-        .brand-text {
-            font-family: 'Baloo 2';
-            font-weight: 700;
-            font-size: 19px;
-            letter-spacing: 0.2px;
-        }
-        
-        .brand-text span {
-            color: var(--sun);
-        }
-        
-        .stat-pill {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            padding: 7px 12px;
-            border-radius: 20px;
-            font-weight: 800;
-            font-size: 14px;
-        }
-        /* ---------- MAP SCREEN ---------- */
-        
-        .map-hero {
-            padding: 20px 20px 4px;
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 14px;
-        }
-        
-        .map-hero h2 {
-            margin: 0 0 4px;
-            font-size: 23px;
-        }
-        
-        .map-hero p {
-            margin: 0;
-            color: var(--text-dim);
-            font-size: 14px;
-            line-height: 1.5;
-            max-width: 400px;
-        }
-        
-        .compass {
-            width: 52px;
-            height: 52px;
-            flex-shrink: 0;
-            opacity: 0.9;
-        }
-        
-        .compass-spin {
-            animation: compassSpin 30s linear infinite;
-            transform-origin: 50% 50%;
-        }
-        
-        @keyframes compassSpin {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        
-        .map-wrap {
-            position: relative;
-            padding: 8px 0 10px;
-        }
-        
-        .map-svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .map-track {
-            position: relative;
-            padding: 10px 0 20px;
-        }
-        /* region banner — hand-drawn ribbon look, tells you which chapter of the archipelago you're in */
-        
-        .region-banner {
-            position: relative;
-            margin: 0 20px 4px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 9px 16px;
-            background: linear-gradient(160deg, var(--surface-2), var(--surface));
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            transform: rotate(-0.6deg);
-            box-shadow: var(--shadow);
-        }
-        
-        .region-banner:nth-of-type(even) {
-            transform: rotate(0.6deg);
-        }
-        
-        .region-banner .rb-icon {
-            font-size: 20px;
-        }
-        
-        .region-banner .rb-text {
-            font-family: 'Baloo 2';
-            font-weight: 700;
-            font-size: 14.5px;
-        }
-        
-        .region-banner .rb-sub {
-            font-size: 11.5px;
-            color: var(--text-dim);
-            font-weight: 600;
-        }
-        
-        .island-cluster {
-            position: relative;
-        }
-        
-        .level-node {
-            position: absolute;
-            transform: translate(-50%, -50%);
-            width: 74px;
-            height: 74px;
-            /* organic island blob instead of a plain circle */
-            border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            font-family: 'Baloo 2';
-            transition: transform .15s ease;
-            z-index: 5;
-        }
-        
-        .level-node:nth-child(3n+1) {
-            border-radius: 58% 42% 38% 62% / 55% 60% 40% 45%;
-        }
-        
-        .level-node:nth-child(3n+2) {
-            border-radius: 48% 52% 62% 38% / 38% 55% 45% 62%;
-        }
-        
-        .level-node:active {
-            transform: translate(-50%, -50%) scale(0.93);
-        }
-        
-        .level-node .lvl-num {
-            font-size: 21px;
-            font-weight: 700;
-            line-height: 1;
-        }
-        
-        .level-node .lvl-stars {
-            font-size: 10px;
-            margin-top: 2px;
-            letter-spacing: 1px;
-        }
-        
-        .level-node.locked {
-            background: var(--surface);
-            border: 3px solid var(--line);
-            color: var(--text-dimmer);
-        }
-        
-        .level-node.unlocked {
-            background: linear-gradient(160deg, var(--aqua), var(--aqua-dark));
-            color: #04302C;
-            box-shadow: 0 0 0 5px rgba(111, 231, 221, 0.15), var(--shadow);
-        }
-        
-        .level-node.completed {
-            background: linear-gradient(160deg, var(--sun), #E5A83B);
-            color: #3A2600;
-            box-shadow: 0 0 0 5px rgba(255, 200, 87, 0.18), var(--shadow);
-        }
-        
-        .level-node .lock-ic {
-            font-size: 20px;
-        }
-        
-        .level-node .palm {
-            position: absolute;
-            top: -11px;
-            font-size: 16px;
-        }
-        
-        .boat-marker {
-            position: absolute;
-            font-size: 28px;
-            transform: translate(-50%, -130%);
-            transition: top .5s ease, left .5s ease;
-            z-index: 6;
-            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.4));
-            animation: bob 2.4s ease-in-out infinite;
-        }
-        
-        @keyframes bob {
-            0%,
-            100% {
-                transform: translate(-50%, -130%) rotate(-4deg);
-            }
-            50% {
-                transform: translate(-50%, -138%) rotate(4deg);
-            }
-        }
-        /* soft wavy divider used between the finished A1 archipelago and the fog of future regions */
-        
-        .wave-divider {
-            width: 100%;
-            height: 34px;
-            opacity: 0.5;
-            margin: 10px 0;
-        }
-        /* ---------- FUTURE REGIONS TEASER (roadmap preview) ---------- */
-        
-        .future-regions {
-            margin: 10px 20px 30px;
-            padding: 18px 18px 20px;
-            border-radius: var(--radius-lg);
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
-            border: 1px dashed var(--line);
-        }
-        
-        .future-regions h3 {
-            margin: 0 0 4px;
-            font-size: 16px;
-            font-family: 'Baloo 2';
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .future-regions p {
-            margin: 0 0 14px;
-            color: var(--text-dim);
-            font-size: 13px;
-        }
-        
-        .fog-row {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            padding-bottom: 4px;
-        }
-        
-        .fog-chip {
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            padding: 10px 16px;
-            min-width: 108px;
-            filter: grayscale(0.4);
-            opacity: 0.75;
-        }
-        
-        .fog-chip .fc-level {
-            font-family: 'Baloo 2';
-            font-weight: 700;
-            font-size: 14px;
-            color: var(--text-dimmer);
-        }
-        
-        .fog-chip .fc-count {
-            font-size: 11.5px;
-            color: var(--text-dimmer);
-        }
-        /* ---------- OVERLAY / MODAL ---------- */
-        
-        .overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 100;
-            background: var(--bg-deep);
-            display: flex;
-            flex-direction: column;
-            animation: fadeIn .2s ease;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        
-        .overlay-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 18px;
-            border-bottom: 1px solid var(--line);
-        }
-        
-        .icon-btn {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            width: 38px;
-            height: 38px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text);
-            font-size: 18px;
-        }
-        
-        .overlay-title {
-            font-family: 'Baloo 2';
-            font-weight: 700;
-            font-size: 18px;
-            flex: 1;
-        }
-        
-        .overlay-body {
-            flex: 1;
-            overflow-y: auto;
-            padding: 18px;
-            max-width: 640px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        /* ---------- FLASHCARDS ---------- */
-        
-        .flash-progress {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 18px;
-        }
-        
-        .flash-progress i {
-            flex: 1;
-            height: 5px;
-            border-radius: 4px;
-            background: var(--surface-2);
-        }
-        
-        .flash-progress i.done {
-            background: var(--aqua);
-        }
-        
-        .flashcard {
-            background: linear-gradient(160deg, var(--surface-2), var(--surface));
-            border: 1px solid var(--line);
-            border-radius: var(--radius-lg);
-            min-height: 280px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            perspective: 1000px;
-        }
-        
-        .flashcard .cat-tag {
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--aqua);
-            background: rgba(111, 231, 221, 0.12);
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-        }
-        
-        .flashcard .word-en {
-            font-family: 'Baloo 2';
-            font-size: 34px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        
-        .flashcard .word-tr {
-            font-size: 20px;
-            color: var(--sun);
-            font-weight: 800;
-            min-height: 28px;
-        }
-        
-        .flashcard .example {
-            font-size: 14px;
-            color: var(--text-dim);
-            margin-top: 14px;
-            font-style: italic;
-            min-height: 20px;
-        }
-        
-        .flashcard .tap-hint {
-            font-size: 12.5px;
-            color: var(--text-dimmer);
-            margin-top: 18px;
-        }
-        
-        .flash-nav {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-        
-        .flash-nav button {
-            flex: 1;
-        }
-        /* ---------- BUTTONS ---------- */
-        
-        .btn {
-            border: none;
-            border-radius: 16px;
-            padding: 14px 20px;
-            font-weight: 800;
-            font-size: 15.5px;
-            transition: transform .1s ease, filter .15s ease;
-        }
-        
-        .btn:active {
-            transform: scale(0.96);
-        }
-        
-        .btn-primary {
-            background: linear-gradient(160deg, var(--coral), var(--coral-dark));
-            color: #fff;
-            box-shadow: 0 6px 16px rgba(255, 122, 89, 0.28);
-        }
-        
-        .btn-secondary {
-            background: var(--surface-2);
-            color: var(--text);
-            border: 1px solid var(--line);
-        }
-        
-        .btn-block {
-            width: 100%;
-        }
-        
-        .btn:disabled {
-            opacity: 0.4;
-        }
-        /* ---------- GAME SELECT ---------- */
-        
-        .game-card {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: var(--radius-md);
-            padding: 16px;
-            margin-bottom: 12px;
-            text-align: left;
-            width: 100%;
-        }
-        
-        .game-card .g-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 26px;
-            flex-shrink: 0;
-        }
-        
-        .game-card .g-info {
-            flex: 1;
-        }
-        
-        .game-card .g-title {
-            font-family: 'Baloo 2';
-            font-weight: 700;
-            font-size: 16.5px;
-        }
-        
-        .game-card .g-desc {
-            font-size: 13px;
-            color: var(--text-dim);
-            margin-top: 2px;
-        }
-        
-        .game-card .g-stars {
-            font-size: 14px;
-            color: var(--sun);
-            margin-top: 5px;
-            letter-spacing: 2px;
-        }
-        
-        .game-card .g-arrow {
-            font-size: 20px;
-            color: var(--text-dimmer);
-        }
-        /* ---------- QUIZ ---------- */
-        
-        .quiz-topline {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 22px;
-        }
-        
-        .quiz-bar {
-            flex: 1;
-            height: 8px;
-            background: var(--surface-2);
-            border-radius: 6px;
-            overflow: hidden;
-        }
-        
-        .quiz-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--aqua), var(--aqua-dark));
-            transition: width .3s ease;
-        }
-        
-        .quiz-score {
-            font-weight: 800;
-            color: var(--sun);
-            font-size: 14px;
-            white-space: nowrap;
-        }
-        
-        .quiz-question {
-            background: var(--surface);
-            border-radius: var(--radius-lg);
-            padding: 32px 20px;
-            text-align: center;
-            margin-bottom: 20px;
-            border: 1px solid var(--line);
-        }
-        
-        .quiz-question .qq-label {
-            font-size: 12.5px;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-        
-        .quiz-question .qq-word {
-            font-family: 'Baloo 2';
-            font-size: 30px;
-            font-weight: 700;
-        }
-        
-        .quiz-options {
+        .brand-mark {
+            width: 36px;
+            height: 36px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-        
-        .quiz-opt {
-            background: var(--surface);
-            border: 2px solid var(--line);
-            border-radius: 16px;
-            padding: 16px 10px;
-            font-weight: 700;
-            font-size: 15px;
-            color: var(--text);
-            transition: all .15s ease;
-        }
-        
-        .quiz-opt.correct {
-            background: rgba(74, 222, 128, 0.15);
-            border-color: var(--success);
-            color: var(--success);
-        }
-        
-        .quiz-opt.wrong {
-            background: rgba(255, 107, 107, 0.15);
-            border-color: var(--error);
-            color: var(--error);
-        }
-        
-        .quiz-opt.dim {
-            opacity: 0.45;
-        }
-        /* ---------- MATCH GAME ---------- */
-        
-        .match-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 16px;
+            place-items: center;
+            border: 1px solid #59664a;
+            border-radius: 12px;
+            color: var(--accent);
             font-weight: 800;
-            color: var(--text-dim);
-            font-size: 13.5px;
+            transform: rotate(-5deg);
         }
         
-        .match-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+        .brand-name {
+            font-weight: 750;
+            letter-spacing: .02em;
         }
         
-        .match-card {
-            aspect-ratio: 1/1;
-            border-radius: 14px;
-            background: var(--surface-2);
-            border: 1px solid var(--line);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-weight: 800;
-            font-size: 13px;
-            padding: 6px;
-            transition: transform .25s ease, background .2s ease;
-            transform-style: preserve-3d;
-        }
-        
-        .match-card.flipped {
-            background: var(--aqua-dark);
-            color: #04302C;
-        }
-        
-        .match-card.matched {
-            background: rgba(74, 222, 128, 0.18);
-            border-color: var(--success);
-            color: var(--success);
-        }
-        
-        .match-card.hidden-face {
-            color: transparent;
-            background: linear-gradient(160deg, var(--surface-2), var(--surface));
-        }
-        
-        .match-card .mc-icon {
-            font-size: 22px;
-        }
-        /* ---------- SCRAMBLE ---------- */
-        
-        .scr-meaning {
-            background: var(--surface);
-            border-radius: var(--radius-lg);
-            padding: 22px 18px;
-            text-align: center;
-            margin-bottom: 20px;
-            border: 1px solid var(--line);
-        }
-        
-        .scr-meaning .sm-label {
+        .brand-sub {
+            color: var(--muted);
             font-size: 12px;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .scr-meaning .sm-word {
-            font-family: 'Baloo 2';
-            font-size: 26px;
-            font-weight: 700;
-            color: var(--sun);
-            margin-top: 6px;
-        }
-        
-        .scr-slots {
-            display: flex;
-            justify-content: center;
-            gap: 6px;
-            flex-wrap: wrap;
-            margin-bottom: 24px;
-            min-height: 56px;
-        }
-        
-        .scr-slot {
-            width: 42px;
-            height: 48px;
-            border-radius: 10px;
-            border: 2px solid var(--line);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Baloo 2';
-            font-size: 20px;
-            font-weight: 700;
-            background: var(--surface);
-        }
-        
-        .scr-slot.filled {
-            border-color: var(--aqua);
-        }
-        
-        .scr-slot.correct {
-            border-color: var(--success);
-            background: rgba(74, 222, 128, 0.15);
-            color: var(--success);
-        }
-        
-        .scr-slot.wrong {
-            border-color: var(--error);
-            background: rgba(255, 107, 107, 0.15);
-            color: var(--error);
-        }
-        
-        .scr-tiles {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 22px;
-        }
-        
-        .scr-tile {
-            width: 42px;
-            height: 48px;
-            border-radius: 10px;
-            border: none;
-            background: var(--surface-2);
-            color: var(--text);
-            font-family: 'Baloo 2';
-            font-size: 20px;
-            font-weight: 700;
-        }
-        
-        .scr-tile:active {
-            transform: scale(0.9);
-        }
-        
-        .scr-tile.used {
-            visibility: hidden;
-        }
-        
-        .scr-controls {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-        /* Word Hunt Game */
-        
-        .wh-arena {
-            height: 400px;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: var(--radius-lg);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .shake {
-            animation: shake .35s ease;
-        }
-        
-        @keyframes shake {
-            0%,
-            100% {
-                transform: translateX(0);
-            }
-            20% {
-                transform: translateX(-8px);
-            }
-            40% {
-                transform: translateX(8px);
-            }
-            60% {
-                transform: translateX(-6px);
-            }
-            80% {
-                transform: translateX(6px);
-            }
-        }
-        /* ---------- RESULT SCREEN ---------- */
-        
-        .result-wrap {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex: 1;
-            text-align: center;
-            padding: 30px 20px;
-        }
-        
-        .result-stars {
-            font-size: 52px;
-            letter-spacing: 8px;
-            margin-bottom: 6px;
-        }
-        
-        .result-title {
-            font-family: 'Baloo 2';
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-        
-        .result-sub {
-            color: var(--text-dim);
-            font-size: 15px;
-            margin-bottom: 28px;
-        }
-        
-        .result-stat-row {
-            display: flex;
-            gap: 14px;
-            margin-bottom: 30px;
-        }
-        
-        .result-stat {
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: 16px;
-            padding: 14px 20px;
-            min-width: 100px;
-        }
-        
-        .result-stat .rs-num {
-            font-family: 'Baloo 2';
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--sun);
-        }
-        
-        .result-stat .rs-label {
-            font-size: 11.5px;
-            color: var(--text-dim);
             margin-top: 2px;
         }
         
-        .result-actions {
+        .top-actions { display:flex; align-items:center; gap:9px; }
+        .bookmark-open { width:38px; height:34px; border:1px solid var(--line); border-radius:9px; color:var(--accent); background:#20271d; font-size:22px; line-height:1; letter-spacing:2px; }
+        .bookmark-open:hover { background:#2d3927; }
+        .admin-open { border:1px solid var(--line); border-radius:999px; padding:8px 12px; color:var(--muted); background:transparent; font-size:12px; }
+        .admin-open:hover { color:var(--accent); border-color:#56634a; }
+        .note-editor { display:flex; gap:6px; margin-top:9px; }
+        .note-input { flex:1; min-width:0; border:1px solid #3b4337; border-radius:7px; padding:7px 8px; color:var(--text); background:#171b16; font-size:12px; }
+        .note-save { border:1px solid #56634a; border-radius:7px; padding:6px 8px; color:var(--accent); background:#252d21; font-size:11px; }
+        .admin-modal { position:fixed; inset:0; z-index:20; display:grid; place-items:center; padding:18px; background:#080a08b8; }
+        .admin-modal[hidden] { display:none; }
+        .admin-card { width:min(620px,100%); max-height:90vh; overflow:auto; padding:22px; border:1px solid #56634a; border-radius:16px; background:#1a2019; box-shadow:0 24px 80px #000b; }
+        .admin-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+        .admin-title { margin:0; font:24px Georgia,serif; }
+        .admin-close { border:0; background:transparent; color:var(--muted); font-size:22px; }
+        .admin-label { display:block; margin:12px 0 6px; color:var(--muted); font-size:12px; }
+        .admin-field { width:100%; border:1px solid #3b4337; border-radius:8px; padding:9px 10px; color:var(--text); background:#111510; }
+        .admin-textarea { min-height:150px; resize:vertical; }
+        .admin-help { color:var(--muted); font-size:11px; line-height:1.5; margin-top:5px; }
+        .admin-submit { margin-top:16px; border:0; border-radius:9px; padding:11px 14px; color:var(--accent-ink); background:var(--accent); font-weight:700; }
+        .admin-message { color:var(--accent); font-size:12px; margin-left:10px; }
+
+            color: var(--muted);
+            font-size: 13px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 8px 12px;
+        }
+        
+        .layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 290px;
+            gap: 36px;
+            align-items: start;
+        }
+        
+        .reading {
+            min-width: 0;
+        }
+        
+        .eyebrow {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: .16em;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        
+        h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: 500;
+            font-size: clamp(34px, 5vw, 52px);
+            letter-spacing: -.035em;
+            margin: 12px 0 10px;
+        }
+        
+        .meta {
+            color: var(--muted);
+            font-size: 13px;
+        }
+        
+        .divider {
+            height: 1px;
+            background: var(--line);
+            margin: 25px 0 28px;
+        }
+        
+        .sentence { position: relative; }
+        .sentence-tools { display: inline-flex; margin-left: 7px; vertical-align: middle; opacity: 0; transform: translateY(2px); transition: opacity .18s ease, transform .18s ease; }
+        .sentence:hover .sentence-tools, .sentence:focus-within .sentence-tools { opacity: 1; transform: translateY(0); }
+        .translate-btn { width: 24px; height: 24px; border: 1px solid #56634a; border-radius: 50%; padding: 0; background: #252d21; color: var(--accent); font: 700 15px/1 Inter, sans-serif; }
+        .translate-btn:hover { background: var(--accent); color: var(--accent-ink); transform: scale(1.08); }
+        .sentence-translation { margin: 9px 0 4px; padding: 11px 14px; border-left: 2px solid var(--accent); border-radius: 0 9px 9px 0; background: #20251d; color: #cbd5b9; font: 14px/1.55 Inter, sans-serif; }
+        @media (max-width: 760px) { .sentence-tools { opacity: 1; transform: none; } }
+        .reading-progress { padding: 14px 18px 4px; border-bottom: 1px solid #37382f; }
+        .progress-row { display:flex; justify-content:space-between; color:var(--muted); font-size:11px; margin-bottom:7px; }
+        .progress-track { height:6px; border-radius:99px; background:#30372e; overflow:hidden; }
+        .progress-fill { height:100%; width:0; border-radius:inherit; background:linear-gradient(90deg,var(--accent),#94b66b); transition:width .25s ease; }
+        .story-footer { display:flex; justify-content:flex-end; margin-top:18px; }
+        .quiz-toggle { border:1px solid #56634a; border-radius:10px; padding:10px 14px; color:var(--accent); background:#20271d; font-size:13px; font-weight:700; }
+        .quiz-toggle:hover { background:#2d3927; }
+        .quiz-panel { margin-top:18px; padding:18px; border:1px solid var(--line); border-radius:14px; background:#191e18; }
+        .quiz-panel[hidden] { display:none; }
+        .quiz-title { margin:0 0 4px; font:21px Georgia,serif; }
+        .quiz-subtitle { margin:0 0 16px; color:var(--muted); font-size:12px; }
+        .quiz-question { padding:13px 0; border-top:1px solid #2e352d; }
+        .quiz-question:first-of-type { border-top:0; }
+        .quiz-question p { margin:0 0 9px; font-size:14px; }
+        .quiz-options { display:flex; flex-wrap:wrap; gap:7px; }
+        .quiz-option { border:1px solid #3c4738; border-radius:8px; padding:8px 10px; color:#cbd5b9; background:#20251e; font-size:12px; }
+        .quiz-option:hover { border-color:var(--accent); }
+        .quiz-option.correct { border-color:#9fc878; background:#2b3d25; color:#ddedc7; }
+        .quiz-option.wrong { border-color:#c78579; background:#3b2724; color:#f0c4bc; }
+        .quiz-result { margin-top:14px; color:var(--accent); font-size:13px; font-weight:700; }
+        .speak-btn { width:23px; height:23px; margin-left:5px; border:1px solid #56634a; border-radius:50%; color:#bbc995; background:#222a20; font-size:12px; vertical-align:middle; opacity:0; transition:opacity .18s ease; }
+        .sentence:hover .speak-btn, .sentence:focus-within .speak-btn { opacity:1; }
+        @media (max-width:760px) { .speak-btn { opacity:1; } }
+        .layout { display:block; }
+        .reading { max-width:760px; }
+        .bookmark-panel { position:fixed; top:84px; right:18px; z-index:12; width:290px; max-height:calc(100vh - 108px); transition:transform .24s ease, box-shadow .24s ease; }
+        .bookmark-panel.is-collapsed { transform:translateX(calc(100% - 42px)); box-shadow:none; }
+        .bookmark-toggle { position:absolute; left:-38px; top:12px; width:34px; height:34px; border:1px solid #56634a; border-radius:9px 0 0 9px; color:var(--accent); background:#252d21; font-size:18px; }
+        .bookmark-toggle:hover { background:var(--accent); color:var(--accent-ink); }
+        .note-toggle { margin-top:8px; border:0; color:var(--muted); background:transparent; padding:0; font-size:11px; }
+        .note-toggle:hover { color:var(--accent); }
+        .note-editor[hidden] { display:none; }
+        @media (max-width:760px) { .bookmark-panel { top:auto; right:10px; bottom:10px; max-height:70vh; } .bookmark-panel.is-collapsed { transform:translateX(calc(100% - 42px)); } }
+        .story {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 19px;
+            line-height: 1.95;
+            color: #d7d8ce;
+            max-width: 720px;
+        }
+        
+        .story p {
+            margin: 0 0 22px;
+        }
+        
+        .word {
+            display: inline;
+            color: inherit;
+            border: 0;
+            border-radius: 4px;
+            padding: 0 1px;
+            background: transparent;
+            line-height: inherit;
+            font-family: inherit;
+            font-size: inherit;
+        }
+        
+        .word:hover,
+        .word:focus-visible {
+            color: var(--accent);
+            background: #30382a;
+            outline: none;
+        }
+        
+        .word.is-saved {
+            text-decoration: underline;
+            text-decoration-color: #91a86a;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
+        
+        .bookmark-panel {
+            position: sticky;
+            top: 24px;
+            overflow: hidden;
+            border: 1px solid #514d3f;
+            border-radius: 10px 10px 14px 14px;
+            background: linear-gradient(150deg, #29281f, #1b1d18 42%);
+            box-shadow: 0 18px 50px #0005, inset 0 1px #ffffff0b;
+        }
+        
+        .bookmark-panel::before {
+            content: "";
+            display: block;
+            height: 5px;
+            background: repeating-linear-gradient(90deg, #879662 0 18px, #b5c686 18px 36px);
+            opacity: .75;
+        }
+        
+        .panel-head {
+            padding: 20px 18px 15px;
+            border-bottom: 1px solid #37382f;
+        }
+        
+        .panel-title-row {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .panel-title {
+            font-family: Georgia, serif;
+            font-size: 21px;
+        }
+        
+        .count {
+            color: var(--accent);
+            background: #353b2c;
+            border-radius: 999px;
+            min-width: 25px;
+            padding: 4px 8px;
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        .panel-hint {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 7px;
+        }
+        
+        .bookmark-list {
+            padding: 8px 12px 14px;
+            max-height: 58vh;
+            overflow: auto;
+        }
+        
+        .bookmark-item {
+            padding: 12px 7px;
+            border-bottom: 1px solid #34362e;
+        }
+        
+        .bookmark-item:last-child {
+            border-bottom: 0;
+        }
+        
+        .bookmark-word {
+            color: var(--paper);
+            font-weight: 700;
+        }
+        
+        .bookmark-meaning {
+            color: #c3c8b8;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+        
+        .bookmark-note {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 6px;
+            font-style: italic;
+        }
+        
+        .remove-btn {
+            border: 0;
+            background: transparent;
+            color: #9da294;
+            float: right;
+            padding: 1px 5px;
+            font-size: 17px;
+        }
+        
+        .remove-btn:hover {
+            color: var(--danger);
+        }
+        
+        .empty {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.6;
+            padding: 14px 5px 18px;
+        }
+        
+        .tooltip {
+            position: fixed;
+            z-index: 10;
+            width: min(280px, calc(100vw - 28px));
+            padding: 15px;
+            border: 1px solid #59634a;
+            border-radius: 13px;
+            background: #252a22;
+            box-shadow: 0 15px 40px #0009;
+        }
+        
+        .tooltip[hidden] {
+            display: none;
+        }
+        
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            left: 25px;
+            bottom: -7px;
+            width: 12px;
+            height: 12px;
+            background: #252a22;
+            border-right: 1px solid #59634a;
+            border-bottom: 1px solid #59634a;
+            transform: rotate(45deg);
+        }
+        
+        .tip-word {
+            font-family: Georgia, serif;
+            font-size: 21px;
+            color: var(--paper);
+        }
+        
+        .tip-meaning {
+            color: #d4d8ca;
+            margin: 5px 0 13px;
+        }
+        
+        .tip-input {
+            display: none;
             width: 100%;
-            max-width: 320px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 9px 10px;
+            margin: 0 0 11px;
+            color: var(--text);
+            background: #171a16;
         }
         
-        .pop {
-            animation: pop .4s cubic-bezier(.34, 1.56, .64, 1);
+        .tip-input.visible {
+            display: block;
         }
         
-        @keyframes pop {
-            from {
-                transform: scale(0.6);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
+        .tip-actions {
+            display: flex;
+            gap: 8px;
         }
         
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.001ms !important;
-                transition-duration: 0.001ms !important;
-            }
+        .save-btn,
+        .close-btn {
+            border: 0;
+            border-radius: 8px;
+            padding: 9px 11px;
+            font-size: 12px;
+            font-weight: 700;
         }
         
-        @media (max-width:380px) {
-            .quiz-question .qq-word {
-                font-size: 24px;
+        .save-btn {
+            background: var(--accent);
+            color: var(--accent-ink);
+        }
+        
+        .close-btn {
+            background: #393e35;
+            color: var(--text);
+        }
+        
+        @media (max-width: 760px) {
+            .app {
+                padding: 22px 17px 44px;
             }
-            .flashcard .word-en {
-                font-size: 28px;
+            .layout {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+            .bookmark-panel {
+                position: static;
+            }
+            .bookmark-list {
+                max-height: 320px;
+            }
+            .story {
+                font-size: 18px;
+            }
+            .status {
+                display: none;
             }
         }
+    
+        /* Sağ kenarda sabit ayraç çekmecesi */
+        .layout { display:block !important; }
+        .reading { max-width:760px; }
+        .bookmark-panel { position:fixed !important; top:84px !important; right:18px !important; bottom:auto !important; left:auto !important; z-index:50 !important; width:290px !important; max-height:calc(100vh - 108px) !important; transition:transform .24s ease, box-shadow .24s ease !important; }
+        .bookmark-panel.is-collapsed { transform:translateX(110%) !important; pointer-events:none; }
+        .bookmark-toggle { position:absolute !important; left:-38px !important; top:12px !important; width:34px !important; height:34px !important; border:1px solid #56634a !important; border-radius:9px 0 0 9px !important; color:var(--accent) !important; background:#252d21 !important; font-size:18px !important; }
+        .bookmark-toggle { left:auto !important; right:10px !important; top:12px !important; border-radius:50% !important; z-index:2; }
+        @media (max-width:760px) { .bookmark-panel { top:auto !important; right:10px !important; bottom:10px !important; max-height:70vh !important; } }
     </style>
 </head>
 
 <body>
-    <div id="app"></div>
+    <main class="app">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-mark" aria-hidden="true">m</div>
+                <div>
+                    <div class="brand-name">margin</div>
+                    <div class="brand-sub">Read a little. Learn a lot.</div>
+                </div>
+            </div>
+            <div class="top-actions"><div class="status">● &nbsp;Okuma oturumu</div><button id="admin-open" class="admin-open" type="button">Yönet</button><button id="bookmark-open" class="bookmark-open" type="button" aria-label="Ayraç menüsünü aç">⋯</button></div>
+        </header>
+
+        <div class="layout">
+            <section class="reading" aria-labelledby="story-title">
+                <div id="story-level" class="eyebrow">A1 · Easy story</div>
+                <h1 id="story-title">A Cat at the Door</h1>
+                <div id="story-meta" class="meta">At home · 2 min read</div>
+                <label class="story-picker-label" for="story-picker">Hikâye seç</label>
+                <select id="story-picker" class="story-picker" aria-label="Okunacak hikâyeyi seç"></select>
+                <div class="divider"></div>
+                <article id="story" class="story" aria-label="İngilizce okuma metni"></article>
+                <div class="story-footer"><button id="quiz-toggle" class="quiz-toggle" type="button">Mini testi aç</button></div>
+                <section id="quiz-panel" class="quiz-panel" aria-live="polite" hidden></section>
+            </section>
+
+            <aside class="bookmark-panel is-collapsed" aria-labelledby="bookmark-title">
+                <div class="panel-head">
+                    <div class="panel-title-row">
+                        <div id="bookmark-title" class="panel-title">Ayraç</div><button id="bookmark-toggle" class="bookmark-toggle" type="button" aria-label="Ayraç panelini aç">‹</button>
+                        <span id="bookmark-count" class="count">0</span>
+                    </div>
+                    <div class="panel-hint">Öğrendiğin kelimeler burada saklanır.</div>
+                </div>
+                <div class="reading-progress"><div class="progress-row"><span>Okuma ilerlemesi</span><span id="progress-label">0%</span></div><div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div></div>
+                <div id="bookmark-list" class="bookmark-list"></div>
+            </aside>
+        </div>
+    </main>
+
+    <section id="admin-modal" class="admin-modal" role="dialog" aria-modal="true" aria-labelledby="admin-title" hidden>
+      <form id="admin-form" class="admin-card">
+        <div class="admin-head"><h2 id="admin-title" class="admin-title">Yeni hikâye ekle</h2><button id="admin-close" class="admin-close" type="button" aria-label="Kapat">×</button></div>
+        <label class="admin-label" for="admin-story-title">Hikâye başlığı</label><input id="admin-story-title" class="admin-field" required placeholder="Örn. A New Morning">
+        <label class="admin-label" for="admin-story-level">Seviye</label><input id="admin-story-level" class="admin-field" value="A1 · Easy story">
+        <label class="admin-label" for="admin-story-meta">Kısa açıklama</label><input id="admin-story-meta" class="admin-field" value="Daily life · 3 min read">
+        <label class="admin-label" for="admin-story-text">Hikâye metni</label><textarea id="admin-story-text" class="admin-field admin-textarea" required placeholder="Her cümleyi ayrı satıra yaz."></textarea>
+        <label class="admin-label" for="admin-story-words">Kelime anlamları</label><textarea id="admin-story-words" class="admin-field admin-textarea" placeholder="apple = elma
+walk = yürümek"></textarea><div class="admin-help">Her satıra bir kelime yaz: <b>İngilizce = Türkçe</b></div>
+        <button class="admin-submit" type="submit">Hikâyeyi kaydet</button><span id="admin-message" class="admin-message"></span>
+      </form>
+    </section>
+
+    <section id="tooltip" class="tooltip" role="dialog" aria-label="Kelime anlamı" hidden>
+        <div id="tip-word" class="tip-word"></div>
+        <div id="tip-meaning" class="tip-meaning"></div>
+        <input id="tip-input" class="tip-input" type="text" placeholder="Türkçe anlamını yaz…">
+        <div class="tip-actions">
+            <button id="save-word" class="save-btn" type="button">＋ Ayraç'a ekle</button>
+            <button id="close-tip" class="close-btn" type="button">Kapat</button>
+        </div>
+    </section>
+
     <script>
-        const WORDS = [{
-            "en": "I",
-            "tr": "ben",
-            "cat": "pronouns",
-            "level": 1
-        }, {
-            "en": "you",
-            "tr": "sen",
-            "cat": "pronouns",
-            "level": 1
-        }, {
-            "en": "he",
-            "tr": "o (erkek)",
-            "cat": "pronouns",
-            "level": 1
-        }, {
-            "en": "she",
-            "tr": "o (kadın)",
-            "cat": "pronouns",
-            "level": 1
-        }, {
-            "en": "it",
-            "tr": "o (nesne)",
-            "cat": "pronouns",
-            "level": 1
-        }, {
-            "en": "we",
-            "tr": "biz",
-            "cat": "pronouns",
-            "level": 1
-        }, {
-            "en": "they",
-            "tr": "onlar",
-            "cat": "pronouns",
-            "level": 1
-        }, {
-            "en": "who",
-            "tr": "kim",
-            "cat": "pronouns",
-            "level": 1
-        }, {
-            "en": "what",
-            "tr": "ne",
-            "cat": "pronouns",
-            "level": 1
-        }, {
-            "en": "where",
-            "tr": "nerede",
-            "cat": "pronouns",
-            "level": 1
-        }, {
-            "en": "when",
-            "tr": "ne zaman",
-            "cat": "pronouns",
-            "level": 1
-        }, {
-            "en": "why",
-            "tr": "neden",
-            "cat": "pronouns",
-            "level": 1
-        }, {
-            "en": "how",
-            "tr": "nasıl",
-            "cat": "pronouns",
-            "level": 1
-        }, {
-            "en": "which",
-            "tr": "hangi",
-            "cat": "pronouns",
-            "level": 1
-        }, {
-            "en": "whose",
-            "tr": "kimin",
-            "cat": "pronouns",
-            "level": 1
-        }, {
-            "en": "hello",
-            "tr": "merhaba",
-            "cat": "phrases",
-            "level": 1
-        }, {
-            "en": "hi",
-            "tr": "selam",
-            "cat": "phrases",
-            "level": 1
-        }, {
-            "en": "goodbye",
-            "tr": "hoşça kal",
-            "cat": "phrases",
-            "level": 1
-        }, {
-            "en": "please",
-            "tr": "lütfen",
-            "cat": "phrases",
-            "level": 1
-        }, {
-            "en": "thank you",
-            "tr": "teşekkür ederim",
-            "cat": "phrases",
-            "level": 1
-        }, {
-            "en": "sorry",
-            "tr": "özür dilerim",
-            "cat": "phrases",
-            "level": 2
-        }, {
-            "en": "excuse me",
-            "tr": "affedersiniz",
-            "cat": "phrases",
-            "level": 2
-        }, {
-            "en": "yes",
-            "tr": "evet",
-            "cat": "phrases",
-            "level": 2
-        }, {
-            "en": "no",
-            "tr": "hayır",
-            "cat": "phrases",
-            "level": 2
-        }, {
-            "en": "welcome",
-            "tr": "hoş geldiniz",
-            "cat": "phrases",
-            "level": 2
-        }, {
-            "en": "good morning",
-            "tr": "günaydın",
-            "cat": "phrases",
-            "level": 2
-        }, {
-            "en": "good night",
-            "tr": "iyi geceler",
-            "cat": "phrases",
-            "level": 2
-        }, {
-            "en": "see you later",
-            "tr": "görüşürüz",
-            "cat": "phrases",
-            "level": 2
-        }, {
-            "en": "one",
-            "tr": "bir",
-            "cat": "numbers",
-            "level": 2
-        }, {
-            "en": "two",
-            "tr": "iki",
-            "cat": "numbers",
-            "level": 2
-        }, {
-            "en": "three",
-            "tr": "üç",
-            "cat": "numbers",
-            "level": 2
-        }, {
-            "en": "four",
-            "tr": "dört",
-            "cat": "numbers",
-            "level": 2
-        }, {
-            "en": "five",
-            "tr": "beş",
-            "cat": "numbers",
-            "level": 2
-        }, {
-            "en": "six",
-            "tr": "altı",
-            "cat": "numbers",
-            "level": 2
-        }, {
-            "en": "seven",
-            "tr": "yedi",
-            "cat": "numbers",
-            "level": 2
-        }, {
-            "en": "eight",
-            "tr": "sekiz",
-            "cat": "numbers",
-            "level": 2
-        }, {
-            "en": "nine",
-            "tr": "dokuz",
-            "cat": "numbers",
-            "level": 2
-        }, {
-            "en": "ten",
-            "tr": "on",
-            "cat": "numbers",
-            "level": 2
-        }, {
-            "en": "eleven",
-            "tr": "on bir",
-            "cat": "numbers",
-            "level": 2
-        }, {
-            "en": "twelve",
-            "tr": "on iki",
-            "cat": "numbers",
-            "level": 2
-        }, {
-            "en": "thirteen",
-            "tr": "on üç",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "fourteen",
-            "tr": "on dört",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "fifteen",
-            "tr": "on beş",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "sixteen",
-            "tr": "on altı",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "seventeen",
-            "tr": "on yedi",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "eighteen",
-            "tr": "on sekiz",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "nineteen",
-            "tr": "on dokuz",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "twenty",
-            "tr": "yirmi",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "thirty",
-            "tr": "otuz",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "forty",
-            "tr": "kırk",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "fifty",
-            "tr": "elli",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "sixty",
-            "tr": "altmış",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "seventy",
-            "tr": "yetmiş",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "eighty",
-            "tr": "seksen",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "ninety",
-            "tr": "doksan",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "hundred",
-            "tr": "yüz",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "thousand",
-            "tr": "bin",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "zero",
-            "tr": "sıfır",
-            "cat": "numbers",
-            "level": 3
-        }, {
-            "en": "red",
-            "tr": "kırmızı",
-            "cat": "colors",
-            "level": 3
-        }, {
-            "en": "blue",
-            "tr": "mavi",
-            "cat": "colors",
-            "level": 3
-        }, {
-            "en": "green",
-            "tr": "yeşil",
-            "cat": "colors",
-            "level": 4
-        }, {
-            "en": "yellow",
-            "tr": "sarı",
-            "cat": "colors",
-            "level": 4
-        }, {
-            "en": "black",
-            "tr": "siyah",
-            "cat": "colors",
-            "level": 4
-        }, {
-            "en": "white",
-            "tr": "beyaz",
-            "cat": "colors",
-            "level": 4
-        }, {
-            "en": "orange",
-            "tr": "turuncu",
-            "cat": "colors",
-            "level": 4
-        }, {
-            "en": "pink",
-            "tr": "pembe",
-            "cat": "colors",
-            "level": 4
-        }, {
-            "en": "purple",
-            "tr": "mor",
-            "cat": "colors",
-            "level": 4
-        }, {
-            "en": "brown",
-            "tr": "kahverengi",
-            "cat": "colors",
-            "level": 4
-        }, {
-            "en": "gray",
-            "tr": "gri",
-            "cat": "colors",
-            "level": 4
-        }, {
-            "en": "gold",
-            "tr": "altın rengi",
-            "cat": "colors",
-            "level": 4
-        }, {
-            "en": "silver",
-            "tr": "gümüş rengi",
-            "cat": "colors",
-            "level": 4
-        }, {
-            "en": "Monday",
-            "tr": "Pazartesi",
-            "cat": "days",
-            "level": 4
-        }, {
-            "en": "Tuesday",
-            "tr": "Salı",
-            "cat": "days",
-            "level": 4
-        }, {
-            "en": "Wednesday",
-            "tr": "Çarşamba",
-            "cat": "days",
-            "level": 4
-        }, {
-            "en": "Thursday",
-            "tr": "Perşembe",
-            "cat": "days",
-            "level": 4
-        }, {
-            "en": "Friday",
-            "tr": "Cuma",
-            "cat": "days",
-            "level": 4
-        }, {
-            "en": "Saturday",
-            "tr": "Cumartesi",
-            "cat": "days",
-            "level": 4
-        }, {
-            "en": "Sunday",
-            "tr": "Pazar",
-            "cat": "days",
-            "level": 4
-        }, {
-            "en": "January",
-            "tr": "Ocak",
-            "cat": "months",
-            "level": 4
-        }, {
-            "en": "February",
-            "tr": "Şubat",
-            "cat": "months",
-            "level": 4
-        }, {
-            "en": "March",
-            "tr": "Mart",
-            "cat": "months",
-            "level": 5
-        }, {
-            "en": "April",
-            "tr": "Nisan",
-            "cat": "months",
-            "level": 5
-        }, {
-            "en": "May",
-            "tr": "Mayıs",
-            "cat": "months",
-            "level": 5
-        }, {
-            "en": "June",
-            "tr": "Haziran",
-            "cat": "months",
-            "level": 5
-        }, {
-            "en": "July",
-            "tr": "Temmuz",
-            "cat": "months",
-            "level": 5
-        }, {
-            "en": "August",
-            "tr": "Ağustos",
-            "cat": "months",
-            "level": 5
-        }, {
-            "en": "September",
-            "tr": "Eylül",
-            "cat": "months",
-            "level": 5
-        }, {
-            "en": "October",
-            "tr": "Ekim",
-            "cat": "months",
-            "level": 5
-        }, {
-            "en": "November",
-            "tr": "Kasım",
-            "cat": "months",
-            "level": 5
-        }, {
-            "en": "December",
-            "tr": "Aralık",
-            "cat": "months",
-            "level": 5
-        }, {
-            "en": "mother",
-            "tr": "anne",
-            "cat": "family",
-            "level": 5
-        }, {
-            "en": "father",
-            "tr": "baba",
-            "cat": "family",
-            "level": 5
-        }, {
-            "en": "sister",
-            "tr": "kız kardeş",
-            "cat": "family",
-            "level": 5
-        }, {
-            "en": "brother",
-            "tr": "erkek kardeş",
-            "cat": "family",
-            "level": 5
-        }, {
-            "en": "grandmother",
-            "tr": "büyükanne",
-            "cat": "family",
-            "level": 5
-        }, {
-            "en": "grandfather",
-            "tr": "büyükbaba",
-            "cat": "family",
-            "level": 5
-        }, {
-            "en": "aunt",
-            "tr": "teyze",
-            "cat": "family",
-            "level": 5
-        }, {
-            "en": "uncle",
-            "tr": "amca",
-            "cat": "family",
-            "level": 5
-        }, {
-            "en": "cousin",
-            "tr": "kuzen",
-            "cat": "family",
-            "level": 5
-        }, {
-            "en": "son",
-            "tr": "oğul",
-            "cat": "family",
-            "level": 5
-        }, {
-            "en": "daughter",
-            "tr": "kız evlat",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "wife",
-            "tr": "eş (kadın)",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "husband",
-            "tr": "eş (erkek)",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "baby",
-            "tr": "bebek",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "parents",
-            "tr": "ebeveynler",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "children",
-            "tr": "çocuklar",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "family",
-            "tr": "aile",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "friend",
-            "tr": "arkadaş",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "man",
-            "tr": "adam",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "woman",
-            "tr": "kadın",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "boy",
-            "tr": "erkek çocuk",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "girl",
-            "tr": "kız çocuk",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "child",
-            "tr": "çocuk",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "people",
-            "tr": "insanlar",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "person",
-            "tr": "kişi",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "teenager",
-            "tr": "genç",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "adult",
-            "tr": "yetişkin",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "neighbor",
-            "tr": "komşu",
-            "cat": "family",
-            "level": 6
-        }, {
-            "en": "head",
-            "tr": "baş",
-            "cat": "body",
-            "level": 6
-        }, {
-            "en": "hair",
-            "tr": "saç",
-            "cat": "body",
-            "level": 6
-        }, {
-            "en": "eye",
-            "tr": "göz",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "ear",
-            "tr": "kulak",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "nose",
-            "tr": "burun",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "mouth",
-            "tr": "ağız",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "teeth",
-            "tr": "dişler",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "tongue",
-            "tr": "dil",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "neck",
-            "tr": "boyun",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "shoulder",
-            "tr": "omuz",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "arm",
-            "tr": "kol",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "hand",
-            "tr": "el",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "finger",
-            "tr": "parmak",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "leg",
-            "tr": "bacak",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "knee",
-            "tr": "diz",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "foot",
-            "tr": "ayak",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "toe",
-            "tr": "ayak parmağı",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "back",
-            "tr": "sırt",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "chest",
-            "tr": "göğüs",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "stomach",
-            "tr": "karın",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "heart",
-            "tr": "kalp",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "face",
-            "tr": "yüz",
-            "cat": "body",
-            "level": 7
-        }, {
-            "en": "skin",
-            "tr": "cilt",
-            "cat": "body",
-            "level": 8
-        }, {
-            "en": "chin",
-            "tr": "çene",
-            "cat": "body",
-            "level": 8
-        }, {
-            "en": "cheek",
-            "tr": "yanak",
-            "cat": "body",
-            "level": 8
-        }, {
-            "en": "forehead",
-            "tr": "alın",
-            "cat": "body",
-            "level": 8
-        }, {
-            "en": "elbow",
-            "tr": "dirsek",
-            "cat": "body",
-            "level": 8
-        }, {
-            "en": "wrist",
-            "tr": "bilek",
-            "cat": "body",
-            "level": 8
-        }, {
-            "en": "ankle",
-            "tr": "ayak bileği",
-            "cat": "body",
-            "level": 8
-        }, {
-            "en": "hip",
-            "tr": "kalça",
-            "cat": "body",
-            "level": 8
-        }, {
-            "en": "dog",
-            "tr": "köpek",
-            "cat": "animals",
-            "level": 8
-        }, {
-            "en": "cat",
-            "tr": "kedi",
-            "cat": "animals",
-            "level": 8
-        }, {
-            "en": "bird",
-            "tr": "kuş",
-            "cat": "animals",
-            "level": 8
-        }, {
-            "en": "fish",
-            "tr": "balık",
-            "cat": "animals",
-            "level": 8
-        }, {
-            "en": "horse",
-            "tr": "at",
-            "cat": "animals",
-            "level": 8
-        }, {
-            "en": "cow",
-            "tr": "inek",
-            "cat": "animals",
-            "level": 8
-        }, {
-            "en": "sheep",
-            "tr": "koyun",
-            "cat": "animals",
-            "level": 8
-        }, {
-            "en": "pig",
-            "tr": "domuz",
-            "cat": "animals",
-            "level": 8
-        }, {
-            "en": "chicken",
-            "tr": "tavuk",
-            "cat": "animals",
-            "level": 8
-        }, {
-            "en": "duck",
-            "tr": "ördek",
-            "cat": "animals",
-            "level": 8
-        }, {
-            "en": "rabbit",
-            "tr": "tavşan",
-            "cat": "animals",
-            "level": 8
-        }, {
-            "en": "mouse",
-            "tr": "fare",
-            "cat": "animals",
-            "level": 8
-        }, {
-            "en": "lion",
-            "tr": "aslan",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "tiger",
-            "tr": "kaplan",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "elephant",
-            "tr": "fil",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "monkey",
-            "tr": "maymun",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "bear",
-            "tr": "ayı",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "wolf",
-            "tr": "kurt",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "fox",
-            "tr": "tilki",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "deer",
-            "tr": "geyik",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "snake",
-            "tr": "yılan",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "frog",
-            "tr": "kurbağa",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "turtle",
-            "tr": "kaplumbağa",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "butterfly",
-            "tr": "kelebek",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "bee",
-            "tr": "arı",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "spider",
-            "tr": "örümcek",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "ant",
-            "tr": "karınca",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "fly",
-            "tr": "sinek",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "owl",
-            "tr": "baykuş",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "eagle",
-            "tr": "kartal",
-            "cat": "animals",
-            "level": 9
-        }, {
-            "en": "bread",
-            "tr": "ekmek",
-            "cat": "food",
-            "level": 9
-        }, {
-            "en": "milk",
-            "tr": "süt",
-            "cat": "food",
-            "level": 9
-        }, {
-            "en": "water",
-            "tr": "su",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "egg",
-            "tr": "yumurta",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "cheese",
-            "tr": "peynir",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "butter",
-            "tr": "tereyağı",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "rice",
-            "tr": "pirinç",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "meat",
-            "tr": "et",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "apple",
-            "tr": "elma",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "banana",
-            "tr": "muz",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "grape",
-            "tr": "üzüm",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "strawberry",
-            "tr": "çilek",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "watermelon",
-            "tr": "karpuz",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "tomato",
-            "tr": "domates",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "potato",
-            "tr": "patates",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "onion",
-            "tr": "soğan",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "carrot",
-            "tr": "havuç",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "salt",
-            "tr": "tuz",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "sugar",
-            "tr": "şeker",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "oil",
-            "tr": "yağ",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "soup",
-            "tr": "çorba",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "salad",
-            "tr": "salata",
-            "cat": "food",
-            "level": 10
-        }, {
-            "en": "sandwich",
-            "tr": "sandviç",
-            "cat": "food",
-            "level": 11
-        }, {
-            "en": "cake",
-            "tr": "pasta",
-            "cat": "food",
-            "level": 11
-        }, {
-            "en": "chocolate",
-            "tr": "çikolata",
-            "cat": "food",
-            "level": 11
-        }, {
-            "en": "coffee",
-            "tr": "kahve",
-            "cat": "food",
-            "level": 11
-        }, {
-            "en": "tea",
-            "tr": "çay",
-            "cat": "food",
-            "level": 11
-        }, {
-            "en": "juice",
-            "tr": "meyve suyu",
-            "cat": "food",
-            "level": 11
-        }, {
-            "en": "honey",
-            "tr": "bal",
-            "cat": "food",
-            "level": 11
-        }, {
-            "en": "pasta",
-            "tr": "makarna",
-            "cat": "food",
-            "level": 11
-        }, {
-            "en": "house",
-            "tr": "ev",
-            "cat": "house",
-            "level": 11
-        }, {
-            "en": "room",
-            "tr": "oda",
-            "cat": "house",
-            "level": 11
-        }, {
-            "en": "kitchen",
-            "tr": "mutfak",
-            "cat": "house",
-            "level": 11
-        }, {
-            "en": "bedroom",
-            "tr": "yatak odası",
-            "cat": "house",
-            "level": 11
-        }, {
-            "en": "bathroom",
-            "tr": "banyo",
-            "cat": "house",
-            "level": 11
-        }, {
-            "en": "living room",
-            "tr": "oturma odası",
-            "cat": "house",
-            "level": 11
-        }, {
-            "en": "door",
-            "tr": "kapı",
-            "cat": "house",
-            "level": 11
-        }, {
-            "en": "window",
-            "tr": "pencere",
-            "cat": "house",
-            "level": 11
-        }, {
-            "en": "wall",
-            "tr": "duvar",
-            "cat": "house",
-            "level": 11
-        }, {
-            "en": "floor",
-            "tr": "zemin",
-            "cat": "house",
-            "level": 11
-        }, {
-            "en": "roof",
-            "tr": "çatı",
-            "cat": "house",
-            "level": 11
-        }, {
-            "en": "garden",
-            "tr": "bahçe",
-            "cat": "house",
-            "level": 11
-        }, {
-            "en": "garage",
-            "tr": "garaj",
-            "cat": "house",
-            "level": 12
-        }, {
-            "en": "stairs",
-            "tr": "merdiven",
-            "cat": "house",
-            "level": 12
-        }, {
-            "en": "table",
-            "tr": "masa",
-            "cat": "house",
-            "level": 12
-        }, {
-            "en": "chair",
-            "tr": "sandalye",
-            "cat": "house",
-            "level": 12
-        }, {
-            "en": "bed",
-            "tr": "yatak",
-            "cat": "house",
-            "level": 12
-        }, {
-            "en": "sofa",
-            "tr": "koltuk",
-            "cat": "house",
-            "level": 12
-        }, {
-            "en": "lamp",
-            "tr": "lamba",
-            "cat": "house",
-            "level": 12
-        }, {
-            "en": "mirror",
-            "tr": "ayna",
-            "cat": "house",
-            "level": 12
-        }, {
-            "en": "shelf",
-            "tr": "raf",
-            "cat": "house",
-            "level": 12
-        }, {
-            "en": "wardrobe",
-            "tr": "gardırop",
-            "cat": "house",
-            "level": 12
-        }, {
-            "en": "fridge",
-            "tr": "buzdolabı",
-            "cat": "house",
-            "level": 12
-        }, {
-            "en": "oven",
-            "tr": "fırın",
-            "cat": "house",
-            "level": 12
-        }, {
-            "en": "sink",
-            "tr": "lavabo",
-            "cat": "house",
-            "level": 12
-        }, {
-            "en": "television",
-            "tr": "televizyon",
-            "cat": "house",
-            "level": 12
-        }, {
-            "en": "school",
-            "tr": "okul",
-            "cat": "school",
-            "level": 12
-        }, {
-            "en": "teacher",
-            "tr": "öğretmen",
-            "cat": "school",
-            "level": 12
-        }, {
-            "en": "student",
-            "tr": "öğrenci",
-            "cat": "school",
-            "level": 12
-        }, {
-            "en": "book",
-            "tr": "kitap",
-            "cat": "school",
-            "level": 12
-        }, {
-            "en": "pen",
-            "tr": "tükenmez kalem",
-            "cat": "school",
-            "level": 12
-        }, {
-            "en": "pencil",
-            "tr": "kurşun kalem",
-            "cat": "school",
-            "level": 12
-        }, {
-            "en": "notebook",
-            "tr": "defter",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "bag",
-            "tr": "çanta",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "desk",
-            "tr": "sıra",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "classroom",
-            "tr": "sınıf",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "board",
-            "tr": "tahta",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "eraser",
-            "tr": "silgi",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "ruler",
-            "tr": "cetvel",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "homework",
-            "tr": "ev ödevi",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "lesson",
-            "tr": "ders",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "exam",
-            "tr": "sınav",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "question",
-            "tr": "soru",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "answer",
-            "tr": "cevap",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "subject",
-            "tr": "ders konusu",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "math",
-            "tr": "matematik",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "science",
-            "tr": "fen bilgisi",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "history",
-            "tr": "tarih",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "geography",
-            "tr": "coğrafya",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "art",
-            "tr": "sanat",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "music",
-            "tr": "müzik",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "language",
-            "tr": "dil",
-            "cat": "school",
-            "level": 13
-        }, {
-            "en": "word",
-            "tr": "kelime",
-            "cat": "school",
-            "level": 14
-        }, {
-            "en": "sentence",
-            "tr": "cümle",
-            "cat": "school",
-            "level": 14
-        }, {
-            "en": "letter",
-            "tr": "harf",
-            "cat": "school",
-            "level": 14
-        }, {
-            "en": "page",
-            "tr": "sayfa",
-            "cat": "school",
-            "level": 14
-        }, {
-            "en": "shirt",
-            "tr": "gömlek",
-            "cat": "clothes",
-            "level": 14
-        }, {
-            "en": "T-shirt",
-            "tr": "tişört",
-            "cat": "clothes",
-            "level": 14
-        }, {
-            "en": "trousers",
-            "tr": "pantolon",
-            "cat": "clothes",
-            "level": 14
-        }, {
-            "en": "dress",
-            "tr": "elbise",
-            "cat": "clothes",
-            "level": 14
-        }, {
-            "en": "skirt",
-            "tr": "etek",
-            "cat": "clothes",
-            "level": 14
-        }, {
-            "en": "jacket",
-            "tr": "ceket",
-            "cat": "clothes",
-            "level": 14
-        }, {
-            "en": "coat",
-            "tr": "palto",
-            "cat": "clothes",
-            "level": 14
-        }, {
-            "en": "shoes",
-            "tr": "ayakkabı",
-            "cat": "clothes",
-            "level": 14
-        }, {
-            "en": "socks",
-            "tr": "çorap",
-            "cat": "clothes",
-            "level": 14
-        }, {
-            "en": "hat",
-            "tr": "şapka",
-            "cat": "clothes",
-            "level": 14
-        }, {
-            "en": "scarf",
-            "tr": "atkı",
-            "cat": "clothes",
-            "level": 14
-        }, {
-            "en": "gloves",
-            "tr": "eldiven",
-            "cat": "clothes",
-            "level": 14
-        }, {
-            "en": "belt",
-            "tr": "kemer",
-            "cat": "clothes",
-            "level": 14
-        }, {
-            "en": "sweater",
-            "tr": "kazak",
-            "cat": "clothes",
-            "level": 14
-        }, {
-            "en": "jeans",
-            "tr": "kot pantolon",
-            "cat": "clothes",
-            "level": 14
-        }, {
-            "en": "shorts",
-            "tr": "şort",
-            "cat": "clothes",
-            "level": 14
-        }, {
-            "en": "boots",
-            "tr": "bot",
-            "cat": "clothes",
-            "level": 15
-        }, {
-            "en": "sandals",
-            "tr": "sandalet",
-            "cat": "clothes",
-            "level": 15
-        }, {
-            "en": "suit",
-            "tr": "takım elbise",
-            "cat": "clothes",
-            "level": 15
-        }, {
-            "en": "tie",
-            "tr": "kravat",
-            "cat": "clothes",
-            "level": 15
-        }, {
-            "en": "pajamas",
-            "tr": "pijama",
-            "cat": "clothes",
-            "level": 15
-        }, {
-            "en": "underwear",
-            "tr": "iç çamaşırı",
-            "cat": "clothes",
-            "level": 15
-        }, {
-            "en": "sun",
-            "tr": "güneş",
-            "cat": "weather",
-            "level": 15
-        }, {
-            "en": "rain",
-            "tr": "yağmur",
-            "cat": "weather",
-            "level": 15
-        }, {
-            "en": "snow",
-            "tr": "kar",
-            "cat": "weather",
-            "level": 15
-        }, {
-            "en": "wind",
-            "tr": "rüzgar",
-            "cat": "weather",
-            "level": 15
-        }, {
-            "en": "cloud",
-            "tr": "bulut",
-            "cat": "weather",
-            "level": 15
-        }, {
-            "en": "storm",
-            "tr": "fırtına",
-            "cat": "weather",
-            "level": 15
-        }, {
-            "en": "hot",
-            "tr": "sıcak",
-            "cat": "weather",
-            "level": 15
-        }, {
-            "en": "cold",
-            "tr": "soğuk",
-            "cat": "weather",
-            "level": 15
-        }, {
-            "en": "warm",
-            "tr": "ılık",
-            "cat": "weather",
-            "level": 15
-        }, {
-            "en": "cool",
-            "tr": "serin",
-            "cat": "weather",
-            "level": 15
-        }, {
-            "en": "sunny",
-            "tr": "güneşli",
-            "cat": "weather",
-            "level": 15
-        }, {
-            "en": "rainy",
-            "tr": "yağmurlu",
-            "cat": "weather",
-            "level": 15
-        }, {
-            "en": "snowy",
-            "tr": "karlı",
-            "cat": "weather",
-            "level": 15
-        }, {
-            "en": "windy",
-            "tr": "rüzgarlı",
-            "cat": "weather",
-            "level": 15
-        }, {
-            "en": "cloudy",
-            "tr": "bulutlu",
-            "cat": "weather",
-            "level": 16
-        }, {
-            "en": "foggy",
-            "tr": "sisli",
-            "cat": "weather",
-            "level": 16
-        }, {
-            "en": "today",
-            "tr": "bugün",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "tomorrow",
-            "tr": "yarın",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "yesterday",
-            "tr": "dün",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "morning",
-            "tr": "sabah",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "afternoon",
-            "tr": "öğleden sonra",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "evening",
-            "tr": "akşam",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "night",
-            "tr": "gece",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "week",
-            "tr": "hafta",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "month",
-            "tr": "ay",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "year",
-            "tr": "yıl",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "hour",
-            "tr": "saat",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "minute",
-            "tr": "dakika",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "second",
-            "tr": "saniye",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "noon",
-            "tr": "öğle vakti",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "midnight",
-            "tr": "gece yarısı",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "spring",
-            "tr": "ilkbahar",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "summer",
-            "tr": "yaz",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "autumn",
-            "tr": "sonbahar",
-            "cat": "time",
-            "level": 16
-        }, {
-            "en": "winter",
-            "tr": "kış",
-            "cat": "time",
-            "level": 17
-        }, {
-            "en": "be",
-            "tr": "olmak",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "have",
-            "tr": "sahip olmak",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "do",
-            "tr": "yapmak",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "go",
-            "tr": "gitmek",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "come",
-            "tr": "gelmek",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "eat",
-            "tr": "yemek yemek",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "drink",
-            "tr": "içmek",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "sleep",
-            "tr": "uyumak",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "run",
-            "tr": "koşmak",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "walk",
-            "tr": "yürümek",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "talk",
-            "tr": "konuşmak",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "speak",
-            "tr": "konuşmak",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "listen",
-            "tr": "dinlemek",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "hear",
-            "tr": "duymak",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "see",
-            "tr": "görmek",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "watch",
-            "tr": "izlemek",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "look",
-            "tr": "bakmak",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "read",
-            "tr": "okumak",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "write",
-            "tr": "yazmak",
-            "cat": "verbs",
-            "level": 17
-        }, {
-            "en": "play",
-            "tr": "oynamak",
-            "cat": "verbs",
-            "level": 18
-        }, {
-            "en": "work",
-            "tr": "çalışmak",
-            "cat": "verbs",
-            "level": 18
-        }, {
-            "en": "study",
-            "tr": "ders çalışmak",
-            "cat": "verbs",
-            "level": 18
-        }, {
-            "en": "learn",
-            "tr": "öğrenmek",
-            "cat": "verbs",
-            "level": 18
-        }, {
-            "en": "teach",
-            "tr": "öğretmek",
-            "cat": "verbs",
-            "level": 18
-        }, {
-            "en": "live",
-            "tr": "yaşamak",
-            "cat": "verbs",
-            "level": 18
-        }, {
-            "en": "love",
-            "tr": "sevmek",
-            "cat": "verbs",
-            "level": 18
-        }, {
-            "en": "like",
-            "tr": "hoşlanmak",
-            "cat": "verbs",
-            "level": 18
-        }, {
-            "en": "want",
-            "tr": "istemek",
-            "cat": "verbs",
-            "level": 18
-        }, {
-            "en": "need",
-            "tr": "ihtiyaç duymak",
-            "cat": "verbs",
-            "level": 18
-        }, {
-            "en": "know",
-            "tr": "bilmek",
-            "cat": "verbs",
-            "level": 18
-        }, {
-            "en": "big",
-            "tr": "büyük",
-            "cat": "adjectives",
-            "level": 18
-        }, {
-            "en": "small",
-            "tr": "küçük",
-            "cat": "adjectives",
-            "level": 18
-        }, {
-            "en": "tall",
-            "tr": "uzun boylu",
-            "cat": "adjectives",
-            "level": 18
-        }, {
-            "en": "short",
-            "tr": "kısa",
-            "cat": "adjectives",
-            "level": 18
-        }, {
-            "en": "long",
-            "tr": "uzun",
-            "cat": "adjectives",
-            "level": 18
-        }, {
-            "en": "fat",
-            "tr": "şişman",
-            "cat": "adjectives",
-            "level": 18
-        }, {
-            "en": "thin",
-            "tr": "zayıf",
-            "cat": "adjectives",
-            "level": 18
-        }, {
-            "en": "old",
-            "tr": "yaşlı",
-            "cat": "adjectives",
-            "level": 18
-        }, {
-            "en": "young",
-            "tr": "genç",
-            "cat": "adjectives",
-            "level": 18
-        }, {
-            "en": "new",
-            "tr": "yeni",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "good",
-            "tr": "iyi",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "bad",
-            "tr": "kötü",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "happy",
-            "tr": "mutlu",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "sad",
-            "tr": "üzgün",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "angry",
-            "tr": "kızgın",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "tired",
-            "tr": "yorgun",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "hungry",
-            "tr": "aç",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "thirsty",
-            "tr": "susamış",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "beautiful",
-            "tr": "güzel",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "ugly",
-            "tr": "çirkin",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "easy",
-            "tr": "kolay",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "difficult",
-            "tr": "zor",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "fast",
-            "tr": "hızlı",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "slow",
-            "tr": "yavaş",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "dirty",
-            "tr": "kirli",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "rich",
-            "tr": "zengin",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "poor",
-            "tr": "fakir",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "strong",
-            "tr": "güçlü",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "weak",
-            "tr": "güçsüz",
-            "cat": "adjectives",
-            "level": 19
-        }, {
-            "en": "heavy",
-            "tr": "ağır",
-            "cat": "adjectives",
-            "level": 20
-        }, {
-            "en": "doctor",
-            "tr": "doktor",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "nurse",
-            "tr": "hemşire",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "engineer",
-            "tr": "mühendis",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "police officer",
-            "tr": "polis",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "firefighter",
-            "tr": "itfaiyeci",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "driver",
-            "tr": "şoför",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "cook",
-            "tr": "aşçı",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "waiter",
-            "tr": "garson",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "farmer",
-            "tr": "çiftçi",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "worker",
-            "tr": "işçi",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "manager",
-            "tr": "müdür",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "lawyer",
-            "tr": "avukat",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "dentist",
-            "tr": "diş hekimi",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "pilot",
-            "tr": "pilot",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "singer",
-            "tr": "şarkıcı",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "actor",
-            "tr": "aktör",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "artist",
-            "tr": "sanatçı",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "writer",
-            "tr": "yazar",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "journalist",
-            "tr": "gazeteci",
-            "cat": "jobs",
-            "level": 20
-        }, {
-            "en": "soldier",
-            "tr": "asker",
-            "cat": "jobs",
-            "level": 21
-        }, {
-            "en": "scientist",
-            "tr": "bilim insanı",
-            "cat": "jobs",
-            "level": 21
-        }, {
-            "en": "secretary",
-            "tr": "sekreter",
-            "cat": "jobs",
-            "level": 21
-        }, {
-            "en": "hairdresser",
-            "tr": "kuaför",
-            "cat": "jobs",
-            "level": 21
-        }, {
-            "en": "city",
-            "tr": "şehir",
-            "cat": "places",
-            "level": 21
-        }, {
-            "en": "town",
-            "tr": "kasaba",
-            "cat": "places",
-            "level": 21
-        }, {
-            "en": "village",
-            "tr": "köy",
-            "cat": "places",
-            "level": 21
-        }, {
-            "en": "country",
-            "tr": "ülke",
-            "cat": "places",
-            "level": 21
-        }, {
-            "en": "street",
-            "tr": "sokak",
-            "cat": "places",
-            "level": 21
-        }, {
-            "en": "road",
-            "tr": "yol",
-            "cat": "places",
-            "level": 21
-        }, {
-            "en": "park",
-            "tr": "park",
-            "cat": "places",
-            "level": 21
-        }, {
-            "en": "hospital",
-            "tr": "hastane",
-            "cat": "places",
-            "level": 21
-        }, {
-            "en": "supermarket",
-            "tr": "süpermarket",
-            "cat": "places",
-            "level": 21
-        }, {
-            "en": "restaurant",
-            "tr": "restoran",
-            "cat": "places",
-            "level": 21
-        }, {
-            "en": "cafe",
-            "tr": "kafe",
-            "cat": "places",
-            "level": 21
-        }, {
-            "en": "hotel",
-            "tr": "otel",
-            "cat": "places",
-            "level": 21
-        }, {
-            "en": "airport",
-            "tr": "havalimanı",
-            "cat": "places",
-            "level": 21
-        }, {
-            "en": "station",
-            "tr": "istasyon",
-            "cat": "places",
-            "level": 21
-        }, {
-            "en": "bank",
-            "tr": "banka",
-            "cat": "places",
-            "level": 21
-        }, {
-            "en": "post office",
-            "tr": "postane",
-            "cat": "places",
-            "level": 21
-        }, {
-            "en": "library",
-            "tr": "kütüphane",
-            "cat": "places",
-            "level": 22
-        }, {
-            "en": "museum",
-            "tr": "müze",
-            "cat": "places",
-            "level": 22
-        }, {
-            "en": "church",
-            "tr": "kilise",
-            "cat": "places",
-            "level": 22
-        }, {
-            "en": "mosque",
-            "tr": "cami",
-            "cat": "places",
-            "level": 22
-        }, {
-            "en": "zoo",
-            "tr": "hayvanat bahçesi",
-            "cat": "places",
-            "level": 22
-        }, {
-            "en": "beach",
-            "tr": "plaj",
-            "cat": "places",
-            "level": 22
-        }, {
-            "en": "mountain",
-            "tr": "dağ",
-            "cat": "places",
-            "level": 22
-        }, {
-            "en": "river",
-            "tr": "nehir",
-            "cat": "places",
-            "level": 22
-        }, {
-            "en": "lake",
-            "tr": "göl",
-            "cat": "places",
-            "level": 22
-        }, {
-            "en": "sea",
-            "tr": "deniz",
-            "cat": "places",
-            "level": 22
-        }, {
-            "en": "forest",
-            "tr": "orman",
-            "cat": "places",
-            "level": 22
-        }, {
-            "en": "bridge",
-            "tr": "köprü",
-            "cat": "places",
-            "level": 22
-        }, {
-            "en": "square",
-            "tr": "meydan",
-            "cat": "places",
-            "level": 22
-        }, {
-            "en": "car",
-            "tr": "araba",
-            "cat": "transport",
-            "level": 22
-        }, {
-            "en": "bus",
-            "tr": "otobüs",
-            "cat": "transport",
-            "level": 22
-        }, {
-            "en": "train",
-            "tr": "tren",
-            "cat": "transport",
-            "level": 22
-        }, {
-            "en": "bicycle",
-            "tr": "bisiklet",
-            "cat": "transport",
-            "level": 22
-        }, {
-            "en": "motorcycle",
-            "tr": "motosiklet",
-            "cat": "transport",
-            "level": 22
-        }, {
-            "en": "taxi",
-            "tr": "taksi",
-            "cat": "transport",
-            "level": 22
-        }, {
-            "en": "plane",
-            "tr": "uçak",
-            "cat": "transport",
-            "level": 22
-        }, {
-            "en": "ship",
-            "tr": "gemi",
-            "cat": "transport",
-            "level": 23
-        }, {
-            "en": "boat",
-            "tr": "tekne",
-            "cat": "transport",
-            "level": 23
-        }, {
-            "en": "truck",
-            "tr": "kamyon",
-            "cat": "transport",
-            "level": 23
-        }, {
-            "en": "subway",
-            "tr": "metro",
-            "cat": "transport",
-            "level": 23
-        }, {
-            "en": "traffic",
-            "tr": "trafik",
-            "cat": "transport",
-            "level": 23
-        }, {
-            "en": "ticket",
-            "tr": "bilet",
-            "cat": "transport",
-            "level": 23
-        }, {
-            "en": "tree",
-            "tr": "ağaç",
-            "cat": "nature",
-            "level": 23
-        }, {
-            "en": "flower",
-            "tr": "çiçek",
-            "cat": "nature",
-            "level": 23
-        }, {
-            "en": "grass",
-            "tr": "çimen",
-            "cat": "nature",
-            "level": 23
-        }, {
-            "en": "leaf",
-            "tr": "yaprak",
-            "cat": "nature",
-            "level": 23
-        }, {
-            "en": "plant",
-            "tr": "bitki",
-            "cat": "nature",
-            "level": 23
-        }, {
-            "en": "sky",
-            "tr": "gökyüzü",
-            "cat": "nature",
-            "level": 23
-        }, {
-            "en": "star",
-            "tr": "yıldız",
-            "cat": "nature",
-            "level": 23
-        }, {
-            "en": "moon",
-            "tr": "ay",
-            "cat": "nature",
-            "level": 23
-        }, {
-            "en": "earth",
-            "tr": "dünya",
-            "cat": "nature",
-            "level": 23
-        }, {
-            "en": "stone",
-            "tr": "taş",
-            "cat": "nature",
-            "level": 23
-        }, {
-            "en": "sand",
-            "tr": "kum",
-            "cat": "nature",
-            "level": 23
-        }, {
-            "en": "wood",
-            "tr": "tahta",
-            "cat": "nature",
-            "level": 23
-        }, {
-            "en": "fire",
-            "tr": "ateş",
-            "cat": "nature",
-            "level": 23
-        }, {
-            "en": "air",
-            "tr": "hava",
-            "cat": "nature",
-            "level": 23
-        }, {
-            "en": "ice",
-            "tr": "buz",
-            "cat": "nature",
-            "level": 24
-        }, {
-            "en": "island",
-            "tr": "ada",
-            "cat": "nature",
-            "level": 24
-        }, {
-            "en": "phone",
-            "tr": "telefon",
-            "cat": "technology",
-            "level": 24
-        }, {
-            "en": "computer",
-            "tr": "bilgisayar",
-            "cat": "technology",
-            "level": 24
-        }, {
-            "en": "radio",
-            "tr": "radyo",
-            "cat": "technology",
-            "level": 24
-        }, {
-            "en": "camera",
-            "tr": "kamera",
-            "cat": "technology",
-            "level": 24
-        }, {
-            "en": "internet",
-            "tr": "internet",
-            "cat": "technology",
-            "level": 24
-        }, {
-            "en": "email",
-            "tr": "e-posta",
-            "cat": "technology",
-            "level": 24
-        }, {
-            "en": "message",
-            "tr": "mesaj",
-            "cat": "technology",
-            "level": 24
-        }, {
-            "en": "screen",
-            "tr": "ekran",
-            "cat": "technology",
-            "level": 24
-        }, {
-            "en": "button",
-            "tr": "düğme",
-            "cat": "technology",
-            "level": 24
-        }, {
-            "en": "machine",
-            "tr": "makine",
-            "cat": "technology",
-            "level": 24
-        }, {
-            "en": "robot",
-            "tr": "robot",
-            "cat": "technology",
-            "level": 24
-        }, {
-            "en": "excited",
-            "tr": "heyecanlı",
-            "cat": "emotions",
-            "level": 24
-        }, {
-            "en": "bored",
-            "tr": "sıkılmış",
-            "cat": "emotions",
-            "level": 24
-        }, {
-            "en": "scared",
-            "tr": "korkmuş",
-            "cat": "emotions",
-            "level": 24
-        }, {
-            "en": "worried",
-            "tr": "endişeli",
-            "cat": "emotions",
-            "level": 24
-        }, {
-            "en": "surprised",
-            "tr": "şaşırmış",
-            "cat": "emotions",
-            "level": 24
-        }, {
-            "en": "nervous",
-            "tr": "gergin",
-            "cat": "emotions",
-            "level": 24
-        }, {
-            "en": "embarrassed",
-            "tr": "utanmış",
-            "cat": "emotions",
-            "level": 24
-        }, {
-            "en": "relaxed",
-            "tr": "rahat",
-            "cat": "emotions",
-            "level": 25
-        }, {
-            "en": "confused",
-            "tr": "kafası karışmış",
-            "cat": "emotions",
-            "level": 25
-        }, {
-            "en": "jealous",
-            "tr": "kıskanç",
-            "cat": "emotions",
-            "level": 25
-        }, {
-            "en": "lonely",
-            "tr": "yalnız",
-            "cat": "emotions",
-            "level": 25
-        }, {
-            "en": "confident",
-            "tr": "kendine güvenen",
-            "cat": "emotions",
-            "level": 25
-        }, {
-            "en": "football",
-            "tr": "futbol",
-            "cat": "sports",
-            "level": 25
-        }, {
-            "en": "basketball",
-            "tr": "basketbol",
-            "cat": "sports",
-            "level": 25
-        }, {
-            "en": "tennis",
-            "tr": "tenis",
-            "cat": "sports",
-            "level": 25
-        }, {
-            "en": "swimming",
-            "tr": "yüzme",
-            "cat": "sports",
-            "level": 25
-        }, {
-            "en": "running",
-            "tr": "koşu",
-            "cat": "sports",
-            "level": 25
-        }, {
-            "en": "cycling",
-            "tr": "bisiklete binme",
-            "cat": "sports",
-            "level": 25
-        }, {
-            "en": "painting",
-            "tr": "resim yapma",
-            "cat": "sports",
-            "level": 25
-        }, {
-            "en": "photography",
-            "tr": "fotoğrafçılık",
-            "cat": "sports",
-            "level": 25
-        }, {
-            "en": "fishing",
-            "tr": "balık tutma",
-            "cat": "sports",
-            "level": 25
-        }, {
-            "en": "camping",
-            "tr": "kamp yapma",
-            "cat": "sports",
-            "level": 25
-        }, {
-            "en": "chess",
-            "tr": "satranç",
-            "cat": "sports",
-            "level": 25
-        }, {
-            "en": "game",
-            "tr": "oyun",
-            "cat": "sports",
-            "level": 25
-        }, {
-            "en": "ball",
-            "tr": "top",
-            "cat": "sports",
-            "level": 25
-        }, {
-            "en": "team",
-            "tr": "takım",
-            "cat": "sports",
-            "level": 25
-        }, {
-            "en": "match",
-            "tr": "maç",
-            "cat": "sports",
-            "level": 25
-        }];
+        // Metin ve örnek sözlük; gerçek projede API ile değiştirilebilir.
+        const STORIES = [
+            {
+                title: "A Cat at the Door", level: "A1 · Easy story", meta: "At home · 2 min read",
+                paragraphs: [
+                    "Mia has a small cat. The cat is white and very soft.",
+                    "One morning, the cat sits by the door. It wants to go outside.",
+                    "Mia opens the door. The cat runs to the garden and looks at a bird.",
+                    "After ten minutes, the cat comes back. Mia gives it some milk. The cat is happy."
+                ]
+            },
+            {
+                title: "Ben’s New Bike", level: "A1 · Easy story", meta: "In town · 2 min read",
+                paragraphs: [
+                    "Ben has a new blue bike. It is a gift from his dad.",
+                    "On Saturday, Ben rides his bike to the park. His friend Sam is there.",
+                    "They ride around the lake. Then they eat apples and talk under a tree.",
+                    "At five o’clock, Ben rides home. He is tired, but he is very glad."
+                ]
+            },
+            {
+                title: "The Red Apple", level: "A1 · Easy story", meta: "At the market · 2 min read",
+                paragraphs: [
+                    "Lena goes to the market with her mother. She sees a big red apple.",
+                    "The apple looks good. Lena asks, ‘Can I have it?’ Her mother smiles.",
+                    "They buy three apples, some bread, and a little cheese.",
+                    "At home, Lena washes an apple. She cuts it in half and shares it with her brother."
+                ]
+            },
+            {
+                title: "A Day at the Beach", level: "A1 · Easy story", meta: "By the sea · 2 min read",
+                paragraphs: [
+                    "Tom and his sister go to the beach with their family.",
+                    "The sun is warm. Tom swims in the sea, and his sister makes a sand house.",
+                    "Their mother reads a book. Their father gets water and small cakes.",
+                    "In the evening, they walk home. They are happy after a fun day."
+                ]
+            },
+            {
+                title: "The Little Seed", level: "A1 · Easy story", meta: "In the garden · 2 min read",
+                paragraphs: [
+                    "Ella finds a little seed in the garden. She puts it in the ground.",
+                    "Every day, she gives the seed water. The sun shines on the ground.",
+                    "One week later, a small green plant comes up. Ella is excited.",
+                    "She takes care of the plant. Soon, it has a yellow flower."
+                ]
+            },
+            {
+                title: "Sam’s Busy Morning", level: "A1 · Easy story", meta: "Daily life · 2 min read",
+                paragraphs: [
+                    "Sam gets up at seven. He washes his face and puts on his clothes.",
+                    "He eats eggs and bread for breakfast. He drinks a glass of water.",
+                    "Then Sam walks to school with his sister. They talk about their day.",
+                    "At school, Sam sees his friends. He says hello and opens his book."
+                ]
+            },
+            {
+                title: "A Rainy Day", level: "A1 · Easy story", meta: "At home · 2 min read",
+                paragraphs: [
+                    "Rain falls all morning. Nina looks out of the window.",
+                    "She cannot play in the park, so she takes a book from the shelf.",
+                    "Her little brother sits next to her. They read a story about a funny dog.",
+                    "Later, the rain stops. Nina puts on her coat and goes outside."
+                ]
+            },
+            {
+                title: "The Helpful Boy", level: "A1 · Easy story", meta: "A kind act · 2 min read",
+                paragraphs: [
+                    "Ali sees an old man with two heavy bags. The man walks very slowly.",
+                    "Ali asks, ‘Can I help you?’ The man gives him one bag.",
+                    "They walk to the man’s house. He says, ‘Thank you, young friend.’",
+                    "Ali smiles and walks home. He feels good because he helped someone."
+                ]
+            }
+        ];
 
-        const CAT_NAMES = {
-            pronouns: "Zamirler",
-            phrases: "Selamlaşma",
-            numbers: "Sayılar",
-            colors: "Renkler",
-            days: "Günler",
-            months: "Aylar",
-            family: "Aile",
-            body: "Vücut",
-            animals: "Hayvanlar",
-            food: "Yiyecek & İçecek",
-            house: "Ev",
-            school: "Okul",
-            clothes: "Kıyafetler",
-            weather: "Hava Durumu",
-            time: "Zaman",
-            verbs: "Fiiller",
-            adjectives: "Sıfatlar",
-            jobs: "Meslekler",
-            places: "Yerler",
-            transport: "Ulaşım",
-            nature: "Doğa",
-            technology: "Teknoloji",
-            emotions: "Duygular",
-            sports: "Spor & Hobiler"
-        };
-        const CAT_ICON = {
-            pronouns: "🙋",
-            phrases: "👋",
-            numbers: "🔢",
-            colors: "🎨",
-            days: "📅",
-            months: "🗓️",
-            family: "👪",
-            body: "🧍",
-            animals: "🐾",
-            food: "🍎",
-            house: "🏠",
-            school: "🎒",
-            clothes: "👕",
-            weather: "⛅",
-            time: "⏰",
-            verbs: "🏃",
-            adjectives: "✨",
-            jobs: "💼",
-            places: "📍",
-            transport: "🚌",
-            nature: "🌿",
-            technology: "💻",
-            emotions: "🥰",
-            sports: "⚽"
-        };
-
-        const LEVELS = {};
-        WORDS.forEach(w => {
-            (LEVELS[w.level] = LEVELS[w.level] || []).push(w);
-        });
-        const LEVEL_NUMS = Object.keys(LEVELS).map(Number).sort((a, b) => a - b);
-        const TOTAL_LEVELS = LEVEL_NUMS.length;
-
-        function levelDominantCat(lvl) {
-            const counts = {};
-            LEVELS[lvl].forEach(w => counts[w.cat] = (counts[w.cat] || 0) + 1);
-            let best = null,
-                bestC = 0;
-            for (const c in counts) {
-                if (counts[c] > bestC) {
-                    best = c;
-                    bestC = counts[c];
+        function makeLongParagraphs(seed, targetLength = 12000) {
+            const result = [];
+            let round = 0;
+            while (result.join(' ').length < targetLength) {
+                for (const sentence of seed) {
+                    if (result.join(' ').length >= targetLength) break;
+                    const extra = round > 0 ? " The next day, the story continues." : "";
+                    result.push(sentence + extra);
                 }
+                round += 1;
             }
-            return best;
+            return result;
         }
 
-        /* ---------------- STATE (in-memory only, resets on reload) ---------------- */
-        const state = {
-            screen: 'map', // map
-            overlay: null, // null | level | game-select | quiz | match | scramble | result
-            currentLevel: 1,
-            progress: {}, // {levelNum:{stars, quiz:{best}, match:{best}, scramble:{best}, hunt:{best}, kp, isUnderSiege, immunityTurns}}
-            flashIdx: 0,
-            flashFlipped: false,
-            lastResult: null,
-            quiz: null,
-            match: null,
-            scramble: null,
-            hunt: null, // Word Hunt game state
+        STORIES.push(
+            {
+                title: "Mia and the Secret Garden",
+                level: "A1 · Long story",
+                meta: "A gentle adventure · about 12k characters",
+                paragraphs: makeLongParagraphs([
+                    "Mia lives in a small house near a quiet town.", "Behind her house, there is an old wooden gate.", "One sunny morning, she finds a small key under a flat stone.", "The key has a blue ribbon and feels warm in her hand.", "Mia puts the key in the lock, and the gate opens slowly.", "Behind the gate, she sees a beautiful garden with many flowers.", "There are red roses, yellow flowers, and small white lights.", "A narrow path goes between the trees and ends near a pond.", "A frog jumps into the pond when Mia walks near the water.", "Mia sits on a wooden chair and listens to the quiet garden.", "She hears birds, bees, leaves, and the soft sound of water.", "Near the chair, she sees a sign that says, Please take care.", "Mia understands that the garden needs a kind friend.", "She brings clean water and gives it to the dry plants.", "She also pulls out small weeds and cleans the old path.", "A little brown bird watches her from a low branch.", "Every morning, Mia visits the garden before school.", "She writes the names of the flowers in a blue notebook.", "One afternoon, Mia finds a small box under the chair.", "Inside the box, there is a letter from a girl named Anna.", "Anna made the garden many years ago with her family.", "She moved away and asked a new friend to keep it safe.", "Mia smiles because she wants to be that friend.", "Her mother helps her fix the chair and paint the gate blue.", "Two children from the town find the garden too.", "Mia teaches them to walk softly and care for plants.", "Together, they plant a new flower near the pond.", "After many days, a small purple flower opens.", "The garden becomes brighter and full of happy voices.", "One evening, a strong wind breaks a young branch.", "Mia and her friends use ropes and sticks to help the tree.", "The next morning, the garden looks tired but safe.", "Mia reads Anna's letter again and thinks about kind friends.", "The garden is not a secret now, but it is still special."
+                ])
+            },
+            {
+                title: "Leo's Train to the Sea",
+                level: "A1 · Long story",
+                meta: "A family journey · about 12k characters",
+                paragraphs: makeLongParagraphs([
+                    "Leo lives far from the sea, but he dreams about blue water.", "His grandmother tells stories about a small town near the coast.", "One summer morning, Leo and his family take a train to the sea.", "Leo carries a red bag with a book, a hat, and a camera.", "The train leaves the station at eight o'clock.", "At first, Leo sees houses, shops, and tall buildings.", "Then he sees green fields with cows and yellow flowers.", "His sister Nora sits next to him and shares an apple.", "Their father reads the map and their mother checks the tickets.", "Leo looks out of the window and counts three bridges.", "At the next station, an old man gets on the train.", "He carries a violin in a long brown case.", "The man plays a quiet song for the people on the train.", "The song makes the train feel warm and friendly.", "Nora gives him half of her apple, and he thanks her.", "The train moves through a dark tunnel under a mountain.", "Then sunlight comes back and the sea appears far away.", "Leo sees a bright line of blue behind the green hills.", "At noon, the train arrives at a small station by the coast.", "The air smells of salt, warm sand, and fresh bread.", "The family walks to the hotel because their bags are heavy.", "On the way, Leo hears the sound of waves for the first time.", "At the beach, Leo takes off his shoes and feels warm sand.", "Nora builds a sand house with a little door.", "Their father walks into the water with Leo.", "The first wave touches Leo's feet and he jumps back.", "Soon, he learns to stand in the water and laugh.", "In the evening, the family eats fish and bread near the harbor.", "The old violin player is there too, playing for visitors.", "Leo gives him a drawing of the train and the sea.", "The next day, Leo visits a lighthouse on a hill.", "He climbs many steps and looks at the boats below.", "The town looks small, and the sea looks very large.", "Leo writes in his notebook before he goes to sleep.", "He writes, The sea is far from home, but it feels like a friend."
+                ])
+            },
+            {
+                title: "The School Garden Club",
+                level: "A1 · Long story",
+                meta: "Friends at school · about 12k characters",
+                paragraphs: makeLongParagraphs([
+                    "At Green Hill School, there is an empty piece of land.", "The land is behind the library and next to the playground.", "It has hard soil, old stones, and many dry leaves.", "Ms. Lily asks the students what they can do with the place.", "Omar says they can make a garden.", "Sara says they can grow food for the school.", "The students like the idea and start a garden club.", "They meet every Wednesday after their last class.", "The first week, they clean the land and collect stones.", "The second week, they make three lines in the soil.", "They plant lettuce, beans, tomatoes, and small flowers.", "Each student has a job and a pair of old gloves.", "Omar carries water and Sara writes the plant names.", "Alex makes a wooden sign that says, Our garden grows with care.", "At first, nothing happens under the soil.", "Some students feel sad because they want plants quickly.", "Ms. Lily says seeds need soil, water, sun, and time.", "After one week, tiny green leaves come out of the soil.", "Everyone calls a friend to look at the small leaves.", "Soon, the leaves become bigger and the beans grow tall.", "The tomatoes need sticks because they fall on the ground.", "A black cat starts to visit the garden every afternoon.", "The students call the cat Pepper and give it a safe corner.", "One hot day, the soil becomes dry and the plants look weak.", "The club brings extra water from the school kitchen.", "They make a plan to water the plants every morning.", "A week later, the first yellow flower opens.", "Then a small red tomato appears behind the leaves.", "Every Friday, the students put fresh vegetables in a basket.", "The cook uses the vegetables in the school lunch.", "In autumn, the club collects seeds for next spring.", "They write notes about the sun, water, and soil.", "The notes help new students learn about the garden.", "Ms. Lily says a small seed can make a big change.", "The empty land is now a happy garden for the whole school."
+                ])
+            }
+        );
+
+        // Bu sözlük A1 hikâyelerindeki kelimeleri kapsar. Yeni hikâye eklerken
+        // burada olmayan kelimelere de Türkçe anlam ekleyebilirsiniz.
+        const DICTIONARY = {
+            a: "bir", about: "hakkında", after: "sonra", all: "bütün / tüm", and: "ve", asks: "sorar", at: "-de / -da",
+            back: "geri", bag: "çanta", bags: "çantalar", beach: "plaj", because: "çünkü", bed: "yatak", big: "büyük", bike: "bisiklet",
+            bird: "kuş", blue: "mavi", book: "kitap", bread: "ekmek", brother: "erkek kardeş", buy: "satın almak", cakes: "kekler",
+            can: "-ebilmek", cat: "kedi", cheese: "peynir", cuts: "keser", day: "gün", dad: "baba", day: "gün", drinks: "içer",
+            door: "kapı", eats: "yer", eggs: "yumurta", ella: "Ella (isim)", evening: "akşam", excited: "heyecanlı", face: "yüz",
+            falls: "yağar / düşer", family: "aile", find: "bulmak", finds: "bulur", five: "beş", flower: "çiçek", for: "için",
+            friend: "arkadaş", friends: "arkadaşlar", from: "-den / -dan", fun: "eğlenceli", garden: "bahçe", gets: "alır / olur",
+            gift: "hediye", glad: "memnun", goes: "gider", good: "iyi", ground: "toprak", happy: "mutlu", has: "sahip / var",
+            have: "sahip olmak", he: "o (erkek)", hello: "merhaba", help: "yardım etmek", helped: "yardım etti", helpful: "yardımsever",
+            her: "onun / ona (kadın)", his: "onun (erkek)", home: "ev", house: "ev", in: "içinde", is: "-dır / olmak", it: "o",
+            kind: "nazik", later: "daha sonra", lena: "Lena (isim)", little: "küçük", looks: "bakar / görünür", man: "adam", makes: "yapar",
+            market: "pazar", mia: "Mia (isim)", milk: "süt", minute: "dakika", minutes: "dakikalar", morning: "sabah", mother: "anne",
+            much: "çok", new: "yeni", nina: "Nina (isim)", next: "sonraki / yanındaki", not: "değil", "o’clock": "saat", of: "-ın / -in",
+            old: "yaşlı / eski", on: "üzerinde", one: "bir", opens: "açar", or: "veya", outside: "dışarı", park: "park", puts: "koyar",
+            rain: "yağmur", rainy: "yağmurlu", reads: "okur", red: "kırmızı", rides: "bisiklet sürer", runs: "koşar", sam: "Sam (isim)",
+            sand: "kum", says: "der / söyler", school: "okul", seed: "tohum", sees: "görür", shares: "paylaşır", she: "o (kadın)",
+            sister: "kız kardeş", sits: "oturur", slow: "yavaş", slowly: "yavaşça", small: "küçük", smiles: "gülümser", some: "biraz / birkaç",
+            soon: "yakında", stops: "durur", story: "hikâye", swims: "yüzer", takes: "alır", talks: "konuşur", ten: "on", the: "(belirli tanımlık)",
+            their: "onların", them: "onları / onlara", then: "sonra", there: "orada", they: "onlar", tired: "yorgun", to: "-e / -a", tom: "Tom (isim)",
+            tree: "ağaç", three: "üç", time: "zaman", under: "altında", up: "yukarı", very: "çok", walks: "yürür", warm: "ılık / sıcak",
+            washes: "yıkar", water: "su", week: "hafta", well: "iyi", what: "ne", when: "ne zaman", white: "beyaz", window: "pencere",
+            with: "ile", week: "hafta", young: "genç", goes: "gider", walk: "yürümek", walk: "yürümek", world: "dünya", dog: "köpek",
+            funny: "komik", cannot: "-emez", play: "oynamak", so: "bu yüzden", takes: "alır", shelf: "raf", read: "okumak", coat: "mont",
+            outside: "dışarı", day: "gün", comes: "gelir", up: "yukarı", plant: "bitki", gives: "verir", shines: "parlar", sun: "güneş",
+            soon: "yakında", yellow: "sarı", flower: "çiçek", care: "bakım", takes: "alır", seven: "yedi", gets: "kalkar / alır", washes: "yıkar",
+            puts: "giyer / koyar", clothes: "giysiler", breakfast: "kahvaltı", glass: "bardak", walks: "yürür", talk: "konuşmak", about: "hakkında",
+            sees: "görür", says: "söyler", opens: "açar", book: "kitap", old: "yaşlı", heavy: "ağır", two: "iki", slowly: "yavaşça",
+            asks: "sorar", help: "yardım", gives: "verir", one: "bir", thank: "teşekkür etmek", thank: "teşekkür etmek", someone: "birisi",
+            feels: "hisseder", good: "iyi", helped: "yardım etti", "man’s": "adamın", week: "hafta", morning: "sabah", sits: "oturur",
+            wants: "ister", outside: "dışarı", garden: "bahçe", after: "sonra", ten: "on", comes: "gelir", back: "geri", some: "biraz",
+            very: "çok", soft: "yumuşak", has: "sahip", white: "beyaz", goes: "gider", with: "ile", mother: "anne", sees: "görür",
+            asks: "sorar", smiles: "gülümser", buy: "satın almak", apples: "elmalar", apple: "elma", bread: "ekmek", little: "küçük / biraz",
+            brother: "erkek kardeş", three: "üç", half: "yarım", cuts: "keser", shares: "paylaşır", sea: "deniz", swim: "yüzmek",
+            swims: "yüzer", makes: "yapar", sand: "kum", house: "ev", father: "baba", reads: "okur", gets: "alır", cakes: "kekler",
+            walk: "yürümek", home: "eve", happy: "mutlu", day: "gün", seed: "tohum", finds: "bulur", puts: "koyar", ground: "toprak",
+            every: "her", gives: "verir", water: "su", shines: "parlar", week: "hafta", later: "sonra", small: "küçük", green: "yeşil",
+            plant: "bitki", excited: "heyecanlı", takes: "alır", care: "bakım", soon: "yakında", yellow: "sarı", flower: "çiçek",
+            seven: "yedi", up: "kalkar", face: "yüz", puts: "giyer", clothes: "giysiler", eats: "yer", eggs: "yumurta", drinks: "içer",
+            glass: "bardak", school: "okul", sees: "görür", friends: "arkadaşlar", opens: "açar", falls: "yağar", all: "tüm", looks: "bakar",
+            out: "dışarı", cannot: "-emez", play: "oynamak", takes: "alır", shelf: "raf", next: "yanında", read: "okumak", reads: "okur",
+            funny: "komik", stops: "durur", coat: "mont", asks: "sorar", help: "yardım etmek", heavy: "ağır", slowly: "yavaşça",
+            gives: "verir", walks: "yürür", says: "der", young: "genç", friend: "arkadaş", feels: "hisseder", because: "çünkü",
+            cat: "kedi", door: "kapı", garden: "bahçe", bird: "kuş", looks: "bakar", water: "su", warm: "ılık", swims: "yüzer",
+            father: "baba", mother: "anne", their: "onların", family: "aile", asks: "sorar", it: "onu", can: "-ebilir", have: "sahip olmak",
+            happy: "mutlu", after: "sonra", fun: "eğlenceli", sees: "görür", man: "adam", bags: "çantalar", thank: "teşekkür etmek",
+            someone: "birisi", says: "der", they: "onlar", walk: "yürür", home: "eve", goes: "gider", day: "gün", apple: "elma"
         };
-        LEVEL_NUMS.forEach(n => {
-            state.progress[n] = state.progress[n] || {
-                stars: 0,
-                quiz: null,
-                match: null,
-                scramble: null,
-                hunt: null,
-                kp: 0,
-                isUnderSiege: false,
-                immunityTurns: 0,
+
+        Object.assign(DICTIONARY, { near: "yakınında", town: "kasaba", behind: "arkasında", wooden: "tahta", gate: "kapı", leaves: "yapraklar", sunny: "güneşli", key: "anahtar", stone: "taş", lock: "kilit", slowly: "yavaşça", beautiful: "güzel", many: "birçok", flowers: "çiçekler", narrow: "dar", path: "yol", pond: "gölet", frog: "kurbağa", jumps: "atlar", hears: "duyar", bees: "arılar", sign: "tabela", please: "lütfen", needs: "ihtiyaç duyar", dry: "kuru", plants: "bitkiler", weeds: "yabani otlar", branch: "dal", notebook: "defter", letter: "mektup", inside: "içinde", years: "yıllar", ago: "önce", moved: "taşındı", away: "uzağa", together: "birlikte", children: "çocuklar", teaches: "öğretir", purple: "mor", brighter: "daha parlak", voices: "sesler", strong: "güçlü", wind: "rüzgâr", ropes: "ipler", sticks: "sopalar", special: "özel", dreams: "hayal kurar", summer: "yaz", station: "istasyon", camera: "kamera", fields: "tarlalar", cows: "inekler", counts: "sayar", bridges: "köprüler", river: "nehir", violin: "keman", song: "şarkı", people: "insanlar", sunlight: "güneş ışığı", appears: "görünür", noon: "öğle", arrives: "varır", coast: "sahil", smells: "kokar", hotel: "otel", wave: "dalga", touches: "dokunur", learns: "öğrenir", players: "oyuncular", visitors: "ziyaretçiler", drawing: "çizim", hill: "tepe", climb: "tırmanır", steps: "basamaklar", boats: "tekneler", large: "büyük", empty: "boş", land: "arazi", library: "kütüphane", playground: "oyun alanı", soil: "toprak", stones: "taşlar", dry: "kuru", club: "kulüp", meet: "buluşur", wednesday: "çarşamba", class: "ders", lettuce: "marul", beans: "fasulye", tomatoes: "domatesler", gloves: "eldivenler", job: "görev", seeds: "tohumlar", quickly: "hızlıca", leaves: "yapraklar", tall: "uzun", cat: "kedi", corner: "köşe", hot: "sıcak", extra: "ekstra", kitchen: "mutfak", plan: "plan", morning: "sabah", yellow: "sarı", basket: "sepet", cook: "aşçı", lunch: "öğle yemeği", autumn: "sonbahar", collect: "toplamak", spring: "ilkbahar", change: "değişiklik" });
+
+        const CUSTOM_STORIES_KEY = "margin.customStories.v1";
+        let customStories = [];
+        try { customStories = JSON.parse(localStorage.getItem(CUSTOM_STORIES_KEY) || "[]"); } catch { customStories = []; }
+        STORIES.push(...customStories);
+        const CUSTOM_DICTIONARY_KEY = "margin.customDictionary.v1";
+        try { Object.assign(DICTIONARY, JSON.parse(localStorage.getItem(CUSTOM_DICTIONARY_KEY) || "{}")); } catch {}
+
+        let currentStoryIndex = 0;
+
+        const STORAGE_KEY = "margin.bookmarks.v1";
+        const state = {
+            bookmarks: loadBookmarks(),
+            activeWord: null,
+            quiz: [],
+            quizScore: 0
+        };
+
+        const storyEl = document.querySelector("#story");
+        const listEl = document.querySelector("#bookmark-list");
+        const countEl = document.querySelector("#bookmark-count");
+        const tooltip = document.querySelector("#tooltip");
+        const tipWordEl = document.querySelector("#tip-word");
+        const tipMeaningEl = document.querySelector("#tip-meaning");
+        const tipInput = document.querySelector("#tip-input");
+
+        // Metni noktalama ve boşlukları koruyarak parçalar; yalnızca kelime düğmeleri tıklanabilir.
+        function renderStory(paragraphs) {
+            storyEl.replaceChildren();
+
+            for (const paragraphText of paragraphs) {
+                const paragraph = document.createElement("p");
+                paragraph.className = "sentence";
+                const tokens = paragraphText.match(/[\p{L}\p{N}'’]+|[^\p{L}\p{N}'’]+/gu) || [];
+
+                tokens.forEach((token) => {
+                    if (/^[\p{L}\p{N}'’]+$/u.test(token)) {
+                        const button = document.createElement("button");
+                        button.type = "button";
+                        button.className = "word";
+                        button.textContent = token;
+                        button.dataset.word = normalizeWord(token);
+                        button.setAttribute("aria-label", `${token} kelimesinin anlamını göster`);
+                        paragraph.append(button);
+                    } else {
+                        paragraph.append(document.createTextNode(token));
+                    }
+                });
+
+                const sentenceTools = document.createElement("span");
+                sentenceTools.className = "sentence-tools";
+                const translateButton = document.createElement("button");
+                translateButton.type = "button";
+                translateButton.className = "translate-btn";
+                translateButton.dataset.sentence = paragraphText;
+                translateButton.textContent = "↗";
+                translateButton.setAttribute("aria-label", "Bu cümleyi Türkçeye çevir");
+                sentenceTools.append(translateButton);
+                const speakButton = document.createElement("button");
+                speakButton.type = "button";
+                speakButton.className = "speak-btn";
+                speakButton.dataset.sentence = paragraphText;
+                speakButton.textContent = "♪";
+                speakButton.setAttribute("aria-label", "Cümleyi sesli oku");
+                sentenceTools.append(speakButton);
+                paragraph.append(sentenceTools);
+                storyEl.append(paragraph);
+            }
+            updateSavedWordStyles();
+        }
+
+        const TRANSLATION_CACHE_KEY = "margin.sentenceTranslations.v1";
+        let translationCache = {};
+        try { translationCache = JSON.parse(localStorage.getItem(TRANSLATION_CACHE_KEY) || "{}"); } catch { translationCache = {}; }
+
+        function saveTranslationCache() {
+            localStorage.setItem(TRANSLATION_CACHE_KEY, JSON.stringify(translationCache));
+        }
+
+        async function translateSentence(sentence) {
+            if (translationCache[sentence]) return translationCache[sentence];
+            const url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(sentence) + "&langpair=en|tr";
+            const response = await fetch(url);
+            if (!response.ok) throw new Error("Çeviri servisi yanıt vermedi");
+            const data = await response.json();
+            const translated = data?.responseData?.translatedText?.trim();
+            if (!translated) throw new Error("Çeviri bulunamadı");
+            translationCache[sentence] = translated;
+            saveTranslationCache();
+            return translated;
+        }
+
+        async function toggleSentenceTranslation(button) {
+            const sentence = button.closest(".sentence");
+            const oldTranslation = sentence.querySelector(".sentence-translation");
+            if (oldTranslation) { oldTranslation.remove(); button.textContent = "↗"; return; }
+            const translation = document.createElement("div");
+            translation.className = "sentence-translation";
+            translation.textContent = "Çevriliyor…";
+            sentence.append(translation);
+            button.textContent = "…";
+            try {
+                translation.textContent = await translateSentence(button.dataset.sentence);
+                button.textContent = "×";
+            } catch {
+                translation.textContent = "Çeviri alınamadı. İnternet bağlantısını kontrol edip tekrar dene.";
+                button.textContent = "↗";
+            }
+        }
+
+        function speakSentence(sentence) {
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(sentence);
+            utterance.lang = "en-US";
+            utterance.rate = 0.86;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function updateReadingProgress() {
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            const percent = max <= 0 ? 100 : Math.min(100, Math.round((window.scrollY / max) * 100));
+            document.querySelector("#progress-fill").style.width = percent + "%";
+            document.querySelector("#progress-label").textContent = percent + "%";
+        }
+
+        function buildQuiz() {
+            const story = STORIES[currentStoryIndex];
+            const words = [...new Set(story.paragraphs.join(" ").match(/[A-Za-z]+/g) || [])]
+                .map((word) => normalizeWord(word)).filter((word) => DICTIONARY[word]);
+            const selected = words.slice(0, 5);
+            state.quiz = selected.map((word) => {
+                const distractors = Object.values(DICTIONARY).filter((meaning) => meaning !== DICTIONARY[word]).slice(0, 2);
+                return { word, answer: DICTIONARY[word], options: [DICTIONARY[word], ...distractors].sort(() => Math.random() - .5), picked: null };
+            });
+            state.quizScore = 0;
+            renderQuiz();
+        }
+
+        function renderQuiz() {
+            const panel = document.querySelector("#quiz-panel");
+            panel.innerHTML = "";
+            const title = document.createElement("h2"); title.className = "quiz-title"; title.textContent = "Mini kelime testi";
+            const subtitle = document.createElement("p"); subtitle.className = "quiz-subtitle"; subtitle.textContent = "Hikâyeden seçilen kelimelerin anlamını bul.";
+            panel.append(title, subtitle);
+            state.quiz.forEach((item, index) => {
+                const box = document.createElement("div"); box.className = "quiz-question";
+                const question = document.createElement("p"); question.textContent = (index + 1) + ". “" + item.word + "” ne demek?";
+                const options = document.createElement("div"); options.className = "quiz-options";
+                item.options.forEach((option) => { const button = document.createElement("button"); button.type = "button"; button.className = "quiz-option"; button.textContent = option; button.dataset.answer = option; button.dataset.index = index; options.append(button); });
+                box.append(question, options); panel.append(box);
+            });
+            const result = document.createElement("div"); result.className = "quiz-result"; result.id = "quiz-result"; result.textContent = ""; panel.append(result);
+        }
+
+        function answerQuiz(button) {
+            const item = state.quiz[Number(button.dataset.index)];
+            if (!item || item.picked) return;
+            item.picked = button.dataset.answer;
+            const correct = item.picked === item.answer;
+            if (correct) state.quizScore += 1;
+            button.classList.add(correct ? "correct" : "wrong");
+            if (!correct) [...button.parentElement.children].find((el) => el.dataset.answer === item.answer)?.classList.add("correct");
+            const answered = state.quiz.filter((entry) => entry.picked).length;
+            if (answered === state.quiz.length) document.querySelector("#quiz-result").textContent = "Sonuç: " + state.quizScore + "/" + state.quiz.length + " doğru";
+        }
+
+        function normalizeWord(word) {
+            return word.toLocaleLowerCase("en-US").replace(/^['’]+|['’]+$/g, "");
+        }
+
+        function loadBookmarks() {
+            try {
+                const value = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+                return Array.isArray(value) ? value : [];
+            } catch {
+                return [];
+            }
+        }
+
+        function persistBookmarks() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state.bookmarks));
+        }
+
+        function saveBookmarkNote(word, note) {
+            const item = state.bookmarks.find((entry) => normalizeWord(entry.word) === normalizeWord(word));
+            if (!item) return;
+            item.note = note.trim();
+            persistBookmarks();
+            renderBookmarks();
+        }
+
+        function renderBookmarks() {
+            countEl.textContent = String(state.bookmarks.length);
+            listEl.replaceChildren();
+
+            if (state.bookmarks.length === 0) {
+                const empty = document.createElement("div");
+                empty.className = "empty";
+                empty.textContent = "Henüz kelime eklemedin. Okurken bir kelimeye dokunup ayraç simgesine bas.";
+                listEl.append(empty);
+                updateSavedWordStyles();
+                return;
+            }
+
+            [...state.bookmarks].reverse().forEach((item) => {
+                const card = document.createElement("article");
+                card.className = "bookmark-item";
+
+                const remove = document.createElement("button");
+                remove.className = "remove-btn";
+                remove.type = "button";
+                remove.textContent = "×";
+                remove.setAttribute("aria-label", `${item.word} kelimesini ayraçtan sil`);
+                remove.addEventListener("click", () => removeBookmark(item.word));
+
+                const word = document.createElement("div");
+                word.className = "bookmark-word";
+                word.textContent = item.word;
+
+                const meaning = document.createElement("div");
+                meaning.className = "bookmark-meaning";
+                meaning.textContent = item.meaning;
+
+                card.append(remove, word, meaning);
+                if (item.note) { const note = document.createElement("div"); note.className = "bookmark-note"; note.textContent = item.note; card.append(note); }
+                const noteToggle = document.createElement("button");
+                noteToggle.type = "button"; noteToggle.className = "note-toggle"; noteToggle.textContent = item.note ? "Notu düzenle" : "＋ Not ekle"; noteToggle.dataset.noteWord = item.word;
+                card.append(noteToggle);
+                const noteEditor = document.createElement("div");
+                noteEditor.className = "note-editor"; noteEditor.hidden = true;
+                const noteInput = document.createElement("input");
+                noteInput.className = "note-input"; noteInput.placeholder = "Kendi notunu yaz…"; noteInput.value = item.note || "";
+                noteInput.dataset.noteWord = item.word;
+                const noteSave = document.createElement("button");
+                noteSave.type = "button"; noteSave.className = "note-save"; noteSave.textContent = "Kaydet"; noteSave.dataset.noteWord = item.word;
+                noteEditor.append(noteInput, noteSave);
+                card.append(noteEditor);
+                listEl.append(card);
+            });
+
+            updateSavedWordStyles();
+        }
+
+        function updateSavedWordStyles() {
+            const saved = new Set(state.bookmarks.map((item) => normalizeWord(item.word)));
+            storyEl.querySelectorAll(".word").forEach((button) => {
+                button.classList.toggle("is-saved", saved.has(button.dataset.word));
+            });
+        }
+
+        function openTooltip(button) {
+            const word = button.dataset.word;
+            const meaning = DICTIONARY[word] || "";
+            state.activeWord = {
+                word,
+                display: button.textContent
+            };
+
+            tipWordEl.textContent = button.textContent;
+            tipMeaningEl.textContent = meaning || "Bu kelime için henüz anlam yok.";
+            tipInput.value = meaning;
+            tipInput.classList.toggle("visible", !meaning);
+            document.querySelector("#save-word").textContent =
+                state.bookmarks.some((item) => normalizeWord(item.word) === word) ?
+                "✓ Ayraçta kayıtlı" :
+                "＋ Ayraç'a ekle";
+
+            tooltip.hidden = false;
+            positionTooltip(button);
+        }
+
+        function positionTooltip(button) {
+            const rect = button.getBoundingClientRect();
+            const tipRect = tooltip.getBoundingClientRect();
+            const margin = 12;
+            let left = Math.min(
+                Math.max(margin, rect.left + rect.width / 2 - tipRect.width / 2),
+                window.innerWidth - tipRect.width - margin
+            );
+            let top = rect.top - tipRect.height - 14;
+
+            if (top < margin) top = rect.bottom + 14;
+            tooltip.style.left = `${left}px`;
+            tooltip.style.top = `${top}px`;
+        }
+
+        function addBookmark() {
+            if (!state.activeWord) return;
+
+            const {
+                word,
+                display
+            } = state.activeWord;
+            const normalized = normalizeWord(word);
+            const existing = state.bookmarks.find((item) => normalizeWord(item.word) === normalized);
+            if (existing) {
+                closeTooltip();
+                return;
+            }
+
+            const meaning = DICTIONARY[normalized] || tipInput.value.trim();
+            if (!meaning) {
+                tipInput.classList.add("visible");
+                tipInput.focus();
+                tipMeaningEl.textContent = "Önce kelimenin anlamını gir.";
+                return;
+            }
+
+            state.bookmarks.push({
+                word: display,
+                meaning,
+                note: ""
+            });
+            persistBookmarks();
+            renderBookmarks();
+            closeTooltip();
+        }
+
+        function removeBookmark(word) {
+            state.bookmarks = state.bookmarks.filter(
+                (item) => normalizeWord(item.word) !== normalizeWord(word)
+            );
+            persistBookmarks();
+            renderBookmarks();
+        }
+
+        function closeTooltip() {
+            tooltip.hidden = true;
+            state.activeWord = null;
+        }
+
+        function selectStory(index) {
+            currentStoryIndex = index;
+            const selected = STORIES[index];
+            document.querySelector("#story-title").textContent = selected.title;
+            document.querySelector("#story-level").textContent = selected.level;
+            document.querySelector("#story-meta").textContent = selected.meta;
+            renderStory(selected.paragraphs);
+            buildQuiz();
+            updateReadingProgress();
+            closeTooltip();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        const storyPicker = document.querySelector("#story-picker");
+        STORIES.forEach((item, index) => {
+            const option = document.createElement("option");
+            option.value = String(index);
+            option.textContent = item.title;
+            storyPicker.append(option);
+        });
+        storyPicker.addEventListener("change", () => selectStory(Number(storyPicker.value)));
+
+        storyEl.addEventListener("click", (event) => {
+            const speakButton = event.target.closest(".speak-btn");
+            if (speakButton) { speakSentence(speakButton.dataset.sentence); return; }
+            const translateButton = event.target.closest(".translate-btn");
+            if (translateButton) { toggleSentenceTranslation(translateButton); return; }
+            const button = event.target.closest(".word");
+            if (!button) return;
+            openTooltip(button);
+        });
+
+        document.querySelector("#save-word").addEventListener("click", addBookmark);
+        listEl.addEventListener("click", (event) => { const toggle = event.target.closest(".note-toggle"); if (toggle) { const editor = toggle.parentElement.querySelector(".note-editor"); editor.hidden = !editor.hidden; toggle.textContent = editor.hidden ? (toggle.textContent === "Notu düzenle" ? "Notu düzenle" : "＋ Not ekle") : "Notu kapat"; return; } const button = event.target.closest(".note-save"); if (!button) return; const input = listEl.querySelector(".note-input[data-note-word=\"" + CSS.escape(button.dataset.noteWord) + "\"]"); if (input) saveBookmarkNote(button.dataset.noteWord, input.value); });
+        document.querySelector("#quiz-toggle").addEventListener("click", () => { const panel = document.querySelector("#quiz-panel"); panel.hidden = !panel.hidden; document.querySelector("#quiz-toggle").textContent = panel.hidden ? "Mini testi aç" : "Testi gizle"; });
+        document.querySelector("#quiz-panel").addEventListener("click", (event) => { const option = event.target.closest(".quiz-option"); if (option) answerQuiz(option); });
+        document.querySelector("#bookmark-open").addEventListener("click", () => { const panel = document.querySelector(".bookmark-panel"); panel.classList.remove("is-collapsed"); document.querySelector("#bookmark-toggle").textContent = "×"; });
+        document.querySelector("#bookmark-toggle").addEventListener("click", () => { const panel = document.querySelector(".bookmark-panel"); panel.classList.toggle("is-collapsed"); const closed = panel.classList.contains("is-collapsed"); document.querySelector("#bookmark-toggle").textContent = closed ? "‹" : "×"; document.querySelector("#bookmark-toggle").setAttribute("aria-label", closed ? "Ayraç panelini aç" : "Ayraç panelini kapat"); });
+        document.querySelector("#close-tip").addEventListener("click", closeTooltip);
+        const adminModal = document.querySelector("#admin-modal");
+        document.querySelector("#admin-open").addEventListener("click", () => { adminModal.hidden = false; document.querySelector("#admin-story-title").focus(); });
+        document.querySelector("#admin-close").addEventListener("click", () => { adminModal.hidden = true; });
+        adminModal.addEventListener("click", (event) => { if (event.target === adminModal) adminModal.hidden = true; });
+        document.querySelector("#admin-form").addEventListener("submit", (event) => {
+            event.preventDefault();
+            const paragraphs = document.querySelector("#admin-story-text").value.split(/\n+/).map((line) => line.trim()).filter(Boolean);
+            const story = { title: document.querySelector("#admin-story-title").value.trim(), level: document.querySelector("#admin-story-level").value.trim() || "A1 · Easy story", meta: document.querySelector("#admin-story-meta").value.trim() || "New story", paragraphs };
+            customStories.push(story); localStorage.setItem(CUSTOM_STORIES_KEY, JSON.stringify(customStories)); STORIES.push(story);
+            const addedWords = {};
+            document.querySelector("#admin-story-words").value.split(/\n+/).forEach((line) => { const parts = line.split("="); if (parts.length > 1) { const key = normalizeWord(parts[0].trim()); const value = parts.slice(1).join("=").trim(); DICTIONARY[key] = value; addedWords[key] = value; } });
+            let savedWords = {}; try { savedWords = JSON.parse(localStorage.getItem(CUSTOM_DICTIONARY_KEY) || "{}"); } catch {}
+            localStorage.setItem(CUSTOM_DICTIONARY_KEY, JSON.stringify(Object.assign(savedWords, addedWords)));
+            const option = document.createElement("option"); option.value = String(STORIES.length - 1); option.textContent = story.title; storyPicker.append(option); storyPicker.value = String(STORIES.length - 1); selectStory(STORIES.length - 1);
+            document.querySelector("#admin-message").textContent = "Kaydedildi"; setTimeout(() => { adminModal.hidden = true; document.querySelector("#admin-message").textContent = ""; }, 700);
+        });
+
+
+        document.addEventListener("click", (event) => {
+            if (!tooltip.hidden && !tooltip.contains(event.target) && !event.target.closest(".word")) {
+                closeTooltip();
+            }
+        });
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") closeTooltip();
+        });
+        window.addEventListener("scroll", updateReadingProgress);
+        window.addEventListener("resize", updateReadingProgress);
+        window.addEventListener("resize", () => {
+            if (!tooltip.hidden && state.activeWord) {
+                const activeButton = [...storyEl.querySelectorAll(".word")]
+                    .find((button) => button.dataset.word === state.activeWord.word);
+                if (activeButton) positionTooltip(activeButton);
             }
         });
 
-        function isUnlocked(lvl) {
-            if (lvl === 1) return true;
-            return (state.progress[lvl - 1] && state.progress[lvl - 1].stars >= 1);
-        }
-
-        function totalStars() {
-            return LEVEL_NUMS.reduce((s, n) => s + (state.progress[n].stars || 0), 0);
-        }
-
-        function maxStars() {
-            // Each level can have up to 4 stars now (Quiz, Match, Scramble, Hunt)
-            // But let's stick to 3 as per the main star system, hunt is a bonus
-            return TOTAL_LEVELS * 3;
-        }
-
-        function furthestUnlocked() {
-            let f = 1;
-            for (const n of LEVEL_NUMS) {
-                if (isUnlocked(n)) f = n;
-                else break;
-            }
-            return f;
-        }
-
-        function shuffle(arr) {
-            const a = arr.slice();
-            for (let i = a.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [a[i], a[j]] = [a[j], a[i]];
-            }
-            return a;
-        }
-
-        function sample(arr, n) {
-            return shuffle(arr).slice(0, n);
-        }
-
-        function starsToStr(n) {
-            let s = '';
-            for (let i = 0; i < 3; i++) s += i < n ? '★' : '☆';
-            return s;
-        }
-
-        function exampleSentence(w) {
-            if (w.cat === 'verbs') return `I like to ${w.en}.`;
-            if (w.cat === 'adjectives') return `It is very ${w.en}.`;
-            if (w.cat === 'pronouns' || w.cat === 'phrases') return `"${w.en}"`;
-            const vowel = /^[aeiouAEIOU]/.test(w.en);
-            return `This is ${vowel?'an':'a'} ${w.en}.`;
-        }
-
-        /* ---------------- RENDER ---------------- */
-        const app = document.getElementById('app');
-
-        function render() {
-            app.innerHTML = renderTopbar() + renderMap();
-            renderLevelPositions();
-            if (state.overlay) renderOverlay();
-        }
-
-        function renderTopbar() {
-            return `
-  <div class="topbar">
-    <div class="brand">
-      <div class="brand-badge">🗺️</div>
-      <div class="brand-text">Kelime <span>Adaları</span></div>
-    </div>
-    <div class="stat-pill">⭐ ${totalStars()} / ${maxStars()}</div>
-  </div>`;
-        }
-
-        // deterministic scatter pattern so islands feel hand-placed, not a straight zigzag path
-        const SCATTER_X = [24, 68, 44, 78, 32];
-        const SCATTER_Y = [0, 16, -10, 20, -6];
-        const REGION_SIZE = 5;
-        const NODE_STEP = 100;
-
-        function compassRoseSVG() {
-            return `
-  <svg class="compass" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="30" cy="30" r="27" fill="none" stroke="var(--aqua)" stroke-opacity="0.35" stroke-width="1.5"/>
-    <g class="compass-spin">
-      <polygon points="30,6 35,30 30,54 25,30" fill="var(--coral)" opacity="0.85"/>
-      <polygon points="6,30 30,25 54,30 30,35" fill="var(--aqua)" opacity="0.6"/>
-    </g>
-    <circle cx="30" cy="30" r="3.2" fill="var(--sun)"/>
-  </svg>`;
-        }
-
-        function waveDividerSVG() {
-            return `
-  <svg class="wave-divider" viewBox="0 0 400 34" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,17 C50,0 100,34 150,17 C200,0 250,34 300,17 C330,6 370,6 400,17" fill="none" stroke="var(--aqua)" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
-  </svg>`;
-        }
-
-        function renderMap() {
-            const regions = [];
-            for (let i = 0; i < LEVEL_NUMS.length; i += REGION_SIZE) {
-                regions.push(LEVEL_NUMS.slice(i, i + REGION_SIZE));
-            }
-
-            const fu = furthestUnlocked();
-            let boatX = 50,
-                boatY = 50;
-            let regionsHtml = '';
-            let globalIdx = 0;
-
-            regions.forEach((regionLevels, rIdx) => {
-                        const regionHeight = (regionLevels.length - 1) * NODE_STEP + 140;
-                        const cats = {};
-                        regionLevels.forEach(n => {
-                            const c = levelDominantCat(n);
-                            cats[c] = (cats[c] || 0) + 1;
-                        });
-                        const topCat = Object.keys(cats).sort((a, b) => cats[b] - cats[a])[0];
-
-                        let nodesHtml = '';
-                        let pts = [];
-                        regionLevels.forEach((n, i) => {
-                                    const x = SCATTER_X[i % SCATTER_X.length];
-                                    const y = 60 + i * NODE_STEP + SCATTER_Y[i % SCATTER_Y.length];
-                                    pts.push({
-                                        x,
-                                        y
-                                    });
-                                    const unlocked = isUnlocked(n);
-                                    const stars = state.progress[n].stars;
-                                    const completed = stars >= 1;
-                                    let cls = 'locked';
-                                    if (completed) cls = 'completed';
-                                    else if (unlocked) cls = 'unlocked';
-                                    nodesHtml += `
-      <button class="level-node ${cls} pop" style="left:${x}%; top:${y}px;" data-action="open-level" data-level="${n}" ${unlocked?'':'disabled'}>
-        ${(completed && i%2===0) ? '<span class="palm">🌴</span>' : ''}
-        ${unlocked ? `<div class="lvl-num">${n}</div><div class="lvl-stars">${completed? starsToStr(stars):''}</div>` : `<div class="lock-ic">🔒</div>`}
-      </button>`;
-      if(n===fu){ boatX=x; boatY=y; }
-      globalIdx++;
-    });
-
-    // per-region svg connector (breaks between regions — not one continuous snake)
-    let d='';
-    pts.forEach((p,i)=>{
-      const yPct = p.y/regionHeight*100;
-      if(i===0) d += `M ${p.x} ${yPct} `;
-      else{
-        const prev = pts[i-1];
-        const prevYPct = prev.y/regionHeight*100;
-        const midY = (prevYPct+yPct)/2;
-        d += `C ${prev.x} ${midY}, ${p.x} ${midY}, ${p.x} ${yPct} `;
-      }
-    });
-
-    regionsHtml += `
-    <div class="region-banner">
-      <span class="rb-icon">${CAT_ICON[topCat]||'🏝️'}</span>
-      <div>
-        <div class="rb-text">Bölge ${rIdx+1} · Ada ${regionLevels[0]}–${regionLevels[regionLevels.length-1]}</div>
-        <div class="rb-sub">${CAT_NAMES[topCat]||'Karışık'}</div>
-      </div>
-    </div>
-    <div class="island-cluster" style="height:${regionHeight}px;">
-      <svg class="map-svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:${regionHeight}px;">
-        <path d="${d}" fill="none" stroke="rgba(111,231,221,0.28)" stroke-width="0.7" stroke-dasharray="0.5,2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
-      </svg>
-      ${nodesHtml}
-      ${fu>=regionLevels[0] && fu<=regionLevels[regionLevels.length-1] ? `<div class="boat-marker" id="boatMarker" style="left:${boatX}%; top:${boatY}px;">⛵</div>` : ''}
-    </div>`;
-  });
-
-  return `
-  <div class="map-hero">
-    <div>
-      <h2>Yolculuğuna Devam Et 🌊</h2>
-      <p>A1 seviyesinde 500 kelime, 5 bölge, 25 ada. Her adayı tamamla, kelime hazineni büyüt!</p>
-    </div>
-    ${compassRoseSVG()}
-  </div>
-  <div class="map-wrap">
-    <div class="map-track">
-      ${regionsHtml}
-    </div>
-  </div>
-  ${waveDividerSVG()}
-  <div class="future-regions">
-    <h3>🌫️ Sırada Ne Var?</h3>
-    <p>Bu ada zinciri A1 ile başlıyor. Yol haritasında A2 → C1 seviyeleri de planlandı, yakında keşfe açılacak.</p>
-    <div class="fog-row">
-      <div class="fog-chip"><div class="fc-level">A2</div><div class="fc-count">25 bölüm</div></div>
-      <div class="fog-chip"><div class="fc-level">B1</div><div class="fc-count">20 bölüm</div></div>
-      <div class="fog-chip"><div class="fc-level">B2</div><div class="fc-count">15 bölüm</div></div>
-      <div class="fog-chip"><div class="fc-level">C1</div><div class="fc-count">10 bölüm</div></div>
-    </div>
-  </div>`;
-}
-function renderLevelPositions(){ /* placeholder for future JS-driven positioning if needed */ }
-
-/* ---------------- OVERLAY ROUTER ---------------- */
-function openOverlay(html){
-  let el = document.getElementById('overlayRoot');
-  if(!el){
-    el = document.createElement('div');
-    el.id='overlayRoot';
-    el.className='overlay';
-    document.body.appendChild(el);
-  }
-  el.innerHTML = html;
-  el.style.display='flex';
-}
-function closeOverlay(){
-  const el = document.getElementById('overlayRoot');
-  if(el) el.style.display='none';
-  state.overlay=null;
-  render();
-}
-function renderOverlay(){}
-
-/* ---------------- LEVEL DETAIL (flashcards) ---------------- */
-function openLevel(lvl){
-  state.currentLevel = lvl;
-  state.flashIdx = 0; state.flashFlipped=false;
-  showFlashcards();
-}
-function showFlashcards(){
-  const words = LEVELS[state.currentLevel];
-  const w = words[state.flashIdx];
-  const cat = levelDominantCat(state.currentLevel);
-  const progressBar = words.map((_,i)=>`<i class="${i<=state.flashIdx?'done':''}"></i>`).join('');
-  openOverlay(`
-    <div class="overlay-header">
-      <button class="icon-btn" data-action="close-overlay">←</button>
-      <div class="overlay-title">Seviye ${state.currentLevel} · ${CAT_NAMES[cat]||''}</div>
-      <div class="icon-btn" style="pointer-events:none;">${CAT_ICON[cat]||'📘'}</div>
-    </div>
-    <div class="overlay-body">
-      <div class="flash-progress">${progressBar}</div>
-      <div class="flashcard pop" data-action="flip-card" id="flashcardEl">
-        <div class="cat-tag">${CAT_NAMES[w.cat]||''}</div>
-        <div class="word-en">${w.en}</div>
-        <div class="word-tr">${state.flashFlipped ? w.tr : ''}</div>
-        <div class="example">${state.flashFlipped ? exampleSentence(w) : ''}</div>
-        <div class="tap-hint">${state.flashFlipped ? '' : '👆 Anlamını görmek için karta dokun'}</div>
-      </div>
-      <div class="flash-nav">
-        <button class="btn btn-secondary" data-action="flash-prev" ${state.flashIdx===0?'disabled':''}>← Önceki</button>
-        <button class="btn btn-primary" data-action="flash-next">${state.flashIdx===words.length-1?'Oyunlara Geç 🎮':'Sonraki →'}</button>
-      </div>
-    </div>
-  `);
-}
-function flipCard(){ state.flashFlipped = !state.flashFlipped; showFlashcards(); }
-function flashPrev(){ if(state.flashIdx>0){ state.flashIdx--; state.flashFlipped=false; showFlashcards(); } }
-function flashNext(){
-  const words = LEVELS[state.currentLevel];
-  if(state.flashIdx < words.length-1){ state.flashIdx++; state.flashFlipped=false; showFlashcards(); }
-  else{ showGameSelect(); }
-}
-
-/* ---------------- GAME SELECT ---------------- */
-function showGameSelect(){
-  const lvl = state.currentLevel;
-  const p = state.progress[lvl];
-  const cat = levelDominantCat(lvl);
-  
-  // Sequential game unlocking logic
-  const gamesUnlocked = {
-      quiz: true, // Quiz is always the first game
-      match: p.quiz && p.quiz.best > 0,
-      scramble: p.match && p.match.best > 0,
-      hunt: p.scramble && p.scramble.best > 0,
-  };
-
-  const gameInfo = [
-    {key:'quiz', title:'1. Yıldız: Quiz', desc:'Doğru anlamı seçerek adayı fethet.', icon:'🧠', color:'linear-gradient(160deg,#6FE7DD,#37B8AE)'},
-    {key:'match', title:'2. Yıldız: Eşleştirme', desc:'Kelime çiftlerini eşleştir.', icon:'🃏', color:'linear-gradient(160deg,#FFC857,#E5A83B)'},
-    {key:'scramble', title:'3. Yıldız: Karışık Harfler', desc:'Harfleri sırala, kelimeyi bul.', icon:'🔤', color:'linear-gradient(160deg,#FF7A59,#E5623F)'},
-    {key:'hunt', title:'Bonus: Kelime Avı', desc:'Süre dolmadan kelimeleri yakala!', icon:'⏱️', color:'linear-gradient(160deg,#A78BFA,#8B5CF6)'},
-  ];
-
-  const cards = gameInfo.map(g=>{
-    const best = p[g.key];
-    const isUnlocked = gamesUnlocked[g.key];
-    const isCompleted = best && best.best > 0;
-
-    return `
-    <button class="game-card" data-action="start-game" data-game="${g.key}" ${isUnlocked ? '' : 'disabled style="opacity:0.5; filter:grayscale(0.8);"'}>
-      <div class="g-icon" style="background:${g.color};">${g.icon}</div>
-      <div class="g-info">
-        <div class="g-title">${g.title}</div>
-        <div class="g-desc">${isUnlocked ? g.desc : 'Önceki oyunu tamamla'}</div>
-        <div class="g-stars">${isCompleted ? `En iyi: ${starsToStr(best.best)}` : (isUnlocked ? 'Henüz oynanmadı' : '🔒 Kilitli')}</div>
-      </div>
-      <div class="g-arrow">${isUnlocked ? '›' : ''}</div>
-    </button>`;
-  }).join('');
-
-  openOverlay(`
-    <div class="overlay-header">
-      <button class="icon-btn" data-action="close-overlay">←</button>
-      <div class="overlay-title">Seviye ${lvl} Oyunları</div>
-      <div class="icon-btn" style="pointer-events:none;">${CAT_ICON[cat]||'🎮'}</div>
-    </div>
-    <div class="overlay-body">
-      <p style="color:var(--text-dim);font-size:14px;margin-top:0;">Yıldızları toplamak ve adayı güçlendirmek için oyunları sırayla tamamla!</p>
-      ${cards}
-    </div>
-  `);
-}
-
-/* ---------------- QUIZ GAME ---------------- */
-function buildQuiz(lvl){
-  const words = LEVELS[lvl];
-  const allOtherWords = WORDS.filter(w=>w.level!==lvl);
-  const qCount = Math.min(10, words.length);
-  const chosen = sample(words, qCount);
-  const questions = chosen.map(w=>{
-    const dir = Math.random()<0.5 ? 'en2tr' : 'tr2en';
-    const correct = dir==='en2tr' ? w.tr : w.en;
-    const pool = words.filter(x=>x.en!==w.en).concat(sample(allOtherWords,6));
-    const distractorsSrc = sample(pool, 8).map(x=> dir==='en2tr'? x.tr : x.en).filter(v=>v!==correct);
-    const uniqueDistractors = [...new Set(distractorsSrc)].slice(0,3);
-    while(uniqueDistractors.length<3){
-      const r = sample(allOtherWords,1)[0];
-      const val = dir==='en2tr'? r.tr : r.en;
-      if(val!==correct && !uniqueDistractors.includes(val)) uniqueDistractors.push(val);
-    }
-    const options = shuffle([correct,...uniqueDistractors]);
-    return {word:w, dir, correct, options};
-  });
-  return {questions, idx:0, score:0, answered:false};
-}
-function startGame(game){
-  if(game==='quiz'){ state.quiz = buildQuiz(state.currentLevel); showQuiz(); }
-  if(game==='match'){ state.match = buildMatch(state.currentLevel); showMatch(); }
-  if(game==='scramble'){ state.scramble = buildScramble(state.currentLevel); showScramble(); }
-  if(game==='hunt'){ state.hunt = buildHunt(state.currentLevel); showHunt(); }
-}
-function showQuiz(){
-  const q = state.quiz;
-  const cur = q.questions[q.idx];
-  const label = cur.dir==='en2tr' ? "Türkçe anlamı nedir?" : "İngilizcesi nedir?";
-  const optsHtml = cur.options.map(opt=>{
-    let cls='quiz-opt';
-    if(q.answered){
-      if(opt===cur.correct) cls+=' correct';
-      else if(opt===state.quiz.selected && opt!==cur.correct) cls+=' wrong';
-      else cls+=' dim';
-    }
-    return `<button class="${cls}" data-action="quiz-answer" data-opt="${encodeURIComponent(opt)}" ${q.answered?'disabled':''}>${opt}</button>`;
-  }).join('');
-  openOverlay(`
-    <div class="overlay-header">
-      <button class="icon-btn" data-action="close-overlay">✕</button>
-      <div class="overlay-title">Quiz · Seviye ${state.currentLevel}</div>
-      <div style="width:38px;"></div>
-    </div>
-    <div class="overlay-body">
-      <div class="quiz-topline">
-        <div class="quiz-bar"><div class="quiz-bar-fill" style="width:${(q.idx/q.questions.length)*100}%;"></div></div>
-        <div class="quiz-score">${q.idx+1}/${q.questions.length}</div>
-      </div>
-      <div class="quiz-question pop">
-        <div class="qq-label">${label}</div>
-        <div class="qq-word">${cur.dir==='en2tr' ? cur.word.en : cur.word.tr}</div>
-      </div>
-      <div class="quiz-options">${optsHtml}</div>
-    </div>
-  `);
-}
-function quizAnswer(opt){
-  const q = state.quiz;
-  if(q.answered) return;
-  q.answered = true;
-  q.selected = opt;
-  if(opt===q.questions[q.idx].correct) q.score++;
-  showQuiz();
-  setTimeout(()=>{
-    if(q.idx < q.questions.length-1){
-      q.idx++; q.answered=false; q.selected=null;
-      showQuiz();
-    } else {
-      finishGame('quiz', q.score, q.questions.length);
-    }
-  }, 900);
-}
-
-/* ---------------- MATCH GAME ---------------- */
-function buildMatch(lvl){
-  const words = LEVELS[lvl];
-  const n = Math.min(6, words.length);
-  const chosen = sample(words, n);
-  let cards = [];
-  chosen.forEach((w,i)=>{
-    cards.push({id:'en'+i, pairId:i, text:w.en, kind:'en'});
-    cards.push({id:'tr'+i, pairId:i, text:w.tr, kind:'tr'});
-  });
-  cards = shuffle(cards);
-  return {cards, flipped:[], matched:[], moves:0, pairs:n, done:0};
-}
-function showMatch(){
-  const m = state.match;
-  const cardsHtml = m.cards.map(c=>{
-    const isFlipped = m.flipped.includes(c.id);
-    const isMatched = m.matched.includes(c.id);
-    let cls='match-card';
-    if(isMatched) cls+=' matched'; else if(isFlipped) cls+=' flipped'; else cls+=' hidden-face';
-    return `<button class="${cls}" data-action="match-flip" data-id="${c.id}" ${isMatched?'disabled':''}>
-      ${isMatched||isFlipped ? c.text : '❔'}
-    </button>`;
-  }).join('');
-  openOverlay(`
-    <div class="overlay-header">
-      <button class="icon-btn" data-action="close-overlay">✕</button>
-      <div class="overlay-title">Eşleştirme · Seviye ${state.currentLevel}</div>
-      <div style="width:38px;"></div>
-    </div>
-    <div class="overlay-body">
-      <div class="match-stats"><span>👆 Hamle: ${m.moves}</span><span>✅ ${m.done}/${m.pairs}</span></div>
-      <div class="match-grid">${cardsHtml}</div>
-    </div>
-  `);
-}
-function matchFlip(id){
-  const m = state.match;
-  if(m.flipped.includes(id) || m.matched.includes(id) || m.flipped.length>=2) return;
-  m.flipped.push(id);
-  if(m.flipped.length===2){
-    m.moves++;
-    showMatch();
-    const [a,b] = m.flipped.map(fid=>m.cards.find(c=>c.id===fid));
-    setTimeout(()=>{
-      if(a.pairId===b.pairId){
-        m.matched.push(a.id,b.id);
-        m.done++;
-      }
-      m.flipped=[];
-      if(m.done===m.pairs){
-        finishGame('match', m.done, m.pairs, m.moves);
-      } else {
-        showMatch();
-      }
-    }, 700);
-  } else {
-    showMatch();
-  }
-}
-
-/* ---------------- SCRAMBLE GAME ---------------- */
-function buildScramble(lvl){
-  const words = LEVELS[lvl];
-  let candidates = words.filter(w=>/^[A-Za-z]+$/.test(w.en) && w.en.length>=3);
-  if(candidates.length<6){
-    const extra = WORDS.filter(w=>/^[A-Za-z]+$/.test(w.en) && w.en.length>=3 && !candidates.includes(w));
-    candidates = candidates.concat(sample(extra, 8-candidates.length));
-  }
-  const rounds = sample(candidates, Math.min(8,candidates.length)).map(w=>{
-    let letters = shuffle(w.en.toUpperCase().split(''));
-    // ensure not already in correct order
-    if(letters.join('')===w.en.toUpperCase()) letters = shuffle(letters);
-    return {word:w, letters, used:letters.map(()=>false), built:[], attempts:0, status:'playing'};
-  });
-  return {rounds, idx:0, score:0};
-}
-function showScramble(){
-  const s = state.scramble;
-  const r = s.rounds[s.idx];
-  const slots = r.word.en.toUpperCase().split('').map((_,i)=>{
-    const filledIdx = r.built[i];
-    let cls='scr-slot';
-    if(r.status==='correct') cls+=' correct';
-    else if(r.status==='revealed') cls+=' wrong';
-    else if(filledIdx!==undefined) cls+=' filled';
-    const ch = r.status==='revealed' ? r.word.en.toUpperCase()[i] : (filledIdx!==undefined ? r.letters[filledIdx] : '');
-    return `<div class="${cls}">${ch}</div>`;
-  }).join('');
-  const tiles = r.letters.map((ch,i)=>{
-    const used = r.used[i] || r.status!=='playing';
-    return `<button class="scr-tile ${used?'used':''}" data-action="scr-tile" data-idx="${i}" ${used||r.status!=='playing'?'disabled':''}>${ch}</button>`;
-  }).join('');
-  openOverlay(`
-    <div class="overlay-header">
-      <button class="icon-btn" data-action="close-overlay">✕</button>
-      <div class="overlay-title">Karışık Harfler · Seviye ${state.currentLevel}</div>
-      <div style="width:38px;"></div>
-    </div>
-    <div class="overlay-body">
-      <div class="quiz-topline">
-        <div class="quiz-bar"><div class="quiz-bar-fill" style="width:${(s.idx/s.rounds.length)*100}%;"></div></div>
-        <div class="quiz-score">${s.idx+1}/${s.rounds.length}</div>
-      </div>
-      <div class="scr-meaning pop" id="scrMeaning">
-        <div class="sm-label">Bu kelimeyi oluştur</div>
-        <div class="sm-word">${r.word.tr}</div>
-      </div>
-      <div class="scr-slots" id="scrSlots">${slots}</div>
-      <div class="scr-tiles">${tiles}</div>
-      <div class="scr-controls">
-        <button class="btn btn-secondary" data-action="scr-undo">⌫ Geri Al</button>
-        <button class="btn btn-secondary" data-action="scr-clear">🔄 Temizle</button>
-      </div>
-    </div>
-  `);
-}
-function scrTile(i){
-  const r = state.scramble.rounds[state.scramble.idx];
-  if(r.status!=='playing' || r.used[i]) return;
-  r.used[i]=true;
-  r.built.push(i);
-  if(r.built.length===r.letters.length){
-    const attempt = r.built.map(idx=>r.letters[idx]).join('');
-    if(attempt===r.word.en.toUpperCase()){
-      r.status='correct';
-      state.scramble.score++;
-      showScramble();
-      setTimeout(()=>scrAdvance(), 900);
-    } else {
-      r.attempts++;
-      showScramble();
-      const slotsEl = document.getElementById('scrSlots');
-      if(slotsEl) slotsEl.classList.add('shake');
-      if(r.attempts>=2){
-        setTimeout(()=>{ r.status='revealed'; showScramble(); setTimeout(()=>scrAdvance(),1200); }, 500);
-      } else {
-        setTimeout(()=>{ r.used=r.letters.map(()=>false); r.built=[]; showScramble(); }, 700);
-      }
-    }
-  } else {
-    showScramble();
-  }
-}
-function scrUndo(){
-  const r = state.scramble.rounds[state.scramble.idx];
-  if(r.status!=='playing' || r.built.length===0) return;
-  const last = r.built.pop();
-  r.used[last]=false;
-  showScramble();
-}
-function scrClear(){
-  const r = state.scramble.rounds[state.scramble.idx];
-  if(r.status!=='playing') return;
-  r.used = r.letters.map(()=>false);
-  r.built = [];
-  showScramble();
-}
-function scrAdvance(){
-  const s = state.scramble;
-  if(s.idx < s.rounds.length-1){ s.idx++; showScramble(); }
-  else { finishGame('scramble', s.score, s.rounds.length); }
-}
-
-/* ---------------- WORD HUNT GAME ---------------- */
-function buildHunt(lvl) {
-    const words = LEVELS[lvl];
-    const allOtherWords = WORDS.filter(w => w.level !== lvl);
-    const gameDuration = 30000; // 30 seconds
-    const wordCount = 20;
-    const correctWords = sample(words, wordCount);
-    const incorrectWords = sample(allOtherWords, wordCount * 2);
-    const allGameWords = shuffle(correctWords.map(w => ({...w, isCorrect: true }))
-        .concat(incorrectWords.map(w => ({...w, isCorrect: false }))));
-
-    return {
-        words: allGameWords,
-        score: 0,
-        totalCorrect: wordCount,
-        startTime: Date.now(),
-        duration: gameDuration,
-        clicked: new Set(),
-    };
-}
-
-function showHunt() {
-    const h = state.hunt;
-    // This is a placeholder for the visual representation.
-    // A real implementation would require more complex DOM manipulation for the animation.
-    openOverlay(`
-    <div class="overlay-header">
-      <button class="icon-btn" data-action="close-overlay">✕</button>
-      <div class="overlay-title">Kelime Avı · Seviye ${state.currentLevel}</div>
-      <div style="width:38px;"></div>
-    </div>
-    <div class="overlay-body">
-        <div class="quiz-topline">
-            <div class="quiz-bar"><div id="hunt-timer" class="quiz-bar-fill" style="width:100%;"></div></div>
-            <div class="quiz-score" id="hunt-score">Skor: 0</div>
-        </div>
-        <div class="wh-arena" id="wh-arena">
-            <p style="padding: 20px; text-align:center; color: var(--text-dim);">Bu adadaki kelimeleri süre dolmadan yakala!</p>
-        </div>
-    </div>
-  `);
-    // Simplified logic: just finish the game after the duration
-    const timerInterval = setInterval(() => {
-        const elapsed = Date.now() - h.startTime;
-        const remaining = h.duration - elapsed;
-        const timerEl = document.getElementById('hunt-timer');
-        if (remaining <= 0 && timerEl) {
-            clearInterval(timerInterval);
-            timerEl.style.width = '0%';
-            // Simplified score for demo
-            const demoScore = Math.floor(Math.random() * h.totalCorrect);
-            finishGame('hunt', demoScore, h.totalCorrect);
-        } else if (timerEl) {
-            timerEl.style.width = `${(remaining / h.duration) * 100}%`;
-        }
-    }, 100);
-}
-
-/* ---------------- RESULT / FINISH ---------------- */
-function finishGame(game, correct, total, extra){
-  const pct = total>0 ? correct/total : 0;
-  let stars = 0;
-  if(pct>=0.9) stars=3; else if(pct>=0.7) stars=2; else if(pct>=0.4) stars=1;
-  
-  const lvl = state.currentLevel;
-  const p = state.progress[lvl];
-  
-  // Update game-specific progress
-  if(!p[game] || stars>p[game].best) p[game] = {best:stars, correct, total};
-  
-  // Update total stars based on completed games
-  p.stars = (p.quiz?1:0) + (p.match?1:0) + (p.scramble?1:0) + (p.hunt?1:0);
-
-  const gameNames = {quiz:'Quiz', match:'Eşleştirme', scramble:'Karışık Harfler', hunt: 'Kelime Avı'};
-  const nextLevel = lvl+1;
-  const hasNext = nextLevel<=TOTAL_LEVELS;
-
-  openOverlay(`
-    <div class="overlay-header">
-      <button class="icon-btn" data-action="close-overlay">✕</button>
-      <div class="overlay-title">Sonuç</div>
-      <div style="width:38px;"></div>
-    </div>
-    <div class="overlay-body result-wrap">
-      <div class="result-stars pop">${starsToStr(stars)}</div>
-      <div class="result-title">${stars>=2 ? 'Harika iş! 🎉' : stars===1 ? 'İyi başlangıç! 👍' : 'Tekrar dene! 💪'}</div>
-      <div class="result-sub">${gameNames[game]} tamamlandı!</div>
-      <div class="result-stat-row">
-        <div class="result-stat"><div class="rs-num">${correct}/${total}</div><div class="rs-label">doğru</div></div>
-        <div class="result-stat"><div class="rs-num">${Math.round(pct*100)}%</div><div class="rs-label">başarı</div></div>
-      </div>
-      <div class="result-actions">
-        <button class="btn btn-primary btn-block" data-action="retry-game" data-game="${game}">🔁 Tekrar Oyna</button>
-        <button class="btn btn-secondary btn-block" data-action="show-game-select">🎮 Diğer Oyunlar</button>
-        ${hasNext && isUnlocked(nextLevel) ? `<button class="btn btn-secondary btn-block" data-action="open-level" data-level="${nextLevel}">➡️ Sonraki Ada</button>` : ''}
-        <button class="btn btn-secondary btn-block" data-action="close-overlay">🗺️ Haritaya Dön</button>
-      </div>
-    </div>
-  `);
-}
-function isUnlockedAfterThis(lvl){ return state.progress[lvl].stars>=1; }
-
-/* ---------------- EVENT DELEGATION ---------------- */
-document.addEventListener('click', (e)=>{
-  const t = e.target.closest('[data-action]');
-  if(!t) return;
-  const action = t.dataset.action;
-  switch(action){
-    case 'open-level': closeOverlayInstant(); openLevel(parseInt(t.dataset.level)); break;
-    case 'close-overlay': closeOverlay(); break;
-    case 'flip-card': flipCard(); break;
-    case 'flash-prev': flashPrev(); break;
-    case 'flash-next': flashNext(); break;
-    case 'start-game': startGame(t.dataset.game); break;
-    case 'quiz-answer': quizAnswer(decodeURIComponent(t.dataset.opt)); break;
-    case 'match-flip': matchFlip(t.dataset.id); break;
-    case 'scr-tile': scrTile(parseInt(t.dataset.idx)); break;
-    case 'scr-undo': scrUndo(); break;
-    case 'scr-clear': scrClear(); break;
-    case 'retry-game': startGame(t.dataset.game); break;
-    case 'show-game-select': showGameSelect(); break;
-  }
-});
-function closeOverlayInstant(){
-  const el = document.getElementById('overlayRoot');
-  if(el) el.style.display='none';
-}
-
-/* ---------------- INIT ---------------- */
-render();
+        selectStory(currentStoryIndex);
+        renderBookmarks();
     </script>
 </body>
 
